@@ -1,0 +1,117 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: var(--font-inter), sans-serif;
+  --font-serif: var(--font-playfair), serif;
+  
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+@layer base {
+  :root {
+    --background: 43 50% 92%;
+    --foreground: 24 10% 10%;
+    
+    --card: 43 50% 95%;
+    --card-foreground: 24 10% 10%;
+    
+    --popover: 43 50% 95%;
+    --popover-foreground: 24 10% 10%;
+    
+    --primary: 353 42% 32%;
+    --primary-foreground: 43 50% 92%;
+    --primary-border: 353 42% 28%;
+    
+    --secondary: 138 33% 16%;
+    --secondary-foreground: 43 50% 92%;
+    --secondary-border: 138 33% 12%;
+    
+    --muted: 43 30% 85%;
+    --muted-foreground: 24 10% 40%;
+    
+    --accent: 40 50% 56%;
+    --accent-foreground: 24 10% 10%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --destructive-border: 0 84% 50%;
+    
+    --border: 43 30% 80%;
+    --input: 43 30% 80%;
+    --ring: 353 42% 32%;
+    
+    --radius: 0.25rem;
+    
+    --button-outline: 353 42% 32%;
+    --badge-outline: 40 50% 56%;
+  }
+
+  .dark {
+    --background: 24 10% 10%;
+    --foreground: 43 50% 92%;
+    
+    --card: 24 10% 12%;
+    --card-foreground: 43 50% 92%;
+    
+    --popover: 24 10% 12%;
+    --popover-foreground: 43 50% 92%;
+    
+    --primary: 353 42% 32%;
+    --primary-foreground: 43 50% 92%;
+    --primary-border: 353 42% 28%;
+    
+    --secondary: 138 33% 16%;
+    --secondary-foreground: 43 50% 92%;
+    --secondary-border: 138 33% 12%;
+    
+    --muted: 24 10% 16%;
+    --muted-foreground: 43 30% 70%;
+    
+    --accent: 40 50% 56%;
+    --accent-foreground: 24 10% 10%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 24 10% 20%;
+    --input: 24 10% 20%;
+    --ring: 353 42% 32%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
