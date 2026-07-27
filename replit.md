@@ -1,45 +1,75 @@
-# [Project name]
+# The Vintage Circle
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+An exclusive wine club membership site with Supabase authentication, a members-only video library, and tier-gated individual wine release pages.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/wine-club run dev` — run the Next.js frontend (port assigned by workflow)
+- `pnpm --filter @workspace/api-server run dev` — run the Express API server (port 8080)
 - `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
 
 ## Stack
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- **Frontend**: Next.js 15, React 19, Tailwind CSS v4, shadcn/ui, Framer Motion
+- **Auth & Database**: Supabase (SSR with @supabase/ssr)
+- **API**: Express 5 (for future server-side features)
+- **Monorepo**: pnpm workspaces, TypeScript 5.9
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/wine-club/` — Next.js app (App Router)
+- `artifacts/wine-club/src/app/` — Pages and layouts
+- `artifacts/wine-club/src/lib/supabase/` — Supabase client helpers (client.ts = browser, server.ts = server)
+- `artifacts/wine-club/src/lib/types.ts` — Shared TypeScript types (Profile, Video, Release, MembershipTier)
+- `artifacts/wine-club/src/middleware.ts` — Auth route protection (redirects /members → /login)
+- `artifacts/wine-club/src/app/auth/callback/route.ts` — Supabase OAuth/magic-link callback handler
+- `artifacts/wine-club/supabase/schema.sql` — SQL schema to run in Supabase SQL Editor
+- `artifacts/api-server/` — Express backend (unused for now, available for future features)
 
-## Architecture decisions
+## Pages
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+| Route | Description |
+|---|---|
+| `/` | Public landing page with membership tiers |
+| `/login` | Login with email/password or magic link |
+| `/auth/callback` | Supabase auth redirect handler |
+| `/members` | Members-only video library (requires auth) |
+| `/members/releases` | Wine release listing (requires auth) |
+| `/members/releases/[slug]` | Individual release (tier-gated) |
 
-## Product
+## Membership Tiers
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- **Basic** — can access Basic releases and the full video library
+- **Premium** — can access Basic + Premium releases
+- **Elite** — can access all releases including Elite allocations
 
-## User preferences
+## Supabase Setup (one-time)
+
+1. Go to your Supabase project → SQL Editor
+2. Run the contents of `artifacts/wine-club/supabase/schema.sql`
+3. In Supabase → Authentication → URL Configuration, add your app URL to "Redirect URLs": `https://your-domain.com/auth/callback`
+4. The schema creates: `profiles`, `videos`, and `releases` tables with RLS policies
+
+## Required Environment Variables
+
+- `NEXT_PUBLIC_SUPABASE_URL` — set (shared env)
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` — set (shared env)
+- `SUPABASE_SERVICE_ROLE_KEY` — needs to be set as a Secret
+
+## Architecture Decisions
+
+- Uses Supabase SSR (`@supabase/ssr`) for cookie-based auth — tokens refresh automatically via middleware
+- Middleware runs on every non-static route, refreshes the session, and redirects unauthenticated users away from `/members`
+- Tier access control is enforced server-side on each release page using `tierAllows()` utility
+- The Replit-managed PostgreSQL database is unused — Supabase is the sole data store
+- `shadcn/ui` components all have `'use client'` directive prepended for Next.js RSC compatibility
+
+## User Preferences
 
 _Populate as you build — explicit user instructions worth remembering across sessions._
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
-
-## Pointers
-
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- `@plugin "tw-animate-css"` doesn't work in Next.js PostCSS config — use `@import "tw-animate-css"` instead
+- Next.js `cookies()` is async in Next.js 15 — always `await cookies()` in server.ts
+- Dynamic page params are a `Promise` in Next.js 15 — destructure with `const { slug } = await params`
