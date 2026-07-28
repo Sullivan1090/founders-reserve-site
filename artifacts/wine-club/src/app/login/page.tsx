@@ -157,7 +157,13 @@ function LoginForm() {
               </form>
             )}
           </CardContent>
-          <CardFooter className="flex flex-col items-center bg-muted/30 border-t border-border/50 py-4">
+          <CardFooter className="flex flex-col items-center gap-2 bg-muted/30 border-t border-border/50 py-4">
+            <p className="text-sm text-muted-foreground">
+              New member?{" "}
+              <Link href="/signup" className="text-primary hover:underline font-medium">
+                Create an account
+              </Link>
+            </p>
             <p className="text-xs text-muted-foreground text-center">
               By accessing this area, you verify you are of legal drinking age.
             </p>
