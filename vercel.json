@@ -1,6 +1,5 @@
 {
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "pnpm --filter @workspace/wine-club run build",
-  "outputDirectory": "artifacts/wine-club/.next",
-  "framework": "nextjs"
+  "outputDirectory": "artifacts/wine-club/.next"
 }
