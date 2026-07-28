@@ -1,6 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
-import { tierAllows, TIER_LABELS } from "@/lib/types";
+import { tierAllows, TIER_LABELS, type MembershipTier, type Release } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -15,9 +15,9 @@ export default async function ReleasePage({ params }: { params: Promise<{ slug: 
   if (!user) return null;
   
   const { data: profile } = await supabase.from("profiles").select("membership_tier").eq("id", user.id).single();
-  const userTier = profile?.membership_tier || "basic";
+  const userTier = (profile?.membership_tier ?? "basic") as MembershipTier;
   
-  const { data: release } = await supabase.from("releases").select("*").eq("slug", slug).single();
+  const { data: release } = await supabase.from("releases").select("*").eq("slug", slug).single() as { data: Release | null };
   
   if (!release) {
     notFound();
