@@ -1,0 +1,1 @@
+- [Next.js allowedDevOrigins on Replit](nextjs-replit-allowed-origins.md) — Next.js 15 blocks client-component routes on Replit proxy without this config; add to every new Next.js artifact.
