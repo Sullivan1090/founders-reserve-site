@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { ShareButton } from "@/components/share-button";
 
 export default async function LibraryPage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
   const params = await searchParams;
@@ -85,12 +86,17 @@ export default async function LibraryPage({ searchParams }: { searchParams: Prom
               <h3 className="font-serif text-xl mb-3 line-clamp-1 group-hover:text-primary transition-colors leading-tight">
                 {video.title}
               </h3>
-              <p className="text-muted-foreground text-sm line-clamp-2 mb-6 leading-relaxed">
+              <p className="text-muted-foreground text-sm line-clamp-2 mb-4 leading-relaxed">
                 {video.description}
               </p>
-              <Button className="w-full gap-2 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground" variant="outline">
-                Watch Masterclass
-              </Button>
+              <div className="flex items-center gap-2">
+                <Link href={`/members/videos/${video.id}`} className="flex-1">
+                  <Button className="w-full gap-2 border-primary/20 text-primary hover:bg-primary hover:text-primary-foreground" variant="outline">
+                    Watch Masterclass
+                  </Button>
+                </Link>
+                <ShareButton shareToken={video.share_token} videoId={video.id} />
+              </div>
             </CardContent>
           </Card>
         ))}
