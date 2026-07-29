@@ -9,11 +9,13 @@ export default function StatementPage() {
       className="relative w-full overflow-hidden flex flex-col items-center"
       style={{
         background: "#1B3448",
-        height: "100svh",
-        minHeight: "100vh",
-        // Push content into the top 55% of the page — well above the bright cloud zone
-        justifyContent: "flex-start",
-        paddingTop: "14vh",
+        // Use 100vh as the universal safe value — works on every real browser.
+        // Extra bottom padding shifts the block slightly above true center so it
+        // sits in the upper portion without relying on a fixed top offset that
+        // can push content below the fold on shorter viewports.
+        height: "100vh",
+        justifyContent: "center",
+        paddingBottom: "14vh",
       }}
     >
       {/*
