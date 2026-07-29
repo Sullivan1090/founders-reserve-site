@@ -45,11 +45,11 @@ export default function StatementPage() {
         className="relative z-10 flex flex-col items-center text-center px-6 w-full max-w-2xl"
         style={{ gap: "2rem" }}
       >
-        {/* 1. Gold label */}
+        {/* 1. Label — white */}
         <p
           className="uppercase"
           style={{
-            color: gold,
+            color: "#EDEAE2",
             fontSize: "16px",
             letterSpacing: "0.42em",
           }}
@@ -57,11 +57,11 @@ export default function StatementPage() {
           Founder's Reserve
         </p>
 
-        {/* 2. Main quote */}
+        {/* 2. Main quote — gold */}
         <h1
           className="font-light"
           style={{
-            color: "#EDEAE2",
+            color: gold,
             fontSize: "clamp(2.1rem, 4.5vw, 3.2rem)",
             lineHeight: 1.45,
             letterSpacing: "0.01em",
@@ -84,10 +84,10 @@ export default function StatementPage() {
           uncompromising pursuit of excellence.
         </p>
 
-        {/* 4. Gold closing line */}
+        {/* 4. Closing line — white */}
         <p
           style={{
-            color: gold,
+            color: "#EDEAE2",
             fontSize: "clamp(1.1rem, 1.75vw, 1.3rem)",
             letterSpacing: "0.06em",
             fontWeight: 500,
@@ -97,11 +97,11 @@ export default function StatementPage() {
           Here, excellence isn't an aspiration. It's the standard.
         </p>
 
-        {/* 5. LOGIN link */}
+        {/* 5. LOGIN link — white */}
         <Link
           href="/login"
           style={{
-            color: gold,
+            color: "#EDEAE2",
             fontSize: "0.85rem",
             letterSpacing: "0.45em",
             textTransform: "uppercase",
