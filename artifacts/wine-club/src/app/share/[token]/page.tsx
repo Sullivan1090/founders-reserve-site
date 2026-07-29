@@ -35,7 +35,7 @@ export default async function SharePage({ params }: Props) {
             <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
               <Wine className="w-4 h-4 text-primary-foreground" />
             </div>
-            <span className="font-serif text-lg text-primary">The Vintage Circle</span>
+            <span className="font-serif text-lg text-primary">The Founders Vault</span>
           </Link>
           <Link href="/login">
             <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
@@ -82,7 +82,7 @@ export default async function SharePage({ params }: Props) {
           </div>
           <h2 className="font-serif text-2xl text-primary mb-3">Want access to everything?</h2>
           <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-            Members of The Vintage Circle get exclusive access to the full video library, 
+            Members of The Founders Vault get exclusive access to the full video library, 
             wine release allocations, and direct communication from the winery.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
