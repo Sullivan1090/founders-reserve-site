@@ -2,9 +2,9 @@
 @import "tw-animate-css";
 
 @theme {
-  --font-sans: var(--font-inter), sans-serif;
-  --font-serif: var(--font-playfair), serif;
-  
+  --font-sans: var(--font-cormorant), serif;
+  --font-serif: var(--font-cormorant), serif;
+
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
@@ -32,73 +32,41 @@
 
 @layer base {
   :root {
-    --background: 43 50% 92%;
-    --foreground: 24 10% 10%;
-    
-    --card: 43 50% 95%;
-    --card-foreground: 24 10% 10%;
-    
-    --popover: 43 50% 95%;
-    --popover-foreground: 24 10% 10%;
-    
-    --primary: 353 42% 32%;
-    --primary-foreground: 43 50% 92%;
-    --primary-border: 353 42% 28%;
-    
-    --secondary: 138 33% 16%;
-    --secondary-foreground: 43 50% 92%;
-    --secondary-border: 138 33% 12%;
-    
-    --muted: 43 30% 85%;
-    --muted-foreground: 24 10% 40%;
-    
-    --accent: 40 50% 56%;
-    --accent-foreground: 24 10% 10%;
-    
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-    --destructive-border: 0 84% 50%;
-    
-    --border: 43 30% 80%;
-    --input: 43 30% 80%;
-    --ring: 353 42% 32%;
-    
-    --radius: 0.25rem;
-    
-    --button-outline: 353 42% 32%;
-    --badge-outline: 40 50% 56%;
-  }
+    /* Deep dark navy — darker than JO Blue, the main page background */
+    --background: 210 52% 7%;
+    --foreground: 45 23% 91%;        /* Off-white #EDEAE2 */
 
-  .dark {
-    --background: 24 10% 10%;
-    --foreground: 43 50% 92%;
-    
-    --card: 24 10% 12%;
-    --card-foreground: 43 50% 92%;
-    
-    --popover: 24 10% 12%;
-    --popover-foreground: 43 50% 92%;
-    
-    --primary: 353 42% 32%;
-    --primary-foreground: 43 50% 92%;
-    --primary-border: 353 42% 28%;
-    
-    --secondary: 138 33% 16%;
-    --secondary-foreground: 43 50% 92%;
-    --secondary-border: 138 33% 12%;
-    
-    --muted: 24 10% 16%;
-    --muted-foreground: 43 30% 70%;
-    
-    --accent: 40 50% 56%;
-    --accent-foreground: 24 10% 10%;
-    
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    
-    --border: 24 10% 20%;
-    --input: 24 10% 20%;
-    --ring: 353 42% 32%;
+    /* Cards — JO Blue #1B3448 */
+    --card: 207 45% 16%;
+    --card-foreground: 45 23% 91%;
+
+    --popover: 207 45% 16%;
+    --popover-foreground: 45 23% 91%;
+
+    /* Primary — Gold #B8975A */
+    --primary: 39 40% 54%;
+    --primary-foreground: 210 52% 7%;
+
+    /* Secondary — JO Blue #1B3448 */
+    --secondary: 207 45% 19%;
+    --secondary-foreground: 45 23% 91%;
+
+    /* Muted */
+    --muted: 207 30% 18%;
+    --muted-foreground: 39 7% 60%;   /* warm grey, lighter than JO Grey */
+
+    /* Accent — Gold */
+    --accent: 39 40% 54%;
+    --accent-foreground: 210 52% 7%;
+
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 45 23% 91%;
+
+    --border: 207 30% 24%;
+    --input: 207 30% 22%;
+    --ring: 39 40% 54%;
+
+    --radius: 0.125rem;
   }
 }
 
@@ -109,9 +77,17 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: 0.01em;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: 0.02em;
   }
 }
+
+/* Utility: hide scrollbar while keeping scroll */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

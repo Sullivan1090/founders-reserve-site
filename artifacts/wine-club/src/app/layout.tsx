@@ -1,21 +1,18 @@
-import { Inter, Playfair_Display } from "next/font/google";
+import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { type Metadata } from "next";
 import { Toaster } from "@/components/ui/sonner";
 
-const inter = Inter({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
 });
 
 export const metadata: Metadata = {
-  title: "The Vintage Circle",
-  description: "An exclusive wine club and sanctuary for connoisseurs.",
+  title: "Founder's Reserve",
+  description: "A members-only experience for Sullivan Rutherford Estate wine club members.",
 };
 
 export default function RootLayout({
@@ -24,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans antialiased bg-background text-foreground min-h-[100dvh] flex flex-col selection:bg-primary/20 selection:text-primary">
+    <html lang="en" className={cormorant.variable}>
+      <body className="font-serif antialiased bg-background text-foreground min-h-[100dvh] flex flex-col">
         {children}
         <Toaster />
       </body>

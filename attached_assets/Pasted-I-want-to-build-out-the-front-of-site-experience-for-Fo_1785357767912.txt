@@ -1,0 +1,31 @@
+I want to build out the front-of-site experience for Founders Reserve. Here's the full spec:
+
+BRAND SETUP
+- Primary font: Cormorant Garamond (import from Google Fonts) — use for all headings, labels, and body copy across the whole site
+- Colors:
+  - JO Blue (deep navy): #1B3448
+  - JO Grey (warm charcoal): #6E6960
+  - Gold accent: #B8975A
+  - Off-white text: #EDEAE2
+- I'll upload two brand assets to an /assets folder: the "Sullivan Rutherford Estate" logo (PNG) and an abstract painting used as artwork throughout the site
+- Overall tone: quiet luxury — generous whitespace, no clutter, dark backgrounds with light text reading as premium
+
+LOGIN PAGE (logged-out landing page)
+- Full-page background: the uploaded artwork image, full-bleed
+- Centered floating panel on top: semi-transparent JO Blue background (#1B3448 at ~70% opacity), thin gold border (#B8975A at low opacity)
+- Panel contains: "FOUNDER'S RESERVE" label in gold, letter-spaced, small caps feel
+- Email field, password field, and an "Enter" button styled with gold background and dark text
+- No navigation, no other content — this page's only job is login
+
+WELCOME STATEMENT SCREEN (shown every time, immediately after login, before the dashboard)
+- Full-screen, JO Blue background
+- Centered text, Cormorant Garamond, generous line spacing
+- Content (in this exact order):
+  1. "FOUNDER'S RESERVE" small gold label
+  2. "Founder's Reserve is what happens when curiosity refuses to settle." — larger serif text, off-white
+  3. "It represents an unwavering commitment to pushing beyond expectation, where every decision is guided by purpose, precision, and an uncompromising pursuit of excellence." — slightly smaller, muted warm-grey
+  4. "Here, excellence isn't an aspiration. It's the standard." — gold, medium weight
+- This screen auto-advances to the member dashboard after about 4 seconds, with a smooth fade transition — no button required
+- This should show on every single login, not just the first time
+
+Please build these three pieces first: the brand color/font setup, the login page, and the welcome statement screen with its auto-advance behavior. Hold off on building out the dashboard content sections (video library, releases, etc.) — we'll do those next. Push to GitHub once this is working and confirmed on the live site.
