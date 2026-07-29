@@ -19,10 +19,11 @@ export default function StatementPage() {
       }}
     >
       {/*
-        Vineyard image — bottom 60% of the viewport.
-        Double-layer background: a dark navy-to-transparent overlay is painted
-        on top of the photo so the bright sky is toned down significantly.
-        The mask gradient then fades the whole layer in from transparent.
+        Vineyard image wrapper — bottom 75% of the viewport.
+        Using an <img> with object-fit/object-position so the exact same
+        crop (70% down the photo = the vineyard rows) is pinned on every
+        viewport width. The mask fades it in from transparent at the top.
+        A dark overlay div sits on top to tone down bright areas.
       */}
       <div
         aria-hidden="true"
@@ -32,15 +33,34 @@ export default function StatementPage() {
           left: 0,
           right: 0,
           height: "75%",
-          // Dark overlay (first layer) + vineyard photo (second layer)
-          backgroundImage:
-            "linear-gradient(180deg, rgba(20,38,54,0.72) 0%, rgba(10,20,30,0.45) 60%, rgba(0,0,0,0.25) 100%), url('/vineyard.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center bottom",
+          overflow: "hidden",
           maskImage: "linear-gradient(180deg, transparent 0%, black 50%)",
           WebkitMaskImage: "linear-gradient(180deg, transparent 0%, black 50%)",
         }}
-      />
+      >
+        {/* The photo — object-position locks the vineyard-row band in place */}
+        <img
+          src="/vineyard.png"
+          alt=""
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center 70%",
+          }}
+        />
+        {/* Dark overlay to keep text legible */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(180deg, rgba(20,38,54,0.70) 0%, rgba(10,20,30,0.40) 55%, rgba(0,0,0,0.20) 100%)",
+          }}
+        />
+      </div>
 
       {/* Content column — lives in the top half, above the cloud zone */}
       <div
