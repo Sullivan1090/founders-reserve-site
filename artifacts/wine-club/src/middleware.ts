@@ -38,13 +38,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  // Redirect logged-in users away from root landing and /login
-  if (user && request.nextUrl.pathname === '/') {
-    const url = request.nextUrl.clone();
-    url.pathname = '/members';
-    return NextResponse.redirect(url);
-  }
-
+  // Redirect logged-in users away from /login
   if (user && request.nextUrl.pathname === '/login') {
     const url = request.nextUrl.clone();
     url.pathname = '/members';
