@@ -124,12 +124,12 @@ export default function StatementPage() {
           href="/login"
           style={{
             color: "#FFFFFF",
-            fontSize: "1rem",
-            letterSpacing: "0.5em",
+            fontSize: "1.25rem",
+            letterSpacing: "0.6em",
             textTransform: "uppercase",
             marginTop: "2rem",
-            textShadow: "0 0 12px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.8), 0 1px 2px rgba(0,0,0,1)",
-            fontWeight: 400,
+            textShadow: "0 0 16px rgba(0,0,0,1), 0 2px 8px rgba(0,0,0,1), 0 0 4px rgba(0,0,0,1)",
+            fontWeight: 500,
           }}
           className="hover:opacity-70 transition-opacity duration-300"
         >
