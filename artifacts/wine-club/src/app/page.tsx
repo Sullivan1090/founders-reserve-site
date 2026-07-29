@@ -1,28 +1,26 @@
 import Link from "next/link";
 
 export default function StatementPage() {
-  // Deep burnished antique gold — readable over both JO Blue and the vineyard sky
   const gold = "#8B6726";
-  // Text-shadow for gold elements that sit over the photo
   const photoTextShadow = "0 1px 4px rgba(0,0,0,0.55), 0 2px 10px rgba(0,0,0,0.3)";
 
   return (
     <div
-      className="relative w-full overflow-hidden flex flex-col items-center justify-center"
+      className="relative w-full overflow-hidden flex flex-col items-center"
       style={{
         background: "#1B3448",
-        // svh = small viewport height: the shortest the viewport gets (browser chrome fully
-        // visible). Safer than dvh on real browsers — prevents the bottom from being cut off.
         height: "100svh",
-        // Fallback for browsers that don't support svh yet
         minHeight: "100vh",
+        // Push content into the top 55% of the page — well above the bright cloud zone
+        justifyContent: "flex-start",
+        paddingTop: "9vh",
       }}
     >
       {/*
-        Vineyard image — covers the bottom 62% of the page, fades in from
-        transparent at the top of this layer to fully opaque at the bottom.
-        Moving from 52% → 62% shifts the photo up so more of it is visible
-        and the lower edge stays anchored to the true bottom of the viewport.
+        Vineyard image — bottom 60% of the viewport.
+        Double-layer background: a dark navy-to-transparent overlay is painted
+        on top of the photo so the bright sky is toned down significantly.
+        The mask gradient then fades the whole layer in from transparent.
       */}
       <div
         aria-hidden="true"
@@ -31,16 +29,18 @@ export default function StatementPage() {
           bottom: 0,
           left: 0,
           right: 0,
-          height: "62%",
-          backgroundImage: "url('/vineyard.png')",
+          height: "60%",
+          // Dark overlay (first layer) + vineyard photo (second layer)
+          backgroundImage:
+            "linear-gradient(180deg, rgba(20,38,54,0.72) 0%, rgba(10,20,30,0.45) 60%, rgba(0,0,0,0.25) 100%), url('/vineyard.png')",
           backgroundSize: "cover",
           backgroundPosition: "center top",
-          maskImage: "linear-gradient(180deg, transparent 0%, black 55%)",
-          WebkitMaskImage: "linear-gradient(180deg, transparent 0%, black 55%)",
+          maskImage: "linear-gradient(180deg, transparent 0%, black 50%)",
+          WebkitMaskImage: "linear-gradient(180deg, transparent 0%, black 50%)",
         }}
       />
 
-      {/* Content column */}
+      {/* Content column — lives in the top half, above the cloud zone */}
       <div
         className="relative z-10 flex flex-col items-center text-center px-6 w-full max-w-2xl"
         style={{ gap: "2rem" }}
@@ -84,7 +84,7 @@ export default function StatementPage() {
           uncompromising pursuit of excellence.
         </p>
 
-        {/* 4. Gold closing line — over the photo; shadow lifts it off the sky */}
+        {/* 4. Gold closing line */}
         <p
           style={{
             color: gold,
@@ -97,7 +97,7 @@ export default function StatementPage() {
           Here, excellence isn't an aspiration. It's the standard.
         </p>
 
-        {/* 5. LOGIN link — over the photo */}
+        {/* 5. LOGIN link */}
         <Link
           href="/login"
           style={{
