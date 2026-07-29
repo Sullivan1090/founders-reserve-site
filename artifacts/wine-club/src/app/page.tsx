@@ -119,16 +119,17 @@ export default function StatementPage() {
           Here, excellence isn't an aspiration. It's the standard.
         </p>
 
-        {/* 5. LOGIN link — white */}
+        {/* 5. LOGIN link — bright white, larger, stronger shadow over dark trees */}
         <Link
           href="/login"
           style={{
-            color: "#EDEAE2",
-            fontSize: "0.85rem",
-            letterSpacing: "0.45em",
+            color: "#FFFFFF",
+            fontSize: "1rem",
+            letterSpacing: "0.5em",
             textTransform: "uppercase",
             marginTop: "2rem",
-            textShadow: photoTextShadow,
+            textShadow: "0 0 12px rgba(0,0,0,0.9), 0 2px 6px rgba(0,0,0,0.8), 0 1px 2px rgba(0,0,0,1)",
+            fontWeight: 400,
           }}
           className="hover:opacity-70 transition-opacity duration-300"
         >
