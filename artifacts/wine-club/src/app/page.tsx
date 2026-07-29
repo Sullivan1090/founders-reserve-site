@@ -31,7 +31,7 @@ export default function StatementPage() {
           bottom: 0,
           left: 0,
           right: 0,
-          height: "60%",
+          height: "75%",
           // Dark overlay (first layer) + vineyard photo (second layer)
           backgroundImage:
             "linear-gradient(180deg, rgba(20,38,54,0.72) 0%, rgba(10,20,30,0.45) 60%, rgba(0,0,0,0.25) 100%), url('/vineyard.png')",
