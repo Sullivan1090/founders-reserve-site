@@ -189,9 +189,12 @@ export default function LandingPage() {
             © {new Date().getFullYear()} The Vintage Circle. All rights reserved.<br/>
             Please enjoy responsibly.
           </p>
-          <div className="mt-4">
+          <div className="mt-4 flex items-center justify-center gap-4">
             <Link href="/privacy" className="text-muted-foreground hover:text-primary text-xs transition-colors">
               Privacy Policy
+            </Link>
+            <Link href="/terms" className="text-muted-foreground hover:text-primary text-xs transition-colors">
+              Terms &amp; Conditions
             </Link>
           </div>
         </div>
