@@ -11,7 +11,7 @@ function LoginForm() {
 
   const router = useRouter();
   const searchParams = useSearchParams();
-  const next = searchParams?.get("next") ?? "/welcome";
+  const next = searchParams?.get("next") ?? "/members";
   const supabase = createClient();
 
   const handleLogin = async (e: React.FormEvent) => {
