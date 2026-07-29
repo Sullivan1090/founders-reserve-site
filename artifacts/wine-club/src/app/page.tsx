@@ -36,7 +36,7 @@ export default function StatementPage() {
           backgroundImage:
             "linear-gradient(180deg, rgba(20,38,54,0.72) 0%, rgba(10,20,30,0.45) 60%, rgba(0,0,0,0.25) 100%), url('/vineyard.png')",
           backgroundSize: "cover",
-          backgroundPosition: "center top",
+          backgroundPosition: "center bottom",
           maskImage: "linear-gradient(180deg, transparent 0%, black 50%)",
           WebkitMaskImage: "linear-gradient(180deg, transparent 0%, black 50%)",
         }}
