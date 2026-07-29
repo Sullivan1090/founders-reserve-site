@@ -13,7 +13,7 @@ export default function StatementPage() {
         minHeight: "100vh",
         // Push content into the top 55% of the page — well above the bright cloud zone
         justifyContent: "flex-start",
-        paddingTop: "9vh",
+        paddingTop: "14vh",
       }}
     >
       {/*
@@ -70,11 +70,11 @@ export default function StatementPage() {
           Founder's Reserve is what happens when curiosity refuses to settle.
         </h1>
 
-        {/* 3. Description — muted warm grey */}
+        {/* 3. Description — white */}
         <p
           className="font-light leading-relaxed max-w-xl"
           style={{
-            color: "#B8B4A8",
+            color: "#EDEAE2",
             fontSize: "clamp(1.25rem, 2.1vw, 1.5rem)",
             lineHeight: 1.85,
           }}
@@ -105,7 +105,7 @@ export default function StatementPage() {
             fontSize: "0.85rem",
             letterSpacing: "0.45em",
             textTransform: "uppercase",
-            marginTop: "0.15rem",
+            marginTop: "2rem",
             textShadow: photoTextShadow,
           }}
           className="hover:opacity-70 transition-opacity duration-300"
