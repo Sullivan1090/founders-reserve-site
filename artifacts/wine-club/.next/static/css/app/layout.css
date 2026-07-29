@@ -718,6 +718,9 @@
   .invisible {
     visibility: hidden;
   }
+  .visible {
+    visibility: visible;
+  }
   .sr-only {
     position: absolute;
     width: 1px;
@@ -3207,6 +3210,9 @@
     }
     .hover\:underline:hover {
       text-decoration-line: underline;
+    }
+    .hover\:opacity-70:hover {
+      opacity: 70%;
     }
     .hover\:opacity-90:hover {
       opacity: 90%;
