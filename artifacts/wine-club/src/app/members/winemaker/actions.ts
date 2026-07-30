@@ -34,9 +34,10 @@ export async function submitQuestion(_prev: QuestionState, formData: FormData): 
     try {
       const resend = new Resend(resendKey);
       await resend.emails.send({
-        from: "Founders Vault <onboarding@resend.dev>",
-        to:   "jeff@sullivanwine.com",
-        subject: `New question from ${name}`,
+        from:     "Founders Vault <onboarding@resend.dev>",
+        to:       "jeff@sullivanwine.com",
+        reply_to: email,
+        subject:  `New question from ${name}`,
         html: `
           <div style="font-family:Georgia,serif;max-width:600px;margin:0 auto;color:#1B3448;">
             <h2 style="border-bottom:1px solid #8B6726;padding-bottom:8px;">
