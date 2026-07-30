@@ -4,6 +4,7 @@ import { ChevronLeft } from "lucide-react";
 import { existsSync } from "fs";
 import { join } from "path";
 import { getWine } from "../../data";
+import { getTastingNote } from "../../notes";
 import { VintageAudioPlayer } from "@/components/vintage-audio-player";
 
 export default async function TastingNotePage({
@@ -18,10 +19,25 @@ export default async function TastingNotePage({
   const year = Number(yearStr);
   if (!wine.vintages.includes(year as never)) notFound();
 
-  /* Check whether an audio file has been uploaded for this vintage */
+  const content  = getTastingNote(slug, year);
+
   const audioFile  = `/audio/${slug}/${year}.mp3`;
   const audioLocal = join(process.cwd(), "public", "audio", slug, `${year}.mp3`);
   const hasAudio   = existsSync(audioLocal);
+
+  const detailRows = content?.details
+    ? [
+        { label: "Blend",              value: content.details.blend },
+        { label: "Oak",                value: content.details.oak },
+        { label: "TA",                 value: content.details.ta },
+        { label: "pH",                 value: content.details.ph },
+        { label: "Alcohol",            value: content.details.alcohol },
+        { label: "Cases",              value: content.details.cases },
+        { label: "Vineyard",           value: content.details.vineyard },
+        { label: "Clones",             value: content.details.clones },
+        { label: "Vineyard Manager",   value: content.details.vineyardManager },
+      ].filter((r) => r.value)
+    : [];
 
   return (
     <div className="container mx-auto px-6 py-12 md:py-16 max-w-3xl">
@@ -58,7 +74,7 @@ export default async function TastingNotePage({
       {/* Gold rule */}
       <div className="w-12 h-0.5 bg-primary mb-10" />
 
-      {/* Vintage summary audio — always shown; gracefully handles missing file */}
+      {/* Audio player */}
       <div className="mb-10">
         <VintageAudioPlayer
           src={audioFile}
@@ -67,20 +83,59 @@ export default async function TastingNotePage({
         />
       </div>
 
-      {/*
-        ── TASTING NOTE CONTENT ──────────────────────────────────────
-        Replace the placeholder below with the actual tasting note.
-        Use <p className="font-serif text-foreground text-lg leading-relaxed">
-        ─────────────────────────────────────────────────────────────
-      */}
-      <div className="space-y-6">
-        <p className="font-serif text-muted-foreground text-lg leading-relaxed italic">
-          Tasting note coming soon.
-        </p>
+      {/* Tasting note */}
+      <div className="space-y-6 mb-14">
+        {content?.notes ? (
+          <p className="font-serif text-foreground text-lg leading-relaxed">
+            {content.notes}
+          </p>
+        ) : (
+          <p className="font-serif text-muted-foreground text-lg leading-relaxed italic">
+            Tasting note coming soon.
+          </p>
+        )}
       </div>
 
+      {/* Technical details */}
+      {detailRows.length > 0 && (
+        <div className="mb-14">
+          <h2
+            className="font-serif text-foreground mb-6"
+            style={{ fontSize: "1.25rem", fontWeight: 400, letterSpacing: "0.01em" }}
+          >
+            Technical Details
+          </h2>
+          <div
+            className="rounded-xl overflow-hidden"
+            style={{ border: "1px solid rgba(139,103,38,0.25)" }}
+          >
+            {detailRows.map((row, i) => (
+              <div
+                key={row.label}
+                className="flex gap-6 px-5 py-3.5"
+                style={{
+                  background: i % 2 === 0 ? "rgba(139,103,38,0.06)" : "transparent",
+                  borderBottom:
+                    i < detailRows.length - 1
+                      ? "1px solid rgba(139,103,38,0.12)"
+                      : "none",
+                }}
+              >
+                <span
+                  className="text-sm shrink-0 w-36"
+                  style={{ color: "#8B6726", fontFamily: "inherit" }}
+                >
+                  {row.label}
+                </span>
+                <span className="text-sm text-foreground">{row.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Back navigation */}
-      <div className="mt-16 pt-8 border-t border-border/40">
+      <div className="mt-4 pt-8 border-t border-border/40">
         <Link
           href={`/members/tasting-notes/${slug}`}
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
