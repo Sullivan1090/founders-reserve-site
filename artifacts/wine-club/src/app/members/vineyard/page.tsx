@@ -245,7 +245,7 @@ function SodaCanyonContent() {
         <div style={{ textAlign: "center" }}>
           <img
             src="/soda-canyon-block-map.jpg"
-            alt="Soda Canyon Vineyard aerial block map — blocks 1A, 1B, 2A–2D, 3A at 1156 Soda Canyon Rd, Napa"
+            alt="Soda Canyon Vineyard aerial block map — blocks 1A, 1B, 2A-2D, 3A at 1156 Soda Canyon Rd, Napa"
             style={{
               display: "inline-block",
               maxHeight: "62vh",
