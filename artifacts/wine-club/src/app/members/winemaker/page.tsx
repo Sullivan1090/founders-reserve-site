@@ -61,7 +61,7 @@ export default function WinemakerPage() {
           Text Me Directly
         </a>
         <p className="mt-2 text-xs text-muted-foreground/60">
-          Opens your messaging app — (707) 287‑1243
+          Opens on mobile
         </p>
       </div>
 
