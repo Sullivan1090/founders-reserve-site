@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
+import { existsSync } from "fs";
+import { join } from "path";
 import { getWine } from "../../data";
+import { VintageAudioPlayer } from "@/components/vintage-audio-player";
 
 export default async function TastingNotePage({
   params,
@@ -14,6 +17,11 @@ export default async function TastingNotePage({
 
   const year = Number(yearStr);
   if (!wine.vintages.includes(year as never)) notFound();
+
+  /* Check whether an audio file has been uploaded for this vintage */
+  const audioFile  = `/audio/${slug}/${year}.mp3`;
+  const audioLocal = join(process.cwd(), "public", "audio", slug, `${year}.mp3`);
+  const hasAudio   = existsSync(audioLocal);
 
   return (
     <div className="container mx-auto px-6 py-12 md:py-16 max-w-3xl">
@@ -50,10 +58,19 @@ export default async function TastingNotePage({
       {/* Gold rule */}
       <div className="w-12 h-0.5 bg-primary mb-10" />
 
+      {/* Vintage summary audio — always shown; gracefully handles missing file */}
+      <div className="mb-10">
+        <VintageAudioPlayer
+          src={audioFile}
+          label="Vintage Summary"
+          available={hasAudio}
+        />
+      </div>
+
       {/*
         ── TASTING NOTE CONTENT ──────────────────────────────────────
-        Replace this placeholder with the actual tasting note text.
-        Use <p> tags for paragraphs, styled with the classes below.
+        Replace the placeholder below with the actual tasting note.
+        Use <p className="font-serif text-foreground text-lg leading-relaxed">
         ─────────────────────────────────────────────────────────────
       */}
       <div className="space-y-6">
