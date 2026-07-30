@@ -1,3 +1,24 @@
 {
-  "/page": "app/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/videos/share/route": "app/api/videos/share/route.js",
+  "/auth/callback/route": "app/auth/callback/route.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js",
+  "/share/[token]/page": "app/share/[token]/page.js",
+  "/signup/page": "app/signup/page.js",
+  "/terms/page": "app/terms/page.js",
+  "/privacy/page": "app/privacy/page.js",
+  "/members/cellar-picks/page": "app/members/cellar-picks/page.js",
+  "/members/construction/page": "app/members/construction/page.js",
+  "/members/meet-the-team/page": "app/members/meet-the-team/page.js",
+  "/members/monthly-conversation/page": "app/members/monthly-conversation/page.js",
+  "/members/gatherings/page": "app/members/gatherings/page.js",
+  "/members/releases/[slug]/page": "app/members/releases/[slug]/page.js",
+  "/members/pairing/page": "app/members/pairing/page.js",
+  "/members/releases/page": "app/members/releases/page.js",
+  "/members/tasting-notes/page": "app/members/tasting-notes/page.js",
+  "/members/videos/[id]/page": "app/members/videos/[id]/page.js",
+  "/members/vineyard/page": "app/members/vineyard/page.js",
+  "/members/page": "app/members/page.js",
+  "/members/winemaker/page": "app/members/winemaker/page.js"
 }

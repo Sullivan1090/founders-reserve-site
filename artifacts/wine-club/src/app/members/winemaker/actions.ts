@@ -1,6 +1,6 @@
 "use server";
 
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from "@/lib/supabase/server";
 import { Resend } from "resend";
 
 export type QuestionState = { error?: string; success?: true };
@@ -14,30 +14,22 @@ export async function submitQuestion(_prev: QuestionState, formData: FormData): 
     return { error: "Please fill in all fields." };
   }
 
-  // Check required env vars explicitly so we get a clear error in logs
-  const supabaseUrl  = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const serviceKey   = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  const resendKey    = process.env.RESEND_API_KEY;
-
-  if (!supabaseUrl || !serviceKey) {
-    console.error("Missing Supabase env vars on this deployment.");
-    return { error: "Configuration error — please contact the site administrator." };
-  }
-
-  // Save to Supabase (service-role bypasses RLS)
-  const supabase = createClient(supabaseUrl, serviceKey);
+  // Use the session-aware server client (anon key + user's auth context)
+  // The questions table must have RLS disabled or an insert policy for authenticated users
+  const supabase = await createClient();
   const { error: dbError } = await supabase
     .from("questions")
     .insert({ name, email, message });
 
   if (dbError) {
-    console.error("Supabase insert error:", dbError);
+    console.error("Supabase insert error:", dbError.message, dbError.code);
     return { error: "Something went wrong — please try again." };
   }
 
   // Email notification via Resend
-  // NOTE: "from" uses Resend's shared domain until sullivanwine.com is verified
-  // in your Resend dashboard. After verification, change to: noreply@sullivanwine.com
+  // NOTE: "from" uses Resend's shared domain until sullivanwine.com is verified.
+  // After domain verification in Resend, change to: noreply@sullivanwine.com
+  const resendKey = process.env.RESEND_API_KEY;
   if (resendKey) {
     try {
       const resend = new Resend(resendKey);
