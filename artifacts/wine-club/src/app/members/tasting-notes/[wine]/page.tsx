@@ -34,7 +34,7 @@ export default async function WineVintagePage({
           {wine.name}
         </h1>
         <p className="text-muted-foreground text-sm mt-2">
-          {wine.vintages.length} vintage{wine.vintages.length !== 1 ? "s" : ""}
+          {wine.vintages.length} vintage{(wine.vintages.length as number) !== 1 ? "s" : ""}
         </p>
       </div>
 
