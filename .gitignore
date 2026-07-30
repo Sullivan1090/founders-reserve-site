@@ -47,3 +47,11 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Agent outputs (temp extraction artifacts)
+.agents/outputs/
+.agents/scripts/
+main.py
+pyproject.toml
+uv.lock
+.pythonlibs/
