@@ -41,7 +41,7 @@ export default function TastingNotesPage() {
                   {wine.shortName}
                 </h2>
                 <p className="text-sm text-muted-foreground mt-1">
-                  {wine.vintages.length} vintage{wine.vintages.length !== 1 ? "s" : ""}
+                  {wine.vintages.length} vintage{(wine.vintages.length as number) !== 1 ? "s" : ""}
                   {" — "}
                   {wine.vintages[wine.vintages.length - 1]}
                   {" to "}
