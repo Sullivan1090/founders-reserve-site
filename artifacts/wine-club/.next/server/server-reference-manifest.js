@@ -1,1 +1,1 @@
-self.__RSC_SERVER_MANIFEST="{\"node\":{\"60ab37256df8857a5662d3ccd4c9379ba33786df41\":{\"workers\":{\"app/members/winemaker/page\":{\"moduleId\":\"54\",\"async\":false}},\"layer\":{\"app/members/winemaker/page\":\"action-browser\"},\"filename\":\"app/members/winemaker/actions.ts\",\"exportedName\":\"submitQuestion\"}},\"edge\":{},\"encryptionKey\":\"process.env.NEXT_SERVER_ACTIONS_ENCRYPTION_KEY\"}"
+self.__RSC_SERVER_MANIFEST="{\n  \"node\": {},\n  \"edge\": {},\n  \"encryptionKey\": \"process.env.NEXT_SERVER_ACTIONS_ENCRYPTION_KEY\"\n}"
