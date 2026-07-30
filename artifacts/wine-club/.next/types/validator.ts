@@ -137,6 +137,24 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../src/app/members/tasting-notes/[wine]/[year]/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/members/tasting-notes/[wine]/[year]">> = Specific
+  const handler = {} as typeof import("../../src/app/members/tasting-notes/[wine]/[year]/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../src/app/members/tasting-notes/[wine]/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/members/tasting-notes/[wine]">> = Specific
+  const handler = {} as typeof import("../../src/app/members/tasting-notes/[wine]/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../src/app/members/tasting-notes/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/members/tasting-notes">> = Specific
