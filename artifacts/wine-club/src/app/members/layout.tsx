@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { SignOutButton } from "@/components/sign-out-button";
 import { Wine } from "lucide-react";
+import { HamburgerMenu } from "@/components/hamburger-menu";
 
 export default async function MembersLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
@@ -15,14 +16,10 @@ export default async function MembersLayout({ children }: { children: React.Reac
             <Wine className="w-6 h-6" />
             The Founders Vault
           </Link>
-          <nav className="hidden md:flex gap-8 items-center font-medium text-sm">
-            <Link href="/members" className="text-muted-foreground hover:text-primary transition-colors">Library</Link>
-            <Link href="/members/releases" className="text-muted-foreground hover:text-primary transition-colors">Releases</Link>
-            <Link href="/members/construction" className="text-muted-foreground hover:text-primary transition-colors">Construction</Link>
-          </nav>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground hidden md:inline-block font-medium">{user?.email}</span>
             <SignOutButton />
+            <HamburgerMenu />
           </div>
         </div>
       </header>
