@@ -1,4 +1,4 @@
-modules = ["nodejs-24", "python-base-3.13"]
+modules = ["nodejs-24", "python-base-3.13", "postgresql-16"]
 
 [deployment]
 router = "application"
@@ -24,3 +24,6 @@ timeoutMs = 20000
 [userenv.shared]
 NEXT_PUBLIC_SUPABASE_ANON_KEY = "sb_publishable_4ckE9chqwLouhRbbNqmpYQ_s75i08yF"
 NEXT_PUBLIC_SUPABASE_URL = "https://hnljyfttujyvdttmrmfr.supabase.co"
+
+[nix]
+channel = "stable-25_05"
