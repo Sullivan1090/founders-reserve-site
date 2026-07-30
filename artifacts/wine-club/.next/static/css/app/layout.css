@@ -1496,6 +1496,9 @@
   .justify-start {
     justify-content: flex-start;
   }
+  .gap-0 {
+    gap: 0px;
+  }
   .gap-1 {
     gap: var(--spacing);
   }
@@ -1593,6 +1596,9 @@
   }
   .overflow-hidden {
     overflow: hidden;
+  }
+  .overflow-x-auto {
+    overflow-x: auto;
   }
   .overflow-x-hidden {
     overflow-x: hidden;
