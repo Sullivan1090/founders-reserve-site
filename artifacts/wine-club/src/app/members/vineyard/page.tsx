@@ -17,7 +17,7 @@ const SITES = [
     id: "crystal-springs",
     shortLabel: "Crystal Springs Rd",
     sublabel: "St. Helena",
-    fullTitle: "Sullivan Rutherford Estate at Crystal Springs Road, St. Helena",
+    fullTitle: "Sullivan Rutherford Estate at Crystal Springs Road, St. Helena — Iron and Glass",
   },
   {
     id: "soda-canyon",
@@ -76,7 +76,7 @@ export default function VineyardPage() {
 
       {/* Content */}
       {active === "galleron"      && <GalleronContent />}
-      {active === "crystal-springs" && <ComingSoon />}
+      {active === "crystal-springs" && <CrystalSpringsContent />}
       {active === "soda-canyon"   && <ComingSoon />}
 
     </div>
@@ -136,6 +136,63 @@ wines with unmistakable identity and lasting ageability.`,
               /* Never wider than the container */
               maxWidth: "100%",
               /* Let the browser compute the correct width from the height */
+              width: "auto",
+              height: "auto",
+              borderRadius: "0.75rem",
+              border: `1px solid rgba(139,103,38,0.35)`,
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Crystal Springs Rd ──────────────────────────────────── */
+function CrystalSpringsContent() {
+  return (
+    <div>
+      <div className="max-w-4xl mx-auto">
+        <div style={{ width: "3rem", height: "2px", background: GOLD, marginBottom: "2rem" }} />
+
+        <div className="space-y-6 mb-12" style={{ maxWidth: "70ch" }}>
+          <p className="font-serif leading-relaxed" style={{ color: OFFWHITE, fontSize: "1.1rem" }}>
+            Tucked into the foothills between Howell Mountain and Glass Mountain, Crystal Springs
+            Vineyard occupies a unique volcanic valley shaped by ancient geologic forces. Its deep
+            red, iron-rich soils, scattered with obsidian formed from cooling lava, are exceptionally
+            well drained, naturally limiting vine vigor and allowing the vines to produce fruit of
+            remarkable concentration and character.
+          </p>
+          <p className="font-serif leading-relaxed" style={{ color: OFFWHITE, fontSize: "1.1rem" }}>
+            Although St. Helena experiences some of Napa Valley's warmest daytime temperatures,
+            Crystal Springs benefits from its distinctive position within this mountain corridor. As
+            evening temperatures fall, cool air descends from the surrounding slopes and moves
+            naturally through the valley, creating significant diurnal temperature shifts. This daily
+            rhythm allows the fruit to achieve full ripeness while preserving freshness, natural
+            acidity, and aromatic precision.
+          </p>
+          <p className="font-serif leading-relaxed" style={{ color: OFFWHITE, fontSize: "1.1rem" }}>
+            The combination of volcanic soils, mountain influences, and a naturally moderated climate
+            makes Crystal Springs unlike any other site in the valley. It is a vineyard defined by
+            energy, structure, mineral expression, and a purity that can only come from this
+            remarkable landscape.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-5xl mx-auto">
+        <p className="uppercase tracking-widest mb-4"
+          style={{ color: GOLD, fontSize: "0.7rem", fontWeight: 600 }}>
+          Vineyard Block Map
+        </p>
+        <div style={{ textAlign: "center" }}>
+          <img
+            src="/crystal-springs-block-map.jpg"
+            alt="Crystal Springs Vineyard aerial block map — blocks A through G at 391 Crystal Springs Rd, St. Helena"
+            style={{
+              display: "inline-block",
+              maxHeight: "62vh",
+              maxWidth: "100%",
               width: "auto",
               height: "auto",
               borderRadius: "0.75rem",
