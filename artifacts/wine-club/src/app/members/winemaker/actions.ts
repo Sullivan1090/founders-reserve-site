@@ -11,7 +11,9 @@ const supabase = createClient(
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function submitQuestion(_prev: unknown, formData: FormData) {
+export type QuestionState = { error?: string; success?: true };
+
+export async function submitQuestion(_prev: QuestionState, formData: FormData): Promise<QuestionState> {
   const name    = (formData.get("name")    as string | null)?.trim() ?? "";
   const email   = (formData.get("email")   as string | null)?.trim() ?? "";
   const message = (formData.get("message") as string | null)?.trim() ?? "";

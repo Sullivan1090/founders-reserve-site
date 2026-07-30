@@ -1,9 +1,9 @@
 "use client";
 
 import { useActionState, useEffect, useRef } from "react";
-import { submitQuestion } from "@/app/members/winemaker/actions";
+import { submitQuestion, type QuestionState } from "@/app/members/winemaker/actions";
 
-const initial = { error: undefined as string | undefined, success: undefined as boolean | undefined };
+const initial: QuestionState = {};
 
 export function WinemakerForm() {
   const [state, formAction, pending] = useActionState(submitQuestion, initial);
