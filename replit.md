@@ -66,7 +66,7 @@ An exclusive wine club membership site with Supabase authentication, a members-o
 
 ## User Preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- No en dashes (–) anywhere in UI copy or code comments — use a regular hyphen or em dash instead.
 
 ## Gotchas
 
