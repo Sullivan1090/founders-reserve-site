@@ -27,3 +27,4 @@ NEXT_PUBLIC_SUPABASE_URL = "https://hnljyfttujyvdttmrmfr.supabase.co"
 
 [nix]
 channel = "stable-25_05"
+packages = ["freetype", "gumbo", "harfbuzz", "jbig2dec", "libjpeg_turbo", "mupdf", "openjpeg", "swig", "xcbuild"]
