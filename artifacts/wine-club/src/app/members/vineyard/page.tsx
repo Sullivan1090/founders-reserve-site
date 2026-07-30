@@ -23,7 +23,7 @@ const SITES = [
     id: "soda-canyon",
     shortLabel: "Soda Canyon",
     sublabel: "Napa Valley",
-    fullTitle: "Sullivan Rutherford Estate at Soda Canyon, Napa Valley",
+    fullTitle: "Sullivan Rutherford Estate at Soda Canyon, Napa Valley — Ash and Tuff",
   },
 ] as const;
 
@@ -77,7 +77,7 @@ export default function VineyardPage() {
       {/* Content */}
       {active === "galleron"      && <GalleronContent />}
       {active === "crystal-springs" && <CrystalSpringsContent />}
-      {active === "soda-canyon"   && <ComingSoon />}
+      {active === "soda-canyon"   && <SodaCanyonContent />}
 
     </div>
   );
@@ -189,6 +189,63 @@ function CrystalSpringsContent() {
           <img
             src="/crystal-springs-block-map.jpg"
             alt="Crystal Springs Vineyard aerial block map — blocks A through G at 391 Crystal Springs Rd, St. Helena"
+            style={{
+              display: "inline-block",
+              maxHeight: "62vh",
+              maxWidth: "100%",
+              width: "auto",
+              height: "auto",
+              borderRadius: "0.75rem",
+              border: `1px solid rgba(139,103,38,0.35)`,
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Soda Canyon ─────────────────────────────────────────── */
+function SodaCanyonContent() {
+  return (
+    <div>
+      <div className="max-w-4xl mx-auto">
+        <div style={{ width: "3rem", height: "2px", background: GOLD, marginBottom: "2rem" }} />
+
+        <div className="space-y-6 mb-12" style={{ maxWidth: "70ch" }}>
+          <p className="font-serif leading-relaxed" style={{ color: OFFWHITE, fontSize: "1.1rem" }}>
+            Situated in the southeastern foothills of Napa Valley, just north of the Coombsville
+            appellation, Soda Canyon Vineyard is shaped by an ancient volcanic landscape unlike any
+            other in our portfolio. Its distinctive rhyolitic tuff soils — formed from compressed
+            volcanic ash — are naturally low in fertility and exceptionally well drained, encouraging
+            balanced vines, small yields, and fruit of remarkable concentration.
+          </p>
+          <p className="font-serif leading-relaxed" style={{ color: OFFWHITE, fontSize: "1.1rem" }}>
+            The vineyard's location provides an ideal balance of warmth and freshness. Eastern
+            exposure captures the morning sun, allowing the fruit to ripen fully, while its proximity
+            to the southern end of Napa Valley welcomes cooling marine influences from San Pablo Bay.
+            This combination of warm days, cool afternoons and evenings, and ash-derived soils creates
+            a long, measured growing season that preserves natural acidity, structure, and aromatic
+            purity.
+          </p>
+          <p className="font-serif leading-relaxed" style={{ color: OFFWHITE, fontSize: "1.1rem" }}>
+            Soda Canyon is a vineyard defined by restraint rather than power. The unique interplay of
+            volcanic ash soils, cooling coastal influences, and low-vigor vines produces wines with
+            exceptional energy, focus, and elegance — an expression of place that is both distinctive
+            and unmistakably Napa Valley.
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-5xl mx-auto">
+        <p className="uppercase tracking-widest mb-4"
+          style={{ color: GOLD, fontSize: "0.7rem", fontWeight: 600 }}>
+          Vineyard Block Map
+        </p>
+        <div style={{ textAlign: "center" }}>
+          <img
+            src="/soda-canyon-block-map.jpg"
+            alt="Soda Canyon Vineyard aerial block map — blocks 1A, 1B, 2A–2D, 3A at 1156 Soda Canyon Rd, Napa"
             style={{
               display: "inline-block",
               maxHeight: "62vh",
