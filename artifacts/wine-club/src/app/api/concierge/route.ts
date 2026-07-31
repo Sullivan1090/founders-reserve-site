@@ -75,6 +75,37 @@ TA: 5.6 g/L | pH: 3.71 | Alcohol: 14.8% | Cases produced: 300
 Clones: Merlot 1, 3, 15 · Cabernet Sauvignon 191 · Cabernet Franc 1
 Vineyard Manager: Mike Wolf
 
+--- 2018 J.O. Sullivan Founder's Reserve Merlot ---
+Tasting Note: Two vintages have passed, but the wait is over! The 2018 J.O. Sullivan Merlot is one of the most unique, interesting, and delicious Merlots produced to date. The structure and complexity that defines this Merlot is a reflection of the gravelly soil from which the fruit is grown. Grown in a warmer climate has shaped the fruit profile to be more generous, exotic, and giving. Constantly evolving and changing, it stimulates the senses to such a degree that one experience with this wine is not enough. Enjoy forever.
+Blend: 80% Merlot, 12% Cabernet Sauvignon, 8% Petit Verdot
+Oak: 100% New French Oak
+TA: 5.4 g/L | pH: 3.72 | Cases produced: 235
+Clones: Merlot 1, 3, 15 · Cabernet Sauvignon 7 · Petit Verdot 400
+Vineyard Manager: Paul Garvey
+
+--- 2015 J.O. Sullivan Founder's Reserve Merlot ---
+Tasting Note: The 2015 Merlot pours a deep ruby, rimmed with a youthful violet glow. The nose unfurls with delicate red raspberry and a whisper of caramel, grounded by savory notes of rosemary and lavender. A silky entry gives way to rich dark cherry, lifted by a bright, sustaining acidity that carries through the length of the palate. Subtle notes of warm vanilla round the fruit, resolving into a lingering, bittersweet cocoa on a long, focused finish. Refined and expressive, this vintage is crafted for approachability upon release and pairs effortlessly across a range of dishes. Drink now through 2030.
+Blend: 95% Merlot, 5% Cabernet Sauvignon
+Oak: 70% New French Oak
+TA: 5.8 g/L | pH: 3.70 | Alcohol: 14.8% | Cases produced: 230
+Clones: Merlot 3, 337 · Cabernet Sauvignon 7
+Vineyard Manager: Paul Garvey
+
+--- 2014 J.O. Sullivan Founder's Reserve Merlot ---
+Tasting Note: A sweetness of toffee and oak lifts immediately from the glass, followed by darker raspberry and red cherry, lending the wine an inviting sense of pleasure from the very first pour. Lush and juicy on the palate, powerful flavors of red plum, light caramel, and sweetened cranberry meld together seamlessly, while a bright thread of acidity lends this beautiful wine both focus and length. Beneath that richness runs an intensity and savory depth that has become a hallmark of the estate — a wine as powerful as it is graceful, and one that feels, unmistakably, saturated in the same passion from which it was made.
+Blend: 97% Merlot, 3% Cabernet Sauvignon
+Oak: 100% New French Oak
+TA: 6.1 g/L | pH: 3.68 | Alcohol: 14.8% | Cases produced: 230
+Clones: Merlot 3 · Cabernet Sauvignon 4
+Vineyard Manager: Paul Garvey
+
+--- 2013 J.O. Sullivan Founder's Reserve Merlot ---
+Tasting Note: Sullivan has long been known for big, bold, extracted Merlots, and the 2013 J.O. Sullivan Founder's Reserve Merlot carries that legacy forward without compromise. Abundant cherry and raspberry burst from the glass, layered with vanilla and spice, while a subtle savory character runs beneath, lending the wine real depth and complexity. These same qualities carry through to the palate, wrapping it in a plushness that coats the mouth with a sense of sweetness. Yet for all its size and lushness, a bright vein of acidity brings focus, allowing the wine to linger long after the last sip. A wine built to reward patience, and to be enjoyed for years to come.
+Blend: 78% Merlot, 11% Cabernet Sauvignon, 11% Cabernet Franc
+Oak: 71% New French Oak
+TA: 5.8 g/L | pH: 3.73 | Alcohol: 14.8% | Cases produced: 240
+Clones: Merlot 3 · Cabernet Sauvignon 191 · Cabernet Franc 1
+
 (Tasting notes for additional vintages will be added as they are published.)
 
 == WINERY CONSTRUCTION ==
