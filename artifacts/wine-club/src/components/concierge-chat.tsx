@@ -1,7 +1,15 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { X, MessageCircle, Send, Loader2 } from "lucide-react";
+import { X, MessageCircle, Send, Loader2, Mic, MicOff } from "lucide-react";
+
+// Extend Window for webkit-prefixed SpeechRecognition
+declare global {
+  interface Window {
+    SpeechRecognition: typeof SpeechRecognition;
+    webkitSpeechRecognition: typeof SpeechRecognition;
+  }
+}
 
 interface Message {
   role: "user" | "assistant";
@@ -10,13 +18,45 @@ interface Message {
 }
 
 export function ConciergeChat() {
-  const [open, setOpen]       = useState(false);
-  const [input, setInput]     = useState("");
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [busy, setBusy]       = useState(false);
-  const bottomRef             = useRef<HTMLDivElement>(null);
-  const inputRef              = useRef<HTMLTextAreaElement>(null);
-  const abortRef              = useRef<AbortController | null>(null);
+  const [open, setOpen]           = useState(false);
+  const [input, setInput]         = useState("");
+  const [messages, setMessages]   = useState<Message[]>([]);
+  const [busy, setBusy]           = useState(false);
+  const [listening, setListening] = useState(false);
+  const bottomRef                 = useRef<HTMLDivElement>(null);
+  const inputRef                  = useRef<HTMLTextAreaElement>(null);
+  const abortRef                  = useRef<AbortController | null>(null);
+  const recognitionRef            = useRef<SpeechRecognition | null>(null);
+
+  const toggleVoice = useCallback(() => {
+    const SR = window.SpeechRecognition ?? window.webkitSpeechRecognition;
+    if (!SR) return; // browser doesn't support it
+
+    if (listening) {
+      recognitionRef.current?.stop();
+      setListening(false);
+      return;
+    }
+
+    const rec = new SR();
+    rec.lang = "en-US";
+    rec.interimResults = true;
+    rec.maxAlternatives = 1;
+
+    rec.onresult = (e: SpeechRecognitionEvent) => {
+      const transcript = Array.from(e.results)
+        .map((r) => r[0].transcript)
+        .join("");
+      setInput(transcript);
+    };
+
+    rec.onend = () => setListening(false);
+    rec.onerror = () => setListening(false);
+
+    recognitionRef.current = rec;
+    rec.start();
+    setListening(true);
+  }, [listening]);
 
   // Auto-scroll on new content
   useEffect(() => {
@@ -241,17 +281,37 @@ export function ConciergeChat() {
               onKeyDown={handleKey}
               disabled={busy}
               rows={1}
-              placeholder="Ask about the estate…"
+              placeholder={listening ? "Listening…" : "Ask about the estate…"}
               className="flex-1 resize-none rounded-xl px-4 py-2.5 text-sm focus:outline-none disabled:opacity-50"
               style={{
-                background:  "rgba(255,255,255,0.07)",
-                border:      "1px solid rgba(139,103,38,0.25)",
+                background:  listening ? "rgba(139,103,38,0.1)" : "rgba(255,255,255,0.07)",
+                border:      listening ? "1px solid rgba(139,103,38,0.6)" : "1px solid rgba(139,103,38,0.25)",
                 color:       OFF_WHITE,
                 fontFamily:  "inherit",
                 maxHeight:   "100px",
                 lineHeight:  "1.5",
+                transition:  "background 0.2s, border 0.2s",
               }}
             />
+
+            {/* Mic button — only shown when SpeechRecognition is available */}
+            <button
+              onClick={toggleVoice}
+              disabled={busy}
+              aria-label={listening ? "Stop recording" : "Speak your question"}
+              className="flex items-center justify-center w-10 h-10 rounded-full shrink-0 transition-all hover:opacity-90 disabled:opacity-30"
+              style={{
+                background: listening ? GOLD : "rgba(139,103,38,0.15)",
+                border: `1px solid rgba(139,103,38,0.4)`,
+                cursor: "pointer",
+              }}
+            >
+              {listening
+                ? <MicOff className="w-4 h-4" style={{ color: OFF_WHITE }} />
+                : <Mic className="w-4 h-4" style={{ color: GOLD }} />
+              }
+            </button>
+
             <button
               onClick={send}
               disabled={!input.trim() || busy}
