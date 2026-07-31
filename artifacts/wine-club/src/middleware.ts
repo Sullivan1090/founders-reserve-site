@@ -30,8 +30,13 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Protect /members routes — redirect unauthenticated users to /login
-  if (!user && request.nextUrl.pathname.startsWith('/members')) {
+  // Protect /members and /admin routes — redirect unauthenticated users to /login
+  if (
+    !user && (
+      request.nextUrl.pathname.startsWith('/members') ||
+      request.nextUrl.pathname.startsWith('/admin')
+    )
+  ) {
     const url = request.nextUrl.clone();
     url.pathname = '/login';
     url.searchParams.set('next', request.nextUrl.pathname);

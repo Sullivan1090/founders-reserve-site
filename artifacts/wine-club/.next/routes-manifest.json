@@ -75,6 +75,24 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/admin",
+      "regex": "^/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin(?:/)?$"
+    },
+    {
+      "page": "/admin/arrival",
+      "regex": "^/admin/arrival(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/arrival(?:/)?$"
+    },
+    {
+      "page": "/admin/invite",
+      "regex": "^/admin/invite(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/invite(?:/)?$"
+    },
+    {
       "page": "/auth/callback",
       "regex": "^/auth/callback(?:/)?$",
       "routeKeys": {},
@@ -145,6 +163,12 @@
       "regex": "^/members/vineyard(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/members/vineyard(?:/)?$"
+    },
+    {
+      "page": "/members/welcome",
+      "regex": "^/members/welcome(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/members/welcome(?:/)?$"
     },
     {
       "page": "/members/winemaker",

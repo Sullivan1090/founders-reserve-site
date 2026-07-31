@@ -1,0 +1,35 @@
+Please implement the following updates to rework the member flow:
+
+1. FIRST-LOGIN WELCOME PAGE (Founders Vault introduction)
+- Add a written welcome page shown only the first time a member ever logs in
+- Track this with a "has_seen_welcome" flag per member in Supabase — once true, skip this page on all future logins
+- Title: "Welcome to Founders Vault"
+- Content:
+
+"This is not a website. It is a door held open for very few.
+
+To hold a place in the Founders Reserve allocation is to be family, not a customer. Founders Vault is where that relationship lives: your one place for complete access to everything we do, not just the wine, but every endeavor we pursue.
+
+Here, nothing is held at a distance. You will understand our work as we understand it ourselves, and you will not simply observe it. You will be part of it, invited into the decisions, the moments, and the people behind them, as they happen, not after.
+
+This is not a newsletter, and it is not a subscription. It is access, freely given, to those who already belong."
+
+- Styling: Cormorant Garamond font, JO Blue background (#1B3448), off-white body text (#EDEAE2), gold title (#9C7A3D). Center-aligned, generous whitespace, matching the tone of the public landing page statement.
+- After a first-time member views this page, they proceed to The Arrival
+- This same content should also be permanently accessible afterward as its own page in the hamburger menu (place it near "Meet the Team" or as its own entry — your call on exact placement)
+
+2. THE ARRIVAL — MAKE IT ADMIN-UPDATABLE
+- Restructure The Arrival page so its content (featured wine name/vintage, video, description) pulls from a single Supabase table/row, rather than being hardcoded
+- Build a simple, protected admin view (accessible only to me) where I can update: featured wine name, vintage, video, and description text
+- Set current content: "2023 J.O. Sullivan Founders Reserve Cabernet Sauvignon" as the featured video and description — this is the current Arrival feature
+- This allows me to swap what's featured here periodically (e.g. monthly) without needing a code change each time
+
+3. MOVE 2023 MERLOT INTO TASTING NOTES
+- The 2023 J.O. Sullivan Founders Reserve Merlot (already released) moves into the Tasting Notes section, under the Merlot category, as a new vintage entry alongside the existing vintages there
+- The 2023 Cabernet Sauvignon should ALSO exist in Tasting Notes under the Cabernet Sauvignon category (in addition to being featured on The Arrival), so it's findable in the archive even while it's the featured content
+
+4. BULK MEMBER INVITES (for the upcoming QR code release)
+- Set up bulk-invite functionality so I can upload a list of existing allocation member emails and pre-create their accounts in Supabase (using Supabase's built-in invite flow, which sends each person a secure "set your password" email)
+- This needs to be ready before I send out a QR code tied to the Cabernet Sauvignon release page, so members land on a login (not a blank signup) when they scan it
+
+Please build all of this and push to GitHub once confirmed working on the live site.

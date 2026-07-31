@@ -14,6 +14,7 @@ const NAV_ITEMS = [
   { label: "Cellar Picks",          href: "/members/cellar-picks" },
   { label: "Meet the Team",         href: "/members/meet-the-team" },
   { label: "Monthly Conversation",  href: "/members/monthly-conversation" },
+  { label: "About the Vault",       href: "/members/welcome" },
 ];
 
 export function HamburgerMenu() {
