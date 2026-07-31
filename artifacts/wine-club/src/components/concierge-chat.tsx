@@ -4,10 +4,27 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { X, MessageCircle, Send, Loader2, Mic, MicOff } from "lucide-react";
 
 // Extend Window for webkit-prefixed SpeechRecognition
+interface SpeechRecognitionConstructor {
+  new (): SpeechRecognitionInstance;
+}
+interface SpeechRecognitionInstance {
+  lang: string;
+  interimResults: boolean;
+  maxAlternatives: number;
+  onresult: ((e: SpeechRecognitionEvent) => void) | null;
+  onend: (() => void) | null;
+  onerror: (() => void) | null;
+  start(): void;
+  stop(): void;
+}
+interface SpeechRecognitionEvent {
+  results: SpeechRecognitionResultList;
+}
+
 declare global {
   interface Window {
-    SpeechRecognition: typeof SpeechRecognition;
-    webkitSpeechRecognition: typeof SpeechRecognition;
+    SpeechRecognition: SpeechRecognitionConstructor;
+    webkitSpeechRecognition: SpeechRecognitionConstructor;
   }
 }
 
@@ -26,10 +43,11 @@ export function ConciergeChat() {
   const bottomRef                 = useRef<HTMLDivElement>(null);
   const inputRef                  = useRef<HTMLTextAreaElement>(null);
   const abortRef                  = useRef<AbortController | null>(null);
-  const recognitionRef            = useRef<SpeechRecognition | null>(null);
+  const recognitionRef            = useRef<SpeechRecognitionInstance | null>(null);
 
   const toggleVoice = useCallback(() => {
-    const SR = window.SpeechRecognition ?? window.webkitSpeechRecognition;
+    const SR: SpeechRecognitionConstructor | undefined =
+      window.SpeechRecognition ?? window.webkitSpeechRecognition;
     if (!SR) return; // browser doesn't support it
 
     if (listening) {
