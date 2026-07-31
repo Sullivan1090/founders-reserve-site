@@ -1,0 +1,21 @@
+Please add an AI concierge chat feature to Founders Vault, available site-wide (a small chat icon, bottom-right corner, on every page inside the member area).
+
+FUNCTIONALITY
+- Uses the Anthropic API (Claude) to answer member questions
+- Before answering, pull relevant content from Supabase (tasting notes, vineyard descriptions, event listings, construction video descriptions, etc.) based on the member's question, and include that content as context in the API call so answers are grounded in our actual site content
+- The assistant should ONLY answer using information that exists on the site. If a question falls outside what's actually documented (e.g. something not covered in tasting notes, vineyard info, or events), it should say it doesn't have that information and suggest the member reach out directly using the "Text Me Directly" or "Ask a Question" contact options already on the Winemaker page — rather than guessing or inventing an answer
+
+TONE / PERSONA
+- The assistant should NOT impersonate me (the winemaker) or speak in first person as if it's me
+- It should present as a knowledgeable concierge for the estate — warm, precise, and matching the site's overall tone (Cormorant Garamond styling in the chat UI, JO Blue and gold color accents), speaking about "the estate," "the wines," or "Founders Vault" rather than "I" in a personal sense
+
+EXAMPLE BEHAVIOR
+- "What's in the 2019 Cabernet Sauvignon?" → pulls the actual 2019 tasting note from Supabase and summarizes/quotes it
+- "When's the next gathering?" → pulls from the Events/Gatherings section
+- "What does [my name] think about natural wine?" → not covered on the site, so the assistant should say it doesn't have that on hand and point the member to ask directly via the contact options
+
+TECHNICAL NOTES
+- This will need an Anthropic API key — I'll provide this once you confirm you're ready to wire it up
+- Keep the widget lightweight and unobtrusive — a small icon that expands into a chat panel, not a full-page takeover
+
+Please build this and push to GitHub once confirmed working on the live site. Let me know once you're ready for the API key.
