@@ -123,7 +123,7 @@ export default async function TastingNotePage({
               >
                 <span
                   className="text-sm shrink-0 w-36"
-                  style={{ color: "#8B6726", fontFamily: "inherit" }}
+                  style={{ color: "#C49A35", fontFamily: "inherit" }}
                 >
                   {row.label}
                 </span>

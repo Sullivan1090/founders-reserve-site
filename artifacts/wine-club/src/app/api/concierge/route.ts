@@ -51,7 +51,31 @@ Vineyard: Sullivan Rutherford Estate
 Clones: Merlot 3, 1, 15 · Cabernet Franc 1 · Cabernet Sauvignon 4
 Vineyard Manager: Mike Wolf
 
-(Tasting notes for other vintages will be added as they are published.)
+--- 2021 J.O. Sullivan Founders Reserve Merlot ---
+Tasting Note: Savor the nuanced charm of the 2021 J.O. Sullivan Founders Reserve Merlot — an absolute masterpiece. Revealing intricate notes of blueberries, hints of tobacco leaves, and a whisper of toasty vanilla, it gracefully unfolds. Dense yet understated, matured tannins and integrated acidity dance in harmony. The sophisticated finish arrives with refined elegance and polished subtlety. In every sip, the commitment to Merlot excellence is undeniable. This vintage greatly champions the noble variety, a quiet celebration of the estate's unwavering commitment to the artistry and distinction of Merlot.
+Blend: 89% Merlot, 7% Cabernet Sauvignon, 4% Cabernet Franc
+Oak: 82% New French Oak, 22 months
+TA: 5.7 g/L | pH: 3.70 | Alcohol: 14.8% | Cases produced: 500
+Clones: Merlot 1, 3, 5 · Cabernet Sauvignon 4 · Cabernet Franc 1
+Vineyard Manager: Mike Wolf
+
+--- 2020 J.O. Sullivan Founders Reserve Merlot ---
+Tasting Note: There is absolutely no Merlot in the Napa Valley that can compare to this wine. Structured, dense, fresh, and built to age, the 2020 J.O. Sullivan Founders Reserve Merlot offers something that no other Merlot can — complexity. There is an elegance to this Merlot that is recognizable, but it is more than that: it is a powerhouse that delivers on all levels. Fresh acidity carries the wine and brings it into focus, weight and juiciness give it a supple character, and structure provides a harmonious foundation knitting all the components together. This is what Merlot is supposed to be. Drink over the next 25 years.
+Blend: 95% Merlot, 5% Cabernet Franc
+Oak: 80% New French Oak
+TA: 5.9 g/L | pH: 3.70 | Alcohol: 14.8% | Cases produced: 280
+Clones: Merlot 1, 3, 15 · Cabernet Franc 1
+Vineyard Manager: Mike Wolf
+
+--- 2019 J.O. Sullivan Founders Reserve Merlot ---
+Tasting Note: In a league of its own. This seriously built Merlot offers density and richness, yet the agility and freshness distinguishes it as a wine of great pedigree. The depths and layers keep expanding while the cocoa powder tannins melt across the palate giving a sense of sweetness. The classic savory notes of bitter chocolate and dry herb are an inherent signature of the vineyard. Blue fruits of bramble and blueberry are highlights of the vintage. This wine is the definition of luxury and should be enjoyed over the next 20 years.
+Blend: 89% Merlot, 8% Cabernet Sauvignon, 3% Cabernet Franc
+Oak: 100% New French Oak
+TA: 5.6 g/L | pH: 3.71 | Alcohol: 14.8% | Cases produced: 300
+Clones: Merlot 1, 3, 15 · Cabernet Sauvignon 191 · Cabernet Franc 1
+Vineyard Manager: Mike Wolf
+
+(Tasting notes for additional vintages will be added as they are published.)
 
 == WINERY CONSTRUCTION ==
 The Sullivan Rutherford Estate winery is currently under construction. Construction progress is documented through a series of video updates captured from April 2025 through July 2026, covering milestones from the first footings through ongoing finishing details. Members can view these in the Construction section of Founders Vault.

@@ -35,6 +35,51 @@ export const TASTING_NOTE_CONTENT: Record<string, Record<number, TastingNoteCont
         vineyardManager:  "Mike Wolf",
       },
     },
+
+    2021: {
+      notes:
+        "Savor the nuanced charm of the 2021 J.O. Sullivan Founders Reserve Merlot — an absolute masterpiece. Revealing intricate notes of blueberries, hints of tobacco leaves, and a whisper of toasty vanilla, it gracefully unfolds. Dense yet understated, matured tannins and integrated acidity dance in harmony. The sophisticated finish arrives with refined elegance and polished subtlety. In every sip, the commitment to Merlot excellence is undeniable. This vintage greatly champions the noble variety, a quiet celebration of the estate's unwavering commitment to the artistry and distinction of Merlot.",
+      details: {
+        blend:            "89% Merlot, 7% Cabernet Sauvignon, 4% Cabernet Franc",
+        oak:              "82% New French Oak, 22 months",
+        ta:               "5.7 g/L",
+        ph:               "3.70",
+        alcohol:          "14.8%",
+        cases:            "500",
+        clones:           "Merlot 1, 3, 5 · Cabernet Sauvignon 4 · Cabernet Franc 1",
+        vineyardManager:  "Mike Wolf",
+      },
+    },
+
+    2020: {
+      notes:
+        "There is absolutely no Merlot in the Napa Valley that can compare to this wine. Structured, dense, fresh, and built to age, the 2020 J.O. Sullivan Founders Reserve Merlot offers something that no other Merlot can — complexity. There is an elegance to this Merlot that is recognizable, but it is more than that: it is a powerhouse that delivers on all levels. Fresh acidity carries the wine and brings it into focus, weight and juiciness give it a supple character, and structure provides a harmonious foundation knitting all the components together. This is what Merlot is supposed to be. Drink over the next 25 years.",
+      details: {
+        blend:            "95% Merlot, 5% Cabernet Franc",
+        oak:              "80% New French Oak",
+        ta:               "5.9 g/L",
+        ph:               "3.70",
+        alcohol:          "14.8%",
+        cases:            "280",
+        clones:           "Merlot 1, 3, 15 · Cabernet Franc 1",
+        vineyardManager:  "Mike Wolf",
+      },
+    },
+
+    2019: {
+      notes:
+        "In a league of its own. This seriously built Merlot offers density and richness, yet the agility and freshness distinguishes it as a wine of great pedigree. The depths and layers keep expanding while the cocoa powder tannins melt across the palate giving a sense of sweetness. The classic savory notes of bitter chocolate and dry herb are an inherent signature of the vineyard. Blue fruits of bramble and blueberry are highlights of the vintage. This wine is the definition of luxury and should be enjoyed over the next 20 years.",
+      details: {
+        blend:            "89% Merlot, 8% Cabernet Sauvignon, 3% Cabernet Franc",
+        oak:              "100% New French Oak",
+        ta:               "5.6 g/L",
+        ph:               "3.71",
+        alcohol:          "14.8%",
+        cases:            "300",
+        clones:           "Merlot 1, 3, 15 · Cabernet Sauvignon 191 · Cabernet Franc 1",
+        vineyardManager:  "Mike Wolf",
+      },
+    },
   },
 
   "cabernet-sauvignon": {
