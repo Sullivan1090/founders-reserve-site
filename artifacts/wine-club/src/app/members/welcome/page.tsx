@@ -20,14 +20,14 @@ export default function WelcomePage() {
           className="font-serif leading-tight"
           style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 400, color: "#9C7A3D" }}
         >
-          Welcome to Founders Vault
+          Welcome to the Founders Vault
         </h1>
 
         {/* Body */}
         <div className="space-y-7 text-left">
           {[
             "This is not a website. It is a door held open for very few.",
-            "To hold a place in the Founders Reserve allocation is to be family, not a customer. Founders Vault is where that relationship lives: your one place for complete access to everything we do, not just the wine, but every endeavor we pursue.",
+            "To hold a place in the Founders Reserve allocation is to be family. The Founders Vault is where that relationship lives: your one place for complete access to everything we do, not just the wine, but every endeavor we pursue.",
             "Here, nothing is held at a distance. You will understand our work as we understand it ourselves, and you will not simply observe it. You will be part of it, invited into the decisions, the moments, and the people behind them, as they happen, not after.",
             "This is not a newsletter, and it is not a subscription. It is access, freely given, to those who already belong.",
           ].map((para, i) => (
