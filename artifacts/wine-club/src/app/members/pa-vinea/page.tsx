@@ -1,0 +1,83 @@
+export default function PAVineaPage() {
+  const BLUE      = "#1B3448";
+  const GOLD      = "#C49A35";
+  const GOLD_DARK = "#9C7A3D";
+  const OFF_WHITE = "#EDEAE2";
+
+  const paragraphs = [
+    "Some things are not made to be sold. They are made to be shared.",
+    "PA Vinea takes its name from the Golden Ratio, Proportion Aurea, and Vinea, the Latin word for vineyard. It represents an equilibrium between past and future, restraint and power, tradition and innovation, made in quantities too small to ever reach the public.",
+    "This is our Merlot-driven Bordeaux blend, drawn from the estate's most distinctive parcels and shaped by a devotion to precision over volume. Saturating black fruit, savory spice, and sleek, structured tannins arise from a collective drive to reshape what a Napa Valley wine can be — a wine of depth and quiet intensity, where crushed rock, dark plum, and warm cedar unfold slowly, never rushed, never shouting.",
+    "It is offered only to those we consider family: our team, our closest friends, and our Founders.",
+    "If you are reading this, you are already part of that circle.",
+  ];
+
+  return (
+    <div
+      className="flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6 py-16"
+      style={{ background: BLUE }}
+    >
+      <div className="max-w-xl w-full text-center space-y-10">
+
+        {/* Top rule */}
+        <div className="flex items-center gap-4">
+          <div className="flex-1 h-px" style={{ background: "rgba(139,103,38,0.35)" }} />
+          <div className="w-1.5 h-1.5 rounded-full" style={{ background: GOLD_DARK }} />
+          <div className="flex-1 h-px" style={{ background: "rgba(139,103,38,0.35)" }} />
+        </div>
+
+        {/* Title */}
+        <h1
+          className="font-serif leading-tight"
+          style={{ fontSize: "clamp(2.2rem, 5vw, 3.2rem)", fontWeight: 400, color: GOLD_DARK }}
+        >
+          PA Vinea
+        </h1>
+
+        {/* Body */}
+        <div className="space-y-7 text-left">
+          {paragraphs.map((para, i) => (
+            <p
+              key={i}
+              className="font-serif leading-relaxed"
+              style={{
+                color:      OFF_WHITE,
+                fontSize:   i === 0 ? "1.2rem" : "1.05rem",
+                fontStyle:  i === 0 ? "italic" : "normal",
+              }}
+            >
+              {para}
+            </p>
+          ))}
+        </div>
+
+        {/* Bottom rule */}
+        <div className="flex items-center gap-4 pt-2">
+          <div className="flex-1 h-px" style={{ background: "rgba(139,103,38,0.35)" }} />
+          <div className="w-1.5 h-1.5 rounded-full" style={{ background: GOLD_DARK }} />
+          <div className="flex-1 h-px" style={{ background: "rgba(139,103,38,0.35)" }} />
+        </div>
+
+        {/* CTA button */}
+        <div className="pt-2">
+          <a
+            href="https://pavinea.com/offering/?utm_source=Commerce+7&utm_campaign=bacd49a7fb-EMAIL_CAMPAIGN_2021_11_02_01_31_COPY_01&utm_medium=email&utm_term=0_93484e7167-bacd49a7fb-92441648&mc_cid=bacd49a7fb&mc_eid=f743e7ddce#allocation"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block font-serif tracking-widest text-sm uppercase transition-all hover:opacity-80 px-10 py-3.5 rounded-full"
+            style={{
+              background:    GOLD,
+              border:        `1px solid ${GOLD}`,
+              color:         BLUE,
+              letterSpacing: "0.15em",
+              fontWeight:    600,
+            }}
+          >
+            Inquire About PA Vinea
+          </a>
+        </div>
+
+      </div>
+    </div>
+  );
+}
