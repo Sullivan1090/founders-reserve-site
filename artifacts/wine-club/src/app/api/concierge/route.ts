@@ -135,13 +135,16 @@ export async function POST(req: NextRequest) {
   const stream = new ReadableStream({
     async start(controller) {
       try {
-        // Use the Replit AI proxy in dev; fall back to a direct Anthropic key in production (e.g. Vercel)
-        const anthropicOptions: ConstructorParameters<typeof Anthropic>[0] = {
-          apiKey: process.env.AI_INTEGRATIONS_ANTHROPIC_API_KEY ?? process.env.ANTHROPIC_API_KEY,
-        };
-        if (process.env.AI_INTEGRATIONS_ANTHROPIC_BASE_URL) {
-          anthropicOptions.baseURL = process.env.AI_INTEGRATIONS_ANTHROPIC_BASE_URL;
-        }
+        // Prefer a direct Anthropic API key (Vercel/production).
+        // Fall back to the Replit AI proxy only when no direct key is present (local dev).
+        const directKey = process.env.ANTHROPIC_API_KEY;
+        const proxyKey  = process.env.AI_INTEGRATIONS_ANTHROPIC_API_KEY;
+        const proxyUrl  = process.env.AI_INTEGRATIONS_ANTHROPIC_BASE_URL;
+
+        const anthropicOptions: ConstructorParameters<typeof Anthropic>[0] = directKey
+          ? { apiKey: directKey }
+          : { apiKey: proxyKey, baseURL: proxyUrl };
+
         const anthropic = new Anthropic(anthropicOptions);
 
         const claudeStream = anthropic.messages.stream({
