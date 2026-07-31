@@ -139,7 +139,7 @@ export function ConciergeChat() {
               setMessages((prev) =>
                 prev.map((m, i) =>
                   i === prev.length - 1
-                    ? { ...m, content: `Error: ${parsed.error}`, streaming: false }
+                    ? { ...m, content: "I wasn't able to respond just now. Please try again in a moment.", streaming: false }
                     : m
                 )
               );
