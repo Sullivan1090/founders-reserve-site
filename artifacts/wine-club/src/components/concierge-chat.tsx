@@ -69,10 +69,20 @@ export function ConciergeChat() {
           if (!line.startsWith("data: ")) continue;
           try {
             const parsed = JSON.parse(line.slice(6));
-            if (parsed.done || parsed.error) {
+            if (parsed.done) {
               setMessages((prev) =>
                 prev.map((m, i) =>
                   i === prev.length - 1 ? { ...m, streaming: false } : m
+                )
+              );
+              break;
+            }
+            if (parsed.error) {
+              setMessages((prev) =>
+                prev.map((m, i) =>
+                  i === prev.length - 1
+                    ? { ...m, content: "I wasn't able to respond just now. Please try again in a moment.", streaming: false }
+                    : m
                 )
               );
               break;

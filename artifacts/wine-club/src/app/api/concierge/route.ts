@@ -2,10 +2,6 @@ import Anthropic from "@anthropic-ai/sdk";
 import { createClient } from "@/lib/supabase/server";
 import { NextRequest, NextResponse } from "next/server";
 
-const anthropic = new Anthropic({
-  apiKey:  process.env.AI_INTEGRATIONS_ANTHROPIC_API_KEY!,
-  baseURL: process.env.AI_INTEGRATIONS_ANTHROPIC_BASE_URL!,
-});
 
 // ─── All estate content used to ground the concierge ─────────────────────────
 
@@ -139,6 +135,11 @@ export async function POST(req: NextRequest) {
   const stream = new ReadableStream({
     async start(controller) {
       try {
+        const anthropic = new Anthropic({
+          apiKey:  process.env.AI_INTEGRATIONS_ANTHROPIC_API_KEY,
+          baseURL: process.env.AI_INTEGRATIONS_ANTHROPIC_BASE_URL,
+        });
+
         const claudeStream = anthropic.messages.stream({
           model:      "claude-sonnet-4-6",
           max_tokens: 1024,
