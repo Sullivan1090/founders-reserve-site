@@ -159,6 +159,7 @@ export async function POST(req: NextRequest) {
 
         controller.enqueue(encoder.encode(`data: ${JSON.stringify({ done: true })}\n\n`));
       } catch (err) {
+        console.error("[concierge] Anthropic error:", err);
         const msg = err instanceof Error ? err.message : "Stream error";
         controller.enqueue(encoder.encode(`data: ${JSON.stringify({ error: msg })}\n\n`));
       } finally {
