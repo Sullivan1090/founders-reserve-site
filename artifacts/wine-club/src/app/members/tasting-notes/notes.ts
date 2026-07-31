@@ -38,7 +38,7 @@ export const TASTING_NOTE_CONTENT: Record<string, Record<number, TastingNoteCont
 
     2021: {
       notes:
-        "Savor the nuanced charm of the 2021 J.O. Sullivan Founders Reserve Merlot — an absolute masterpiece. Revealing intricate notes of blueberries, hints of tobacco leaves, and a whisper of toasty vanilla, it gracefully unfolds. Dense yet understated, matured tannins and integrated acidity dance in harmony. The sophisticated finish arrives with refined elegance and polished subtlety. In every sip, the commitment to Merlot excellence is undeniable. This vintage greatly champions the noble variety, a quiet celebration of the estate's unwavering commitment to the artistry and distinction of Merlot.",
+        "Savor the nuanced charm of the 2021 J.O. Sullivan Founder's Reserve Merlot — an absolute masterpiece. Revealing intricate notes of blueberries, hints of tobacco leaves, and a whisper of toasty vanilla, it gracefully unfolds. Dense yet understated, matured tannins and integrated acidity dance in harmony. The sophisticated finish arrives with refined elegance and polished subtlety. In every sip, the commitment to Merlot excellence is undeniable. This vintage greatly champions the noble variety, a quiet celebration of the estate's unwavering commitment to the artistry and distinction of Merlot.",
       details: {
         blend:            "89% Merlot, 7% Cabernet Sauvignon, 4% Cabernet Franc",
         oak:              "82% New French Oak, 22 months",
@@ -61,6 +61,7 @@ export const TASTING_NOTE_CONTENT: Record<string, Record<number, TastingNoteCont
         ph:               "3.70",
         alcohol:          "14.8%",
         cases:            "280",
+        vineyard:         "Sullivan Rutherford Estate",
         clones:           "Merlot 1, 3, 15 · Cabernet Franc 1",
         vineyardManager:  "Mike Wolf",
       },

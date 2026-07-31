@@ -1,19 +1,19 @@
 export const WINES = [
   {
     slug: "merlot",
-    name: "J.O. Sullivan Founders Reserve Merlot",
+    name: "J.O. Sullivan Founder's Reserve Merlot",
     shortName: "Merlot",
     vintages: [2023, 2022, 2021, 2020, 2019, 2018, 2015, 2014, 2013],
   },
   {
     slug: "cabernet-sauvignon",
-    name: "J.O. Sullivan Founders Reserve Cabernet Sauvignon",
+    name: "J.O. Sullivan Founder's Reserve Cabernet Sauvignon",
     shortName: "Cabernet Sauvignon",
     vintages: [2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013],
   },
   {
     slug: "cabernet-franc",
-    name: "J.O. Sullivan Founders Reserve Cabernet Franc",
+    name: "J.O. Sullivan Founder's Reserve Cabernet Franc",
     shortName: "Cabernet Franc",
     vintages: [2022, 2021],
   },

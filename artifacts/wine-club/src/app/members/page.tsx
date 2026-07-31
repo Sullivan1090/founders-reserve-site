@@ -28,7 +28,7 @@ export default async function ArrivalPage() {
     .maybeSingle();
 
   const wine = arrival ?? {
-    wine_name: "2023 J.O. Sullivan Founders Reserve Cabernet Sauvignon",
+    wine_name: "2023 J.O. Sullivan Founder's Reserve Cabernet Sauvignon",
     vintage:   "2023",
     youtube_id: "",
     description: "",

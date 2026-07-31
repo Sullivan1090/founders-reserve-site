@@ -35,7 +35,7 @@ export default function TastingNotesPage() {
               </span>
               <div>
                 <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">
-                  J.O. Sullivan Founders Reserve
+                  J.O. Sullivan Founder's Reserve
                 </p>
                 <h2 className="font-serif text-2xl md:text-3xl text-foreground leading-tight">
                   {wine.shortName}

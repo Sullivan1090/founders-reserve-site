@@ -77,7 +77,7 @@ export default async function AdminArrivalPage({
           label="Wine Name"
           name="wine_name"
           defaultValue={current.wine_name}
-          placeholder="2023 J.O. Sullivan Founders Reserve Cabernet Sauvignon"
+          placeholder="2023 J.O. Sullivan Founder's Reserve Cabernet Sauvignon"
         />
         <Field
           label="Vintage"

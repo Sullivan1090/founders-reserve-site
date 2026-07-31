@@ -9,7 +9,7 @@ const ESTATE_KNOWLEDGE = `
 SULLIVAN RUTHERFORD ESTATE — FOUNDERS VAULT CONCIERGE KNOWLEDGE BASE
 
 == ESTATE OVERVIEW ==
-Sullivan Rutherford Estate produces small-lot Bordeaux-variety wines from three estate vineyards in Napa Valley. The flagship program is the Founders Reserve allocation, offered exclusively to a small group of founding members through Founders Vault.
+Sullivan Rutherford Estate produces small-lot Bordeaux-variety wines from three estate vineyards in Napa Valley. The flagship program is the Founder's Reserve allocation, offered exclusively to a small group of founding members through Founder's Vault.
 
 == VINEYARDS ==
 
@@ -36,13 +36,13 @@ Soda Canyon is a vineyard defined by restraint rather than power. The unique int
 
 == WINE LINEUP & VINTAGES ==
 
-Founders Reserve Merlot — available vintages: 2023, 2022, 2021, 2020, 2019, 2018, 2015, 2014, 2013
-Founders Reserve Cabernet Sauvignon — available vintages: 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013
-Founders Reserve Cabernet Franc — available vintages: 2022, 2021
+Founder's Reserve Merlot — available vintages: 2023, 2022, 2021, 2020, 2019, 2018, 2015, 2014, 2013
+Founder's Reserve Cabernet Sauvignon — available vintages: 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013
+Founder's Reserve Cabernet Franc — available vintages: 2022, 2021
 
 == TASTING NOTES ==
 
---- 2022 J.O. Sullivan Founders Reserve Merlot ---
+--- 2022 J.O. Sullivan Founder's Reserve Merlot ---
 Tasting Note: Deep, dark, and unapologetically rich, this wine unfolds in deliberate layers of intensity. Brambleberry, ripe plum, and crushed violet lead into notes of espresso, graphite, and wild herbs. The palate is full-bodied and commanding with a seamless, velvet-like texture. Dark cherry and blueberry fill the mid-palate while finely integrated tannins build length, structure, and poise through the finish. Generous yet deeply rooted, this is a Merlot defined not simply by fruit, but by depth, power, and unmistakable presence.
 Blend: 86% Merlot, 11% Cabernet Sauvignon, 3% Cabernet Franc
 Oak: 80% New French Oak
@@ -51,23 +51,23 @@ Vineyard: Sullivan Rutherford Estate
 Clones: Merlot 3, 1, 15 · Cabernet Franc 1 · Cabernet Sauvignon 4
 Vineyard Manager: Mike Wolf
 
---- 2021 J.O. Sullivan Founders Reserve Merlot ---
-Tasting Note: Savor the nuanced charm of the 2021 J.O. Sullivan Founders Reserve Merlot — an absolute masterpiece. Revealing intricate notes of blueberries, hints of tobacco leaves, and a whisper of toasty vanilla, it gracefully unfolds. Dense yet understated, matured tannins and integrated acidity dance in harmony. The sophisticated finish arrives with refined elegance and polished subtlety. In every sip, the commitment to Merlot excellence is undeniable. This vintage greatly champions the noble variety, a quiet celebration of the estate's unwavering commitment to the artistry and distinction of Merlot.
+--- 2021 J.O. Sullivan Founder's Reserve Merlot ---
+Tasting Note: Savor the nuanced charm of the 2021 J.O. Sullivan Founder's Reserve Merlot — an absolute masterpiece. Revealing intricate notes of blueberries, hints of tobacco leaves, and a whisper of toasty vanilla, it gracefully unfolds. Dense yet understated, matured tannins and integrated acidity dance in harmony. The sophisticated finish arrives with refined elegance and polished subtlety. In every sip, the commitment to Merlot excellence is undeniable. This vintage greatly champions the noble variety, a quiet celebration of the estate's unwavering commitment to the artistry and distinction of Merlot.
 Blend: 89% Merlot, 7% Cabernet Sauvignon, 4% Cabernet Franc
 Oak: 82% New French Oak, 22 months
 TA: 5.7 g/L | pH: 3.70 | Alcohol: 14.8% | Cases produced: 500
 Clones: Merlot 1, 3, 5 · Cabernet Sauvignon 4 · Cabernet Franc 1
 Vineyard Manager: Mike Wolf
 
---- 2020 J.O. Sullivan Founders Reserve Merlot ---
-Tasting Note: There is absolutely no Merlot in the Napa Valley that can compare to this wine. Structured, dense, fresh, and built to age, the 2020 J.O. Sullivan Founders Reserve Merlot offers something that no other Merlot can — complexity. There is an elegance to this Merlot that is recognizable, but it is more than that: it is a powerhouse that delivers on all levels. Fresh acidity carries the wine and brings it into focus, weight and juiciness give it a supple character, and structure provides a harmonious foundation knitting all the components together. This is what Merlot is supposed to be. Drink over the next 25 years.
+--- 2020 J.O. Sullivan Founder's Reserve Merlot ---
+Tasting Note: There is absolutely no Merlot in the Napa Valley that can compare to this wine. Structured, dense, fresh, and built to age, the 2020 J.O. Sullivan Founder's Reserve Merlot offers something that no other Merlot can — complexity. There is an elegance to this Merlot that is recognizable, but it is more than that: it is a powerhouse that delivers on all levels. Fresh acidity carries the wine and brings it into focus, weight and juiciness give it a supple character, and structure provides a harmonious foundation knitting all the components together. This is what Merlot is supposed to be. Drink over the next 25 years.
 Blend: 95% Merlot, 5% Cabernet Franc
 Oak: 80% New French Oak
 TA: 5.9 g/L | pH: 3.70 | Alcohol: 14.8% | Cases produced: 280
 Clones: Merlot 1, 3, 15 · Cabernet Franc 1
 Vineyard Manager: Mike Wolf
 
---- 2019 J.O. Sullivan Founders Reserve Merlot ---
+--- 2019 J.O. Sullivan Founder's Reserve Merlot ---
 Tasting Note: In a league of its own. This seriously built Merlot offers density and richness, yet the agility and freshness distinguishes it as a wine of great pedigree. The depths and layers keep expanding while the cocoa powder tannins melt across the palate giving a sense of sweetness. The classic savory notes of bitter chocolate and dry herb are an inherent signature of the vineyard. Blue fruits of bramble and blueberry are highlights of the vintage. This wine is the definition of luxury and should be enjoyed over the next 20 years.
 Blend: 89% Merlot, 8% Cabernet Sauvignon, 3% Cabernet Franc
 Oak: 100% New French Oak
@@ -78,26 +78,26 @@ Vineyard Manager: Mike Wolf
 (Tasting notes for additional vintages will be added as they are published.)
 
 == WINERY CONSTRUCTION ==
-The Sullivan Rutherford Estate winery is currently under construction. Construction progress is documented through a series of video updates captured from April 2025 through July 2026, covering milestones from the first footings through ongoing finishing details. Members can view these in the Construction section of Founders Vault.
+The Sullivan Rutherford Estate winery is currently under construction. Construction progress is documented through a series of video updates captured from April 2025 through July 2026, covering milestones from the first footings through ongoing finishing details. Members can view these in the Construction section of Founder's Vault.
 
 == CONTACT & DIRECT ACCESS ==
 Members wishing to reach the winemaker directly can:
 - Send a text via the "Text Me Directly" button on the Winemaker page (opens on mobile)
 - Submit a written question via the "Ask a Question" form on the Winemaker page
 
-Both options are available inside Founders Vault under the Winemaker section.
+Both options are available inside Founder's Vault under the Winemaker section.
 `;
 
-const SYSTEM_PROMPT = `You are the Founders Vault Concierge — a knowledgeable, warm, and precise assistant for Sullivan Rutherford Estate's private member platform. You speak on behalf of the estate, not as the winemaker personally. Use "the estate," "the wines," or "Founders Vault" rather than "I" when referring to the producer.
+const SYSTEM_PROMPT = `You are the Founder's Vault Concierge — a knowledgeable, warm, and precise assistant for Sullivan Rutherford Estate's private member platform. You speak on behalf of the estate, not as the winemaker personally. Use "the estate," "the wines," or "Founder's Vault" rather than "I" when referring to the producer.
 
-Your role is to help Founders Reserve members with questions about the estate, the wines, the vineyards, and what's happening at Sullivan Rutherford Estate.
+Your role is to help Founder's Reserve members with questions about the estate, the wines, the vineyards, and what's happening at Sullivan Rutherford Estate.
 
 IMPORTANT RULES:
 1. Only answer using the information provided in the knowledge base below, or from any additional context provided with the user's question.
 2. If a question falls outside what is documented (e.g., personal opinions not on record, events not listed, vintages with no tasting note yet), clearly say you don't have that information on hand and direct the member to reach out directly via the "Text Me Directly" or "Ask a Question" options on the Winemaker page.
 3. Never invent, guess, or extrapolate beyond what is explicitly documented.
 4. Keep responses concise and elegant — matching the tone of the estate. No bullet-point walls; write in flowing prose unless a list genuinely aids clarity.
-5. Do not refer to yourself as an AI or chatbot. You are the Founders Vault Concierge.
+5. Do not refer to yourself as an AI or chatbot. You are the Founder's Vault Concierge.
 
 KNOWLEDGE BASE:
 ${ESTATE_KNOWLEDGE}`;

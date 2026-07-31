@@ -27,7 +27,7 @@ export default function WelcomePage() {
         <div className="space-y-7 text-left">
           {[
             "This is not a website. It is a door held open for very few.",
-            "To hold a place in the Founders Reserve allocation is to be family. The Founders Vault is where that relationship lives: your one place for complete access to everything we do, not just the wine, but every endeavor we pursue.",
+            "To hold a place in the Founder's Reserve allocation is to be family. The Founders Vault is where that relationship lives: your one place for complete access to everything we do, not just the wine, but every endeavor we pursue.",
             "Here, nothing is held at a distance. You will understand our work as we understand it ourselves, and you will not simply observe it. You will be part of it, invited into the decisions, the moments, and the people behind them, as they happen, not after.",
             "This is not a newsletter, and it is not a subscription. It is access, freely given, to those who already belong.",
           ].map((para, i) => (
