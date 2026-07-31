@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SignOutButton } from "@/components/sign-out-button";
 import { Wine } from "lucide-react";
 import { HamburgerMenu } from "@/components/hamburger-menu";
+import { ConciergeChat } from "@/components/concierge-chat";
 
 export default async function MembersLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
@@ -26,6 +27,7 @@ export default async function MembersLayout({ children }: { children: React.Reac
       <main className="flex-1">
         {children}
       </main>
+      <ConciergeChat />
     </div>
   );
 }
