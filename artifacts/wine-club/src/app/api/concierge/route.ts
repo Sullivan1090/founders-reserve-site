@@ -79,7 +79,7 @@ Vineyard Manager: Mike Wolf
 Tasting Note: Two vintages have passed, but the wait is over! The 2018 J.O. Sullivan Merlot is one of the most unique, interesting, and delicious Merlots produced to date. The structure and complexity that defines this Merlot is a reflection of the gravelly soil from which the fruit is grown. Grown in a warmer climate has shaped the fruit profile to be more generous, exotic, and giving. Constantly evolving and changing, it stimulates the senses to such a degree that one experience with this wine is not enough. Enjoy forever.
 Blend: 80% Merlot, 12% Cabernet Sauvignon, 8% Petit Verdot
 Oak: 100% New French Oak
-TA: 5.4 g/L | pH: 3.72 | Cases produced: 235
+TA: 5.4 g/L | pH: 3.72 | Alcohol: 14.8% | Cases produced: 235
 Clones: Merlot 1, 3, 15 · Cabernet Sauvignon 7 · Petit Verdot 400
 Vineyard Manager: Paul Garvey
 

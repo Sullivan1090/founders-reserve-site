@@ -90,6 +90,7 @@ export const TASTING_NOTE_CONTENT: Record<string, Record<number, TastingNoteCont
         oak:              "100% New French Oak",
         ta:               "5.4 g/L",
         ph:               "3.72",
+        alcohol:          "14.8%",
         cases:            "235",
         clones:           "Merlot 1, 3, 15 · Cabernet Sauvignon 7 · Petit Verdot 400",
         vineyardManager:  "Paul Garvey",
