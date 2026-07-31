@@ -135,10 +135,14 @@ export async function POST(req: NextRequest) {
   const stream = new ReadableStream({
     async start(controller) {
       try {
-        const anthropic = new Anthropic({
-          apiKey:  process.env.AI_INTEGRATIONS_ANTHROPIC_API_KEY,
-          baseURL: process.env.AI_INTEGRATIONS_ANTHROPIC_BASE_URL,
-        });
+        // Use the Replit AI proxy in dev; fall back to a direct Anthropic key in production (e.g. Vercel)
+        const anthropicOptions: ConstructorParameters<typeof Anthropic>[0] = {
+          apiKey: process.env.AI_INTEGRATIONS_ANTHROPIC_API_KEY ?? process.env.ANTHROPIC_API_KEY,
+        };
+        if (process.env.AI_INTEGRATIONS_ANTHROPIC_BASE_URL) {
+          anthropicOptions.baseURL = process.env.AI_INTEGRATIONS_ANTHROPIC_BASE_URL;
+        }
+        const anthropic = new Anthropic(anthropicOptions);
 
         const claudeStream = anthropic.messages.stream({
           model:      "claude-sonnet-4-6",
