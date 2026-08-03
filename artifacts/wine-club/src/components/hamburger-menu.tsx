@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 
 const NAV_ITEMS = [
   { label: "PA Vinea",              href: "/members/pa-vinea" },
+  { label: "Sttupa Estate",         href: "/members/sttupa-estate" },
   { label: "Winemaker",             href: "/members/winemaker" },
   { label: "Vineyard",              href: "/members/vineyard" },
   { label: "Construction",          href: "/members/construction" },
