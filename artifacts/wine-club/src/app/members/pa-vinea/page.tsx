@@ -15,9 +15,9 @@ export default function PAVineaPage() {
   return (
     <div
       className="flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6 py-16 relative overflow-hidden"
-      style={{ background: BLUE }}
+      style={{ background: "#2B2F32" }}
     >
-      {/* PA Vinea graphic — watermark layer behind all text */}
+      {/* PA Vinea graphic — gold watermark behind all text */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/pa-vinea-graphic.png"
@@ -29,8 +29,7 @@ export default function PAVineaPage() {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          opacity: 0.13,
-          mixBlendMode: "screen",
+          opacity: 0.22,
         }}
       />
 
