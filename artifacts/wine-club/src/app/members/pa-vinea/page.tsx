@@ -1,8 +1,8 @@
 export default function PAVineaPage() {
-  const BLUE      = "#1B3448";
   const GOLD      = "#C49A35";
   const GOLD_DARK = "#9C7A3D";
   const OFF_WHITE = "#EDEAE2";
+  const BLUE      = "#1B3448";
 
   const paragraphs = [
     "Some things are not made to be sold. They are made to be shared.",
@@ -17,7 +17,7 @@ export default function PAVineaPage() {
       className="flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6 py-16 relative overflow-hidden"
       style={{ background: "#2B2F32" }}
     >
-      {/* PA Vinea graphic — gold watermark behind all text */}
+      {/* PA Vinea circular graphic — watermark behind all text */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/pa-vinea-graphic.png"
@@ -37,18 +37,20 @@ export default function PAVineaPage() {
 
         {/* Top rule */}
         <div className="flex items-center gap-4">
-          <div className="flex-1 h-px" style={{ background: "rgba(139,103,38,0.35)" }} />
+          <div className="flex-1 h-px" style={{ background: "rgba(196,154,53,0.3)" }} />
           <div className="w-1.5 h-1.5 rounded-full" style={{ background: GOLD_DARK }} />
-          <div className="flex-1 h-px" style={{ background: "rgba(139,103,38,0.35)" }} />
+          <div className="flex-1 h-px" style={{ background: "rgba(196,154,53,0.3)" }} />
         </div>
 
-        {/* Title */}
-        <h1
-          className="font-serif leading-tight"
-          style={{ fontSize: "clamp(2.2rem, 5vw, 3.2rem)", fontWeight: 400, color: GOLD_DARK }}
-        >
-          PA Vinea
-        </h1>
+        {/* Wordmark title — replaces "PA Vinea" text heading */}
+        <div className="flex justify-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/pa-wordmark.png"
+            alt="PA Vinea"
+            style={{ width: "min(240px, 60vw)", height: "auto" }}
+          />
+        </div>
 
         {/* Body */}
         <div className="space-y-7 text-left">
@@ -57,9 +59,9 @@ export default function PAVineaPage() {
               key={i}
               className="font-serif leading-relaxed"
               style={{
-                color:      OFF_WHITE,
-                fontSize:   i === 0 ? "1.2rem" : "1.05rem",
-                fontStyle:  i === 0 ? "italic" : "normal",
+                color:     OFF_WHITE,
+                fontSize:  i === 0 ? "1.2rem" : "1.05rem",
+                fontStyle: i === 0 ? "italic" : "normal",
               }}
             >
               {para}
@@ -69,27 +71,39 @@ export default function PAVineaPage() {
 
         {/* Bottom rule */}
         <div className="flex items-center gap-4 pt-2">
-          <div className="flex-1 h-px" style={{ background: "rgba(139,103,38,0.35)" }} />
+          <div className="flex-1 h-px" style={{ background: "rgba(196,154,53,0.3)" }} />
           <div className="w-1.5 h-1.5 rounded-full" style={{ background: GOLD_DARK }} />
-          <div className="flex-1 h-px" style={{ background: "rgba(139,103,38,0.35)" }} />
+          <div className="flex-1 h-px" style={{ background: "rgba(196,154,53,0.3)" }} />
         </div>
 
-        {/* CTA button */}
-        <div className="pt-2">
+        {/* CTA button — wordmark image as the label */}
+        <div className="pt-2 flex justify-center">
           <a
             href="https://pavinea.com/offering/?utm_source=Commerce+7&utm_campaign=bacd49a7fb-EMAIL_CAMPAIGN_2021_11_02_01_31_COPY_01&utm_medium=email&utm_term=0_93484e7167-bacd49a7fb-92441648&mc_cid=bacd49a7fb&mc_eid=f743e7ddce#allocation"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block font-serif tracking-widest text-sm uppercase transition-all hover:opacity-80 px-10 py-3.5 rounded-full"
+            className="inline-flex flex-col items-center gap-2 transition-all hover:opacity-80 px-8 py-4 rounded-full"
             style={{
-              background:    GOLD,
-              border:        `1px solid ${GOLD}`,
-              color:         BLUE,
-              letterSpacing: "0.15em",
-              fontWeight:    600,
+              background: GOLD,
+              border:     `1px solid ${GOLD}`,
             }}
           >
-            Inquire About PA Vinea
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/pa-wordmark.png"
+              alt="PA Vinea"
+              style={{
+                width:  "min(110px, 28vw)",
+                height: "auto",
+                filter: `brightness(0) saturate(100%) invert(13%) sepia(34%) saturate(617%) hue-rotate(177deg) brightness(95%) contrast(97%)`,
+              }}
+            />
+            <span
+              className="font-serif tracking-widest text-xs uppercase"
+              style={{ color: BLUE, letterSpacing: "0.18em", fontWeight: 600 }}
+            >
+              Inquire
+            </span>
           </a>
         </div>
 
