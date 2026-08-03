@@ -33,7 +33,7 @@ function LoginForm() {
     <div
       className="min-h-screen w-full flex items-center justify-center relative overflow-hidden"
       style={{
-        backgroundImage: "url('/artwork.png')",
+        backgroundImage: "url('/login-bg.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
