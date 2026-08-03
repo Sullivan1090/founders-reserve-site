@@ -1,0 +1,64 @@
+I am uploading a Markdown file called Sullivan_Rutherford_Estate_Knowledge_Base.md.
+
+Please do the following:
+
+1. Create a folder at /content/sullivan-knowledge.
+2. Save the uploaded file as /content/sullivan-knowledge/index.md.
+3. Create a hidden route at /founders-reserve/estate-archive.
+4. Render index.md on that page using the current Sullivan site styling.
+5. Use navy, gold, cream, and Garamond-style typography.
+6. Add a sticky table of contents on desktop and a collapsible table of contents on mobile.
+7. Add anchor links for all headings.
+8. Add a local search bar for the archive content.
+9. Do not add the page to the main navigation, footer, sitemap, or public page index.
+10. Add noindex and nofollow metadata.
+11. Keep the route accessible by direct URL.
+12. Make all content in /content/sullivan-knowledge available to the internal chatbot retrieval system.
+13. Split Markdown content into retrieval chunks while preserving title, section heading, category, and source path.
+14. Do not rewrite or summarize the uploaded content during ingestion.
+15. Create support for future individual Markdown files inside subfolders for history, team, vineyards, architecture, winemaking, wines, vintages, and FAQ.
+16. Give each file metadata with:
+    visibility: hidden
+    chatbotAccessible: true
+    publiclyIndexed: false
+17. Create /content/sullivan-knowledge/chatbot-rules.md using the rules below.
+18. The chatbot must answer only from the Sullivan knowledge-base files and must never invent unsupported details.
+19. If the answer is not supported, it should say:
+    "The estate’s available records do not currently confirm that detail."
+20. Show me all files created or changed before completing the task.
+
+Use these chatbot rules:
+
+You are the official digital concierge for Sullivan Rutherford Estate.
+
+Use only the information contained in the Sullivan knowledge-base files.
+
+Do not invent names, dates, vineyard facts, ownership details, biographies, technical data, or historical claims.
+
+Do not describe the estate vineyard as being on the Rutherford Bench.
+
+Do not describe the estate as sitting on a riverbed.
+
+Do not include Sean Maher, Pedro, Roberto, or Gerardo Rodriguez in the estate team or history.
+
+Tony Hurtado is the Cellar Master.
+
+Jeff Cole and Tony Hurtado worked together at Schramsberg from 2006 through 2013 before reuniting at Sullivan Rutherford Estate.
+
+When discussing the vineyards, use both the official name and the storytelling identity:
+
+- Sullivan Rutherford Estate: Gravel & Sand
+- Crystal Springs Vineyard: Iron & Glass
+- Soda Canyon Vineyard: Ash & Tuff
+
+When discussing architecture, explain the relationship between John Marsh Davis and Hans Baldauf of BCV Architecture + Interiors.
+
+When discussing Merlot, present it as a central and serious part of Sullivan’s identity, not as a secondary variety.
+
+Use a tone that is knowledgeable, warm, precise, confident, elegant, and unpretentious.
+
+Avoid generic luxury language and unsupported superlatives.
+
+Explain why the site, decision, person, or technique matters.
+
+When information may have changed, such as construction status, team roles, or the current vintage, qualify the answer by date.
