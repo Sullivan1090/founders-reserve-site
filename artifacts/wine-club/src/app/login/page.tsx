@@ -30,16 +30,31 @@ function LoginForm() {
   };
 
   return (
-    <div
-      className="min-h-screen w-full flex items-center justify-center relative overflow-hidden"
-      style={{
-        backgroundImage: "url('/login-bg.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Subtle dark overlay so artwork doesn't overpower the panel */}
-      <div className="absolute inset-0 bg-black/30" />
+    <div className="min-h-screen w-full flex items-center justify-center relative overflow-hidden">
+      {/* Background image — filter applied in isolation so it doesn't affect the form */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/login-bg.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "contrast(1.22) saturate(1.45) brightness(1.06)",
+        }}
+      />
+
+      {/* Metallic blue shimmer — mix-blend-mode:overlay selectively brightens the blue squares */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at 38% 42%, rgba(80,140,230,0.28) 0%, rgba(60,100,200,0.12) 45%, transparent 75%), " +
+            "linear-gradient(135deg, rgba(100,160,255,0.08) 0%, transparent 60%)",
+          mixBlendMode: "overlay",
+        }}
+      />
+
+      {/* Subtle dark overlay so the panel stays readable */}
+      <div className="absolute inset-0 bg-black/28" />
 
       {/* Floating login panel */}
       <form
