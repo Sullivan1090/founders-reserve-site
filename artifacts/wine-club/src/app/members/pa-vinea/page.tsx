@@ -14,10 +14,27 @@ export default function PAVineaPage() {
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6 py-16"
+      className="flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6 py-16 relative overflow-hidden"
       style={{ background: BLUE }}
     >
-      <div className="max-w-xl w-full text-center space-y-10">
+      {/* PA Vinea graphic — watermark layer behind all text */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/pa-vinea-graphic.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute pointer-events-none select-none"
+        style={{
+          width: "min(680px, 130vw)",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          opacity: 0.13,
+          mixBlendMode: "screen",
+        }}
+      />
+
+      <div className="max-w-xl w-full text-center space-y-10 relative z-10">
 
         {/* Top rule */}
         <div className="flex items-center gap-4">
