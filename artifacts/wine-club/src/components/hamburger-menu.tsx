@@ -15,7 +15,7 @@ const NAV_ITEMS = [
   { label: "Gatherings",            href: "/members/gatherings" },
   { label: "Cellar Picks",          href: "/members/cellar-picks" },
   { label: "Meet the Team",         href: "/members/meet-the-team" },
-  { label: "Monthly Conversation",  href: "/members/monthly-conversation" },
+  { label: "Live with the Winemaker", href: "/members/monthly-conversation" },
   { label: "About the Vault",       href: "/members/welcome" },
 ];
 
