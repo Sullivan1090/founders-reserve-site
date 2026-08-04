@@ -1,8 +1,7 @@
 export default function SttupaestatePage() {
-  const BLUE      = "#1B3448";
   const GOLD      = "#C49A35";
   const GOLD_DARK = "#9C7A3D";
-  const OFF_WHITE = "#EDEAE2";
+  const OFF_WHITE = "#F2EFE8";
 
   const paragraphs = [
     "High above the valley floor, hidden at the end of a gated drive, there is a place built for stillness.",
@@ -12,22 +11,36 @@ export default function SttupaestatePage() {
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6 py-16"
-      style={{ background: BLUE }}
+      className="relative flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6 py-16 overflow-hidden"
+      style={{
+        backgroundImage:    "url('/sttupa-bg.jpg')",
+        backgroundSize:     "cover",
+        backgroundPosition: "center top",
+        backgroundRepeat:   "no-repeat",
+      }}
     >
-      <div className="max-w-xl w-full text-center space-y-10">
+      {/* Dark-to-light gradient overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "linear-gradient(to bottom, rgba(8,12,18,0.82) 0%, rgba(8,12,18,0.55) 45%, rgba(8,12,18,0.18) 100%)",
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-xl w-full text-center space-y-10">
 
         {/* Top rule */}
         <div className="flex items-center gap-4">
-          <div className="flex-1 h-px" style={{ background: "rgba(139,103,38,0.35)" }} />
+          <div className="flex-1 h-px" style={{ background: "rgba(196,154,53,0.45)" }} />
           <div className="w-1.5 h-1.5 rounded-full" style={{ background: GOLD_DARK }} />
-          <div className="flex-1 h-px" style={{ background: "rgba(139,103,38,0.35)" }} />
+          <div className="flex-1 h-px" style={{ background: "rgba(196,154,53,0.45)" }} />
         </div>
 
         {/* Title */}
         <h1
           className="font-serif leading-tight"
-          style={{ fontSize: "clamp(2.2rem, 5vw, 3.2rem)", fontWeight: 400, color: GOLD_DARK }}
+          style={{ fontSize: "clamp(2.2rem, 5vw, 3.2rem)", fontWeight: 400, color: GOLD }}
         >
           Sttupa Estate
         </h1>
@@ -42,6 +55,7 @@ export default function SttupaestatePage() {
                 color:     OFF_WHITE,
                 fontSize:  i === 0 ? "1.2rem" : "1.05rem",
                 fontStyle: i === 0 ? "italic" : "normal",
+                textShadow: "0 1px 4px rgba(0,0,0,0.5)",
               }}
             >
               {para}
@@ -51,9 +65,9 @@ export default function SttupaestatePage() {
 
         {/* Bottom rule */}
         <div className="flex items-center gap-4 pt-2">
-          <div className="flex-1 h-px" style={{ background: "rgba(139,103,38,0.35)" }} />
+          <div className="flex-1 h-px" style={{ background: "rgba(196,154,53,0.45)" }} />
           <div className="w-1.5 h-1.5 rounded-full" style={{ background: GOLD_DARK }} />
-          <div className="flex-1 h-px" style={{ background: "rgba(139,103,38,0.35)" }} />
+          <div className="flex-1 h-px" style={{ background: "rgba(196,154,53,0.45)" }} />
         </div>
 
         {/* CTA button */}
@@ -66,7 +80,7 @@ export default function SttupaestatePage() {
             style={{
               background:    GOLD,
               border:        `1px solid ${GOLD}`,
-              color:         BLUE,
+              color:         "#0D1117",
               letterSpacing: "0.15em",
               fontWeight:    600,
             }}
