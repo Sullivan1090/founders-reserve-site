@@ -42,36 +42,13 @@ export default function PAVineaPage() {
           <div className="flex-1 h-px" style={{ background: "rgba(196,154,53,0.3)" }} />
         </div>
 
-        {/* Wordmark title — gold serif text with black outline, matching the PDF */}
-        <div className="flex flex-col items-center select-none" style={{ gap: "0.1em" }}>
-          <div
-            className="font-serif"
-            style={{
-              fontSize:         "clamp(5.5rem, 18vw, 8.5rem)",
-              fontWeight:       300,
-              color:            GOLD,
-              WebkitTextStroke: "1px #0D0D0D",
-              letterSpacing:    "0.08em",
-              lineHeight:       1,
-            }}
-          >
-            PA
-          </div>
-          <div
-            className="font-serif"
-            style={{
-              fontSize:         "clamp(0.9rem, 2.8vw, 1.3rem)",
-              fontWeight:       400,
-              color:            GOLD,
-              WebkitTextStroke: "0.4px #0D0D0D",
-              letterSpacing:    "0.55em",
-              lineHeight:       1,
-              paddingLeft:      "0.55em",
-            }}
-          >
-            VINEA
-          </div>
-        </div>
+        {/* Title */}
+        <h1
+          className="font-serif leading-tight"
+          style={{ fontSize: "clamp(2.2rem, 5vw, 3.2rem)", fontWeight: 400, color: GOLD_DARK }}
+        >
+          PA Vinea
+        </h1>
 
         {/* Body */}
         <div className="space-y-7 text-left">
