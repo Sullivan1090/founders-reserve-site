@@ -310,6 +310,20 @@ export const TASTING_NOTE_CONTENT: Record<string, Record<number, TastingNoteCont
   },
 
   "cabernet-franc": {
+    2021: {
+      notes:
+        "The 2021 J.O. Sullivan Founders Reserve Cabernet Franc exudes a blend of elegance and profound intensity, with a powerful presence that is unrivaled. Its bright, energetic aromas are laced with a touch of dried herbs, while hints of rhubarb and vibrant red fruit pierce through layers of dense, toasty dark chocolate. On the palate, it reveals a concentrated richness, with fine-grained tannins that elevate the savory bitter chocolate notes. This wine passionately showcases the exceptional terroir of Sullivan Rutherford Estate, leaving a lasting impression of depth and sophistication.",
+      details: {
+        blend:           "80% Cabernet Franc, 12% Merlot, 8% Cabernet Sauvignon",
+        oak:             "100% New French Oak",
+        alcohol:         "14.8%",
+        ta:              "5.9 g/L",
+        ph:              "3.76",
+        cases:           "70",
+        clones:          "1, 12 – CF, 15 – ME, 7 – CS",
+        vineyardManager: "Mike Wolf",
+      },
+    },
     2022: {
       notes:
         "The 2022 Founder's Reserve Cabernet Franc reflects the distinct character of the gravel-rich soils at the front of the Rutherford estate — structured, perfumed, and tightly composed. The fruit leads with mulberry and dark plum, lifted by floral notes of lilac. Hints of sun-dried bay and black tea add dimension without overshadowing the wine's natural clarity. The palate is detailed and firm, shaped by remarkably fine tannins that carry flavor without excess weight. Each movement of flavor, texture, and structure is the result of a deliberate effort to elevate what the vineyard provides. The finish is long and composed, with energy that hums beneath its polish. This is not a reductive interpretation of Cabernet Franc. It is expressive, sculpted, and crafted to reveal nuance from first pour to final impression.",
