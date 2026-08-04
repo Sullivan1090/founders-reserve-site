@@ -22,8 +22,16 @@ export function OneSignalInit() {
             appId: "${APP_ID}",
             serviceWorkerPath: "/OneSignalSDKWorker.js",
           });
-          // Prompt is triggered by the NotificationBanner component,
-          // not here — avoids two competing prompts on the same page load.
+          // If permission is already granted (e.g. the user allowed it before
+          // the SDK was loaded), register the push subscription now so they
+          // appear as a subscriber in the OneSignal dashboard.
+          if (typeof Notification !== "undefined" && Notification.permission === "granted") {
+            try {
+              await OneSignal.User.PushSubscription.optIn();
+            } catch(e) {
+              console.warn("[OneSignal] optIn failed:", e);
+            }
+          }
         });
       `}</Script>
     </>
