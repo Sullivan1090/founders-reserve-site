@@ -5,6 +5,7 @@ import { Wine } from "lucide-react";
 import { HamburgerMenu } from "@/components/hamburger-menu";
 import { ConciergeChat } from "@/components/concierge-chat";
 import { PwaInstallBanner } from "@/components/pwa-install-banner";
+import { NotificationBell } from "@/components/notification-bell";
 
 export default async function MembersLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
@@ -20,6 +21,7 @@ export default async function MembersLayout({ children }: { children: React.Reac
           </Link>
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground hidden md:inline-block font-medium">{user?.email}</span>
+            <NotificationBell />
             <SignOutButton />
             <HamburgerMenu />
           </div>

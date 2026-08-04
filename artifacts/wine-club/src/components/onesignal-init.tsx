@@ -1,8 +1,8 @@
-"use client";
 /**
- * Injects the OneSignal SDK and deferred init into the page.
- * Rendered once in the root layout. The OneSignalDeferred queue
- * means the init code safely runs after the SDK loads regardless of order.
+ * Injects the OneSignal SDK and deferred init into every page.
+ * Intentionally a Server Component — Script tags must be registered
+ * through Next.js's server-side script manager (strategy="afterInteractive"
+ * inside a "use client" component is not handled correctly by Next.js).
  */
 import Script from "next/script";
 
@@ -22,6 +22,13 @@ export function OneSignalInit() {
             appId: "${APP_ID}",
             serviceWorkerPath: "/OneSignalSDKWorker.js",
           });
+          // Fire the slide-in prompt automatically if permission hasn't been
+          // decided yet. Delayed 4 s so the page is settled before it appears.
+          if (typeof Notification !== "undefined" && Notification.permission === "default") {
+            setTimeout(function() {
+              OneSignal.Slidedown.promptPush();
+            }, 4000);
+          }
         });
       `}</Script>
     </>
