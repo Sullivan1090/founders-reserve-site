@@ -1,37 +1,53 @@
 "use client";
 /**
- * Permanent notification opt-in card shown on the members home page.
- * Unlike the timed banner, this is always visible until permission is granted.
- *
- * Platform behaviour:
- *  - iOS Safari (non-standalone): push not supported — shows "install the app first" instructions
- *  - iOS standalone (PWA) / Android / Desktop: shows "Enable Notifications" button
- *  - After permission granted: hides itself
+ * Permanent notification opt-in card on the members home page.
+ * Covers four cases:
+ *  1. Permission "default"           → Enable button
+ *  2. Permission "granted" but not   → "Activate" button (permission OK,
+ *     yet registered in OneSignal       but OneSignal subscription missing)
+ *  3. Permission "denied"            → Instructions to unblock in settings
+ *  4. iOS Safari non-standalone      → Install PWA first instructions
+ *  5. Fully subscribed               → Hidden
  */
 
 import { useEffect, useState } from "react";
 import { Bell, BellOff, CheckCircle2 } from "lucide-react";
 
 type Status =
-  | "loading"       // SSR / not yet checked
-  | "granted"       // already subscribed — hide
-  | "denied"        // user blocked notifications in browser settings
-  | "ios-browser"   // iOS Safari, not installed as PWA — can't prompt
-  | "ready";        // can prompt
+  | "loading"
+  | "subscribed"        // permission granted + OneSignal subscription active → hide
+  | "granted-unsynced"  // permission granted but OneSignal not subscribed yet
+  | "ready"             // permission "default" — needs to be asked
+  | "denied"
+  | "ios-browser";
 
-function detect(): Status {
+function isIosNonStandalone(): boolean {
+  if (typeof window === "undefined") return false;
+  const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const standalone =
+    window.matchMedia("(display-mode: standalone)").matches ||
+    (navigator as any).standalone === true;
+  return isIos && !isStandalone;
+}
+
+function isStandalone(): boolean {
+  if (typeof window === "undefined") return false;
+  return (
+    window.matchMedia("(display-mode: standalone)").matches ||
+    (navigator as any).standalone === true
+  );
+}
+
+function baseDetect(): Status {
   if (typeof window === "undefined") return "loading";
-  if (!("Notification" in window))  return "denied"; // unsupported (treat as blocked)
+  if (!("Notification" in window)) return "denied";
 
-  const ua         = navigator.userAgent;
-  const isIos      = /iphone|ipad|ipod/i.test(ua);
-  const standalone = window.matchMedia("(display-mode: standalone)").matches
-                  || (navigator as any).standalone === true;
-
-  if (Notification.permission === "granted") return "granted";
-  if (Notification.permission === "denied")  return "denied";
-  if (isIos && !standalone)                  return "ios-browser";
-  return "ready";
+  const ua  = navigator.userAgent;
+  const ios = /iphone|ipad|ipod/i.test(ua);
+  if (ios && !isStandalone()) return "ios-browser";
+  if (Notification.permission === "denied") return "denied";
+  if (Notification.permission === "default") return "ready";
+  return "loading"; // "granted" — need to check OneSignal (async)
 }
 
 export function NotificationOptIn() {
@@ -39,33 +55,41 @@ export function NotificationOptIn() {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    setStatus(detect());
+    const base = baseDetect();
+    if (base !== "loading") {
+      setStatus(base);
+      return;
+    }
+
+    // Permission is "granted" — check if OneSignal actually has an active
+    // subscription. Give the SDK up to 4 s to initialize.
+    let cancelled = false;
+
+    function checkOneSignal() {
+      if (cancelled) return;
+      const os = (window as any).OneSignal;
+      if (os?.User?.PushSubscription?.optedIn === true) {
+        setStatus("subscribed");
+      } else {
+        // SDK not ready or subscription missing — show the activate button
+        setStatus("granted-unsynced");
+      }
+    }
+
+    // First check after 1 s, then again at 4 s once the SDK has likely loaded
+    const t1 = setTimeout(checkOneSignal, 1000);
+    const t2 = setTimeout(checkOneSignal, 4000);
+
+    return () => {
+      cancelled = true;
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
   }, []);
 
-  // Hide when loading or already subscribed (with a brief success flash)
-  if (status === "loading" || status === "granted") return null;
+  if (status === "loading" || status === "subscribed") return null;
 
-  async function enable() {
-    const permission = await Notification.requestPermission();
-
-    if (permission === "granted") {
-      // Tell OneSignal to register the subscription
-      try {
-        const OneSignal = (window as any).OneSignal;
-        if (OneSignal?.User?.PushSubscription?.optIn) {
-          await OneSignal.User.PushSubscription.optIn();
-        }
-      } catch {
-        // Service worker picks it up automatically — non-fatal
-      }
-      setSuccess(true);
-      setTimeout(() => setStatus("granted"), 2000);
-    } else {
-      setStatus("denied");
-    }
-  }
-
-  // ── Granted flash ───────────────────────────────────────────────────────
+  // ── Success flash ─────────────────────────────────────────────────────────
   if (success) {
     return (
       <div
@@ -80,7 +104,60 @@ export function NotificationOptIn() {
     );
   }
 
-  // ── iOS Safari (not installed) ──────────────────────────────────────────
+  async function optInViaOneSignal() {
+    const os = (window as any).OneSignal;
+    if (os?.User?.PushSubscription?.optIn) {
+      await os.User.PushSubscription.optIn();
+    }
+  }
+
+  // ── Permission granted but OneSignal subscription missing ─────────────────
+  if (status === "granted-unsynced") {
+    async function activate() {
+      try {
+        // Push subscription needs to be created — optIn() handles this.
+        // If the SDK isn't loaded yet, also request permission again so the
+        // browser re-triggers the full push subscription flow.
+        await optInViaOneSignal();
+        setSuccess(true);
+        setTimeout(() => setStatus("subscribed"), 2500);
+      } catch {
+        // Fallback: re-request permission, which re-triggers the full flow
+        const result = await Notification.requestPermission();
+        if (result === "granted") {
+          await optInViaOneSignal().catch(() => {});
+          setSuccess(true);
+          setTimeout(() => setStatus("subscribed"), 2500);
+        }
+      }
+    }
+
+    return (
+      <div
+        className="rounded-xl px-5 py-4 flex items-center gap-4"
+        style={{ background: "rgba(139,103,38,0.07)", border: "1px solid rgba(139,103,38,0.25)" }}
+      >
+        <Bell className="w-5 h-5 shrink-0" style={{ color: "#C49A35" }} />
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-semibold leading-tight" style={{ color: "#EDEAE2" }}>
+            Finish setting up notifications
+          </p>
+          <p className="text-xs mt-0.5 leading-relaxed" style={{ color: "rgba(237,234,226,0.6)" }}>
+            Your browser has permission — tap below to activate delivery.
+          </p>
+        </div>
+        <button
+          onClick={activate}
+          className="shrink-0 text-sm font-semibold px-4 py-2 rounded-full transition-opacity hover:opacity-90"
+          style={{ background: "#C49A35", color: "#1B3448" }}
+        >
+          Activate
+        </button>
+      </div>
+    );
+  }
+
+  // ── iOS Safari (not installed as PWA) ─────────────────────────────────────
   if (status === "ios-browser") {
     return (
       <div
@@ -96,13 +173,13 @@ export function NotificationOptIn() {
         <p className="text-xs leading-relaxed" style={{ color: "rgba(237,234,226,0.6)" }}>
           On iPhone, notifications require the app to be installed first.
           Tap <strong style={{ color: "#C49A35" }}>Add to Home Screen</strong> using
-          the Share icon at the bottom of Safari, then reopen the app from your home screen — you'll be prompted automatically.
+          the Share icon in Safari, then reopen the app from your home screen.
         </p>
       </div>
     );
   }
 
-  // ── Blocked in browser settings ─────────────────────────────────────────
+  // ── Blocked ───────────────────────────────────────────────────────────────
   if (status === "denied") {
     return (
       <div
@@ -111,14 +188,25 @@ export function NotificationOptIn() {
       >
         <BellOff className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "rgba(237,234,226,0.4)" }} />
         <p className="text-xs leading-relaxed" style={{ color: "rgba(237,234,226,0.5)" }}>
-          Notifications are blocked for this site. To enable them, open your browser
-          settings, find this site under Notifications, and set it to Allow.
+          Notifications are blocked for this site. To enable them, open Chrome →
+          tap the lock icon next to the address bar → Notifications → Allow.
         </p>
       </div>
     );
   }
 
-  // ── Ready to prompt ─────────────────────────────────────────────────────
+  // ── Ready (permission "default") ──────────────────────────────────────────
+  async function enable() {
+    const permission = await Notification.requestPermission();
+    if (permission === "granted") {
+      await optInViaOneSignal().catch(() => {});
+      setSuccess(true);
+      setTimeout(() => setStatus("subscribed"), 2500);
+    } else {
+      setStatus("denied");
+    }
+  }
+
   return (
     <div
       className="rounded-xl px-5 py-4 flex items-center gap-4"
