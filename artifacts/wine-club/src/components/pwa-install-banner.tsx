@@ -155,7 +155,7 @@ export function PwaInstallBanner() {
                   },
                   {
                     n: "2",
-                    title: "Tap "Add to Home Screen"",
+                    title: 'Tap "Add to Home Screen"',
                     body: (
                       <><Plus className="inline w-3.5 h-3.5 mb-0.5" /> Add to Home Screen in the share menu</>
                     ),
