@@ -310,7 +310,20 @@ export const TASTING_NOTE_CONTENT: Record<string, Record<number, TastingNoteCont
   },
 
   "cabernet-franc": {
-    // Add vintages here as content is provided
+    2022: {
+      notes:
+        "The 2022 Founder's Reserve Cabernet Franc reflects the distinct character of the gravel-rich soils at the front of the Rutherford estate — structured, perfumed, and tightly composed. The fruit leads with mulberry and dark plum, lifted by floral notes of lilac. Hints of sun-dried bay and black tea add dimension without overshadowing the wine's natural clarity. The palate is detailed and firm, shaped by remarkably fine tannins that carry flavor without excess weight. Each movement of flavor, texture, and structure is the result of a deliberate effort to elevate what the vineyard provides. The finish is long and composed, with energy that hums beneath its polish. This is not a reductive interpretation of Cabernet Franc. It is expressive, sculpted, and crafted to reveal nuance from first pour to final impression.",
+      details: {
+        blend:           "86% Cabernet Franc, 8% Cabernet Sauvignon, 6% Merlot",
+        oak:             "100% New French Oak",
+        alcohol:         "14.8%",
+        ta:              "5.8 g/L",
+        ph:              "3.78",
+        cases:           "75",
+        clones:          "1, 12 – CF, 7 – CS, 15 – ME",
+        vineyardManager: "Mike Wolf",
+      },
+    },
   },
 };
 
