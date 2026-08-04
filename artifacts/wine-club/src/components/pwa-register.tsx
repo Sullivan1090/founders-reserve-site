@@ -2,8 +2,10 @@
 import { useEffect } from "react";
 
 /**
- * Registers the service worker on mount. Rendered once in the root layout.
- * Silently no-ops on browsers that don't support service workers.
+ * Registers OneSignalSDKWorker.js as the single service worker for this app.
+ * It handles both OneSignal push notifications AND offline caching —
+ * previously we had two workers (sw.js + OneSignalSDKWorker.js) competing
+ * for the same scope, which prevented OneSignal from ever activating.
  */
 export function PwaRegister() {
   useEffect(() => {
@@ -12,7 +14,7 @@ export function PwaRegister() {
 
     window.addEventListener("load", () => {
       navigator.serviceWorker
-        .register("/sw.js", { scope: "/" })
+        .register("/OneSignalSDKWorker.js", { scope: "/" })
         .then((reg) => {
           console.log("[PWA] Service worker registered:", reg.scope);
         })
