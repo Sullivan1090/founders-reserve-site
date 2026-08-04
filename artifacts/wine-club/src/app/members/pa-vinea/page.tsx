@@ -1,6 +1,3 @@
-import Image from "next/image";
-import wordmarkSrc from "../../../public/pa-wordmark-v2.png";
-
 export default function PAVineaPage() {
   const GOLD      = "#C49A35";
   const GOLD_DARK = "#9C7A3D";
@@ -47,8 +44,9 @@ export default function PAVineaPage() {
 
         {/* Wordmark title — replaces "PA Vinea" text heading */}
         <div className="flex justify-center">
-          <Image
-            src={wordmarkSrc}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/pa-wordmark-v2.png?v=4"
             alt="PA Vinea"
             style={{
               width: "min(240px, 60vw)",
