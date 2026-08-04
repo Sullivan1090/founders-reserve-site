@@ -51,10 +51,12 @@ export function PwaInstallBanner() {
     window.addEventListener("beforeinstallprompt", handler as EventListener);
 
     // If the user installs from outside our button, hide the banner
-    window.addEventListener("appinstalled", () => setShow(false));
+    const onInstalled = () => setShow(false);
+    window.addEventListener("appinstalled", onInstalled);
 
     return () => {
       window.removeEventListener("beforeinstallprompt", handler as EventListener);
+      window.removeEventListener("appinstalled", onInstalled);
     };
   }, []);
 
@@ -69,12 +71,18 @@ export function PwaInstallBanner() {
   const handleInstall = async () => {
     if (deferredPrompt) {
       // Native Chrome prompt is available — use it
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === "accepted") setShow(false);
-      setDeferredPrompt(null);
+      try {
+        deferredPrompt.prompt();
+        const choice = await deferredPrompt.userChoice;
+        if (choice?.outcome === "accepted") setShow(false);
+      } catch {
+        // Prompt failed or was already consumed — fall back to instructions
+        setShowSheet(true);
+      } finally {
+        setDeferredPrompt(null);
+      }
     } else {
-      // No native prompt yet — show manual instructions
+      // No native prompt — show manual instructions
       setShowSheet(true);
     }
   };
