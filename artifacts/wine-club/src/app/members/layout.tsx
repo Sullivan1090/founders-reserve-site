@@ -4,6 +4,7 @@ import { SignOutButton } from "@/components/sign-out-button";
 import { Wine } from "lucide-react";
 import { HamburgerMenu } from "@/components/hamburger-menu";
 import { ConciergeChat } from "@/components/concierge-chat";
+import { PwaInstallBanner } from "@/components/pwa-install-banner";
 
 export default async function MembersLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
@@ -28,6 +29,7 @@ export default async function MembersLayout({ children }: { children: React.Reac
         {children}
       </main>
       <ConciergeChat />
+      <PwaInstallBanner />
     </div>
   );
 }
