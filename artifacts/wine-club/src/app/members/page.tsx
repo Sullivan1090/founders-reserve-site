@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
+import { NotificationOptIn } from "@/components/notification-opt-in";
 
 export default async function ArrivalPage() {
   const supabase = await createClient();
@@ -45,6 +46,9 @@ export default async function ArrivalPage() {
           process, the passion, and the story behind each bottle.
         </p>
       </div>
+
+      {/* Notification opt-in — permanent card, handles all platforms */}
+      <NotificationOptIn />
 
       {/* Featured wine block */}
       <div className="flex flex-col gap-6">

@@ -5,7 +5,6 @@ import { Wine } from "lucide-react";
 import { HamburgerMenu } from "@/components/hamburger-menu";
 import { ConciergeChat } from "@/components/concierge-chat";
 import { PwaInstallBanner } from "@/components/pwa-install-banner";
-import { NotificationBanner } from "@/components/notification-banner";
 
 export default async function MembersLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient();
@@ -31,7 +30,6 @@ export default async function MembersLayout({ children }: { children: React.Reac
       </main>
       <ConciergeChat />
       <PwaInstallBanner />
-      <NotificationBanner />
     </div>
   );
 }
