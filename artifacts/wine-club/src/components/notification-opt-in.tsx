@@ -51,8 +51,9 @@ function baseDetect(): Status {
 }
 
 export function NotificationOptIn() {
-  const [status, setStatus]   = useState<Status>("loading");
-  const [success, setSuccess] = useState(false);
+  const [status, setStatus]       = useState<Status>("loading");
+  const [success, setSuccess]     = useState(false);
+  const [activateError, setActivateError] = useState(false);
 
   useEffect(() => {
     const base = baseDetect();
@@ -114,45 +115,61 @@ export function NotificationOptIn() {
   // ── Permission granted but OneSignal subscription missing ─────────────────
   if (status === "granted-unsynced") {
     async function activate() {
+      setActivateError(false);
       try {
-        // Push subscription needs to be created — optIn() handles this.
-        // If the SDK isn't loaded yet, also request permission again so the
-        // browser re-triggers the full push subscription flow.
-        await optInViaOneSignal();
+        // Race optIn() against a 6 s timeout so the button never hangs forever.
+        const timeout = new Promise<void>((_, reject) =>
+          setTimeout(() => reject(new Error("timeout")), 6000)
+        );
+        await Promise.race([optInViaOneSignal(), timeout]);
         setSuccess(true);
         setTimeout(() => setStatus("subscribed"), 2500);
-      } catch {
-        // Fallback: re-request permission, which re-triggers the full flow
-        const result = await Notification.requestPermission();
-        if (result === "granted") {
-          await optInViaOneSignal().catch(() => {});
-          setSuccess(true);
-          setTimeout(() => setStatus("subscribed"), 2500);
+      } catch (e: any) {
+        if (e?.message === "timeout") {
+          // optIn() hung — most likely a OneSignal dashboard misconfiguration
+          setActivateError(true);
+        } else {
+          // Fallback: re-request native permission to re-trigger full push flow
+          const result = await Notification.requestPermission();
+          if (result === "granted") {
+            await optInViaOneSignal().catch(() => {});
+            setSuccess(true);
+            setTimeout(() => setStatus("subscribed"), 2500);
+          }
         }
       }
     }
 
     return (
       <div
-        className="rounded-xl px-5 py-4 flex items-center gap-4"
+        className="rounded-xl px-5 py-4 space-y-3"
         style={{ background: "rgba(139,103,38,0.07)", border: "1px solid rgba(139,103,38,0.25)" }}
       >
-        <Bell className="w-5 h-5 shrink-0" style={{ color: "#C49A35" }} />
-        <div className="flex-1 min-w-0">
-          <p className="text-sm font-semibold leading-tight" style={{ color: "#EDEAE2" }}>
-            Finish setting up notifications
-          </p>
-          <p className="text-xs mt-0.5 leading-relaxed" style={{ color: "rgba(237,234,226,0.6)" }}>
-            Your browser has permission — tap below to activate delivery.
-          </p>
+        <div className="flex items-center gap-4">
+          <Bell className="w-5 h-5 shrink-0" style={{ color: "#C49A35" }} />
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-semibold leading-tight" style={{ color: "#EDEAE2" }}>
+              Finish setting up notifications
+            </p>
+            <p className="text-xs mt-0.5 leading-relaxed" style={{ color: "rgba(237,234,226,0.6)" }}>
+              Your browser has permission — tap below to activate delivery.
+            </p>
+          </div>
+          <button
+            onClick={activate}
+            className="shrink-0 text-sm font-semibold px-4 py-2 rounded-full transition-opacity hover:opacity-90"
+            style={{ background: "#C49A35", color: "#1B3448" }}
+          >
+            Activate
+          </button>
         </div>
-        <button
-          onClick={activate}
-          className="shrink-0 text-sm font-semibold px-4 py-2 rounded-full transition-opacity hover:opacity-90"
-          style={{ background: "#C49A35", color: "#1B3448" }}
-        >
-          Activate
-        </button>
+        {activateError && (
+          <p className="text-xs leading-relaxed px-1" style={{ color: "rgba(237,234,226,0.5)" }}>
+            ⚠ Could not register — check that your OneSignal dashboard has the
+            correct Site URL (<strong>https://www.foundersreservewineclub.com</strong>)
+            under Settings → Platforms → Chrome.
+          </p>
+        )}
       </div>
     );
   }
