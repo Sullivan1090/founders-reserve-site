@@ -165,9 +165,9 @@ export function NotificationOptIn() {
         </div>
         {activateError && (
           <p className="text-xs leading-relaxed px-1" style={{ color: "rgba(237,234,226,0.5)" }}>
-            ⚠ Could not register — check that your OneSignal dashboard has the
-            correct Site URL (<strong>https://www.foundersreservewineclub.com</strong>)
-            under Settings → Platforms → Chrome.
+            ⚠ Could not register. If this keeps happening, check that your
+            OneSignal dashboard Site URL matches your live domain exactly
+            (Settings → Platforms → Chrome).
           </p>
         )}
       </div>
