@@ -22,13 +22,8 @@ export function OneSignalInit() {
             appId: "${APP_ID}",
             serviceWorkerPath: "/OneSignalSDKWorker.js",
           });
-          // Fire the slide-in prompt automatically if permission hasn't been
-          // decided yet. Delayed 4 s so the page is settled before it appears.
-          if (typeof Notification !== "undefined" && Notification.permission === "default") {
-            setTimeout(function() {
-              OneSignal.Slidedown.promptPush();
-            }, 4000);
-          }
+          // Prompt is triggered by the NotificationBanner component,
+          // not here — avoids two competing prompts on the same page load.
         });
       `}</Script>
     </>
