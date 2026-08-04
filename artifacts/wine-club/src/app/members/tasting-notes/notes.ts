@@ -143,7 +143,170 @@ export const TASTING_NOTE_CONTENT: Record<string, Record<number, TastingNoteCont
   },
 
   "cabernet-sauvignon": {
-    // Add vintages here as content is provided
+    2023: {
+      notes:
+        "The 2023 J.O. Sullivan Founder's Reserve Cabernet Sauvignon is the product of patience, observation, and an unwavering commitment to detail. Drawn from some of the estate's lowest-yielding vines, it captures the concentration and character that only come from fruit pushed to fully express its site. Dark currant, black plum, graphite, and dried sage emerge in layers, woven together by the earthy minerality that defines Rutherford. There is depth from the outset, but also restraint. Nothing competes for attention. Instead, each element finds its place, creating a wine that feels complete rather than assembled. The structure is firm and finely shaped, carrying a density of fruit that never loses its sense of energy. Savory undertones, crushed stone, and fresh acidity provide balance and direction, allowing the wine to unfold gradually and with purpose. This is a wine built through countless small decisions, each made in pursuit of a singular goal: to capture the vineyard as completely and honestly as possible. The result is a Cabernet Sauvignon of depth, precision, and quiet confidence.",
+      details: {
+        blend:           "88% Cabernet Sauvignon, 12% Petit Verdot",
+        oak:             "80% New French Oak",
+        alcohol:         "14.8%",
+        ta:              "5.7 g/L",
+        ph:              "3.75",
+        cases:           "400",
+        clones:          "191, 7 – CS, 400 – PV",
+        vineyardManager: "Domenick Bianco",
+      },
+    },
+
+    2022: {
+      notes:
+        "The 2022 Founder's Reserve Cabernet Sauvignon is layered and introspective, with a core that reveals itself slowly. Aromatically dense, it opens with dark forest fruits, spiced red fruit, graphite, and crushed bark. There's a quiet intensity — inky, savory, and grounded in Rutherford earth. On the palate, it's composed and full-bodied, with tightly knit tannins and acidity that carries without disruption. Notes of ripe plum, cocoa powder, minerality, and dry savory herbs create a layered, textured impression. Nothing feels overstated; the structure holds everything in balance, allowing the purity of the fruit to resonate alongside its more elemental undertones. This is a Cabernet built for the long arc, precise in its construction, expressive in its restraint, and rooted in the kind of detail that doesn't happen by chance.",
+      details: {
+        blend:           "90% Cabernet Sauvignon, 10% Petit Verdot",
+        oak:             "80% New French Oak",
+        alcohol:         "14.8%",
+        ta:              "5.8 g/L",
+        ph:              "3.80",
+        cases:           "500",
+        clones:          "191, 7, 4 – CS, 400 – PV",
+        vineyardManager: "Mike Wolf",
+      },
+    },
+
+    2021: {
+      notes:
+        "The 2021 J.O. Sullivan Founder's Reserve Cabernet Sauvignon is a profound masterpiece — an inky marvel of depth. Its enchanting aroma reveals distilled notes of elderberry, blackberry compote, and spice, with rich dark chocolate undertones. This dense Cabernet, with a tarry, structured profile, introduces minerality for a unique dimension. Meticulously crafted, flawless tannins seamlessly intertwine, striking a harmonious balance between opulence and grace. The sophistication and depth testify to the Estate's world-class soils, resulting in the most complete wine in its 50+ year history. Anticipate a journey of enjoyment over the next two decades.",
+      details: {
+        blend:           "89% Cabernet Sauvignon, 11% Petit Verdot",
+        oak:             "80% New French Oak, aged 22 months",
+        alcohol:         "14.8%",
+        ta:              "5.8 g/L",
+        ph:              "3.78",
+        cases:           "500",
+        clones:          "191, 7, 4 – CS, 400 – PV",
+        vineyardManager: "Mike Wolf",
+      },
+    },
+
+    2020: {
+      notes:
+        "The 2020 J.O. Sullivan Founder's Reserve Cabernet Sauvignon stands unrivaled in the realm of captivating wines. Its sheer intensity and concentrated flavors leave an indelible mark on the palate. The luxurious fusion of dark chocolate, black fruit, and savory minerality creates an enchanting taste experience that truly delights the senses. Imbued with an inky richness and flawless balance, each sip becomes a gratifying indulgence. The velvety cocoa powder tannins meld harmoniously with the luscious, black fruit-driven character of this Cabernet Sauvignon, infusing it with even greater depth. An everlasting impression is etched on the palate, making this wine an unforgettable delight.",
+      details: {
+        blend:           "87% Cabernet Sauvignon, 13% Petit Verdot",
+        oak:             "100% New French Oak",
+        alcohol:         "14.8%",
+        ta:              "5.9 g/L",
+        ph:              "3.77",
+        cases:           "400",
+        clones:          "191, 4, 7 – CS, 400 – PV",
+        vineyardManager: "Mike Wolf",
+      },
+    },
+
+    2019: {
+      notes:
+        "An absolutely stunning wine. This Cabernet Sauvignon is a pinnacle of Rutherford, highlighting one of the most unique and sought-after terroirs in the world. The concentration of dark fruit, minerality, and structure saturates the senses. There is an intense richness that is inherent in a wine of this caliber, but the balance of acid — which provides length and freshness — is a direct reflection of the phenomenal 2019 vintage. Time will continue to allow the J.O. Sullivan Founder's Reserve Cabernet Sauvignon to evolve and develop even more complex flavors and nuanced aromatics. Enjoy over the next 25 years.",
+      details: {
+        blend:           "91% Cabernet Sauvignon, 9% Petit Verdot",
+        oak:             "79% New French Oak",
+        alcohol:         "14.8%",
+        ta:              "6.0 g/L",
+        ph:              "3.79",
+        cases:           "350",
+        clones:          "191, 4, 7 – CS, 400 – PV",
+        vineyardManager: "Mike Wolf",
+      },
+    },
+
+    2018: {
+      notes:
+        "Our oldest block of Cabernet Sauvignon dominates this blend with a splash from some younger blocks that are starting to show true potential. Immediately the savory essence that is the pedigree of this wine is identifiable, but so is ripe brambleberry confection that adds layers and intensity that has never been identified before. The 2018 vintage has put its stamp on the J.O. Sullivan Cabernet Sauvignon and has unleashed characteristics that truly make the estate unique.",
+      details: {
+        blend:           "91% Cabernet Sauvignon, 9% Petit Verdot",
+        oak:             "83% New French Oak",
+        alcohol:         "14.8%",
+        ta:              "5.4 g/L",
+        ph:              "3.86",
+        cases:           "350",
+        clones:          "191, 4, 7 – CS, 400 – PV",
+        vineyardManager: "Mike Wolf",
+      },
+    },
+
+    2017: {
+      notes:
+        "Grapes grown from the oldest Cabernet Sauvignon vines on the estate — deeply rooted in the most well-drained soils — gave life to this magnificent wine. Wafting blueberries are intense and vibrant, weaving in and out of the incredible dark and savory chocolate that is the undeniable signature of this extraordinary creation. Easily caught up in its complexities and rich nature, a connection is truly made deep down as if two souls have become one. The best effort in 2017, and one that will not be forgotten for many years to come.",
+      details: {
+        blend:           "90% Cabernet Sauvignon, 10% Petit Verdot",
+        oak:             "100% New French Oak",
+        alcohol:         "14.8%",
+        ta:              "6.1 g/L",
+        ph:              "3.85",
+        cases:           "250",
+        clones:          "191, 4, 7 – CS, 400 – PV",
+        vineyardManager: "Paul Garvey",
+      },
+    },
+
+    2016: {
+      notes:
+        "The 2016 James O'Neil Cabernet Sauvignon is a defining expression of both the vintage and the Sullivan Estate. Layers of dark cherry, blackcurrant, and sweet baking chocolate unfold alongside subtle notes of vanilla, espresso, and crushed graphite, creating a wine of remarkable depth and complexity. Rich and expansive from the first sip, it fills the palate with concentrated fruit while bright natural acidity provides freshness, precision, and exceptional length. Fine-grained tannins give the wine structure without overshadowing its generosity, resulting in a Cabernet that is both powerful and effortlessly balanced. Built on purity, concentration, and elegance, the 2016 captures the character of an extraordinary vintage and the enduring pursuit of excellence that defines the estate.",
+      details: {
+        blend:           "95% Cabernet Sauvignon, 5% Petit Verdot",
+        oak:             "80% New French Oak",
+        alcohol:         "14.8%",
+        ta:              "5.9 g/L",
+        ph:              "3.85",
+        cases:           "500",
+        clones:          "191, 337, 35, 7 – CS, 400 – PV",
+        vineyardManager: "Paul Garvey",
+      },
+    },
+
+    2015: {
+      notes:
+        "Crafted in tribute to James O'Neil Sullivan, this Cabernet Sauvignon represents the highest expression of the estate and the philosophy that continues to shape every vintage. Deeply concentrated and beautifully structured, it possesses the depth and framework to evolve gracefully for decades, yet its refined tannins and seamless balance make it remarkably approachable today. Layers of blackberry and black cherry are woven together with the dusty minerality, savory herbs, and earthy character that define Rutherford. Rich and expansive without excess, the wine is driven as much by freshness and precision as it is by power — a Cabernet that speaks confidently of its place, balancing concentration with elegance in a way that only exceptional vineyards and extraordinary vintages can achieve.",
+      details: {
+        blend:           "100% Cabernet Sauvignon",
+        oak:             "78% New French Oak",
+        alcohol:         "14.8%",
+        ta:              "5.8 g/L",
+        ph:              "3.84",
+        cases:           "230",
+        clones:          "191 – CS",
+        vineyardManager: "Paul Garvey",
+      },
+    },
+
+    2014: {
+      notes:
+        "The wine opens with an unmistakable sense of depth. Dark chocolate and ripe plum lead the way, layered with cocoa powder, tobacco leaf, and worn leather that continue to unfold with time in the glass. There is an immediate feeling of power, but it's measured rather than overwhelming. Rich and expansive, the texture fills the palate with dark cherry, sweet vanilla, and finely woven tannins that give the wine both volume and precision. Despite its concentration, freshness carries the wine effortlessly, extending the finish and revealing new layers with every sip. This is a Cabernet built on confidence rather than excess — powerful, refined, and remarkably complete, capturing the balance between intensity and elegance that defines truly exceptional Napa Valley wines.",
+      details: {
+        blend:           "100% Cabernet Sauvignon",
+        oak:             "100% New French Oak",
+        alcohol:         "14.8%",
+        ta:              "6.1 g/L",
+        ph:              "3.77",
+        cases:           "175",
+        clones:          "191 – CS",
+        vineyardManager: "Paul Garvey",
+      },
+    },
+
+    2013: {
+      notes:
+        "From the first pour, this wine commands attention with remarkable depth and presence. Layers of developed plum and dark chocolate unfold alongside notes of toasted oak, subtle vanilla, and the savory minerality that has become the hallmark of the Sullivan Estate and the Rutherford appellation. There is undeniable power, yet it is matched by precision and refinement. Fine, resolved tannins create a texture reminiscent of cocoa powder, while a broad, generous palate carries both richness and freshness in perfect balance. The finish is long, seamless, and persistent, inviting another sip before the last impression has faded. Built with exceptional structure and balance, this is a wine that offers immediate enjoyment while possessing the depth and composure to evolve beautifully for years to come.",
+      details: {
+        blend:           "93% Cabernet Sauvignon, 7% Petit Verdot",
+        oak:             "80% New French Oak",
+        alcohol:         "14.8%",
+        ta:              "5.7 g/L",
+        ph:              "3.87",
+        cases:           "285",
+        clones:          "191 – CS, 400 – PV",
+        vineyardManager: "Paul Garvey",
+      },
+    },
   },
 
   "cabernet-franc": {
