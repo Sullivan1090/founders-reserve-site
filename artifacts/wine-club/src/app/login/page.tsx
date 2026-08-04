@@ -63,7 +63,7 @@ function LoginForm() {
         style={{
           background: "rgba(27, 52, 72, 0.82)",
           border: "1px solid rgba(184, 151, 90, 0.35)",
-          backdropFilter: "blur(6px)",
+          backdropFilter: "none",
         }}
       >
         {/* Label */}

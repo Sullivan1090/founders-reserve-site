@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function SttupaestatePage() {
   const GOLD      = "#C49A35";
   const GOLD_DARK = "#9C7A3D";
@@ -10,25 +12,30 @@ export default function SttupaestatePage() {
   ];
 
   return (
-    <div
-      className="relative flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6 py-16 overflow-hidden"
-      style={{
-        backgroundImage:    "url('/sttupa-bg.jpg')",
-        backgroundSize:     "cover",
-        backgroundPosition: "center top",
-        backgroundRepeat:   "no-repeat",
-      }}
-    >
+    <div className="relative flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6 py-16 overflow-hidden">
+
+      {/* Background photo — Next.js Image handles optimization + preload */}
+      <Image
+        src="/sttupa-bg.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-top"
+        style={{ zIndex: 0 }}
+      />
+
       {/* Dark-to-light gradient overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
+          zIndex: 1,
           background: "linear-gradient(to bottom, rgba(8,12,18,0.82) 0%, rgba(8,12,18,0.55) 45%, rgba(8,12,18,0.18) 100%)",
         }}
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-xl w-full text-center space-y-10">
+      <div className="relative max-w-xl w-full text-center space-y-10" style={{ zIndex: 2 }}>
 
         {/* Top rule */}
         <div className="flex items-center gap-4">
@@ -52,9 +59,9 @@ export default function SttupaestatePage() {
               key={i}
               className="font-serif leading-relaxed"
               style={{
-                color:     OFF_WHITE,
-                fontSize:  i === 0 ? "1.2rem" : "1.05rem",
-                fontStyle: i === 0 ? "italic" : "normal",
+                color:      OFF_WHITE,
+                fontSize:   i === 0 ? "1.2rem" : "1.05rem",
+                fontStyle:  i === 0 ? "italic" : "normal",
                 textShadow: "0 1px 4px rgba(0,0,0,0.5)",
               }}
             >
