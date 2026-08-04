@@ -3,6 +3,7 @@ import "./globals.css";
 import { type Metadata, type Viewport } from "next";
 import { Toaster } from "@/components/ui/sonner";
 import { PwaRegister } from "@/components/pwa-register";
+import { OneSignalInit } from "@/components/onesignal-init";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -65,6 +66,7 @@ export default function RootLayout({
         {children}
         <Toaster />
         <PwaRegister />
+        <OneSignalInit />
       </body>
     </html>
   );

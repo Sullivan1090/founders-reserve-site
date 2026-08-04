@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import { sendPushNotification } from "@/lib/onesignal";
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? "jeff@sullivanwine.com";
 
@@ -26,16 +27,16 @@ async function updateArrival(formData: FormData) {
     updated_at:  new Date().toISOString(),
   });
 
-  redirect("/admin");
+  // Send push notification if a message was provided
+  const notifMsg = (formData.get("notification_message") as string | null) ?? "";
+  if (notifMsg.trim()) {
+    await sendPushNotification(notifMsg.trim());
+  }
+
+  redirect("/admin?saved=1");
 }
 
-export default async function AdminArrivalPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ saved?: string }>;
-}) {
-  const { saved } = await searchParams;
-
+export default async function AdminArrivalPage() {
   const supabase = await createClient();
   const { data: arrival } = await supabase
     .from("featured_arrival")
@@ -62,15 +63,6 @@ export default async function AdminArrivalPage({
           Changes go live immediately.
         </p>
       </div>
-
-      {saved && (
-        <div
-          className="rounded-lg px-4 py-3 text-sm"
-          style={{ background: "rgba(139,103,38,0.12)", border: "1px solid rgba(139,103,38,0.3)", color: "#EDEAE2" }}
-        >
-          Saved — members will see the updated content immediately.
-        </div>
-      )}
 
       <form action={updateArrival} className="space-y-6">
         <Field
@@ -105,15 +97,37 @@ export default async function AdminArrivalPage({
           />
         </div>
 
+        {/* ── Push notification ─────────────────────────────────────── */}
+        <div
+          className="rounded-xl p-5 space-y-3"
+          style={{ background: "rgba(139,103,38,0.06)", border: "1px solid rgba(139,103,38,0.2)" }}
+        >
+          <div>
+            <p className="text-xs uppercase tracking-widest font-semibold mb-0.5" style={{ color: "#8B6726" }}>
+              Push Notification
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Optional — fill in to send an instant push notification to all subscribed members when you save.
+              Leave blank to save quietly.
+            </p>
+          </div>
+          <textarea
+            name="notification_message"
+            rows={2}
+            placeholder="e.g. New arrival: the 2023 Cabernet is now live. Watch the video →"
+            className="w-full rounded-lg px-4 py-3 text-sm bg-background border border-border/50 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/60 resize-none"
+          />
+        </div>
+
         <button
           type="submit"
           className="font-serif tracking-wide px-8 py-3 rounded-full transition-all hover:opacity-90"
           style={{
             background: "#8B6726",
-            color: "#EDEAE2",
-            border: "none",
-            cursor: "pointer",
-            fontSize: "0.95rem",
+            color:      "#EDEAE2",
+            border:     "none",
+            cursor:     "pointer",
+            fontSize:   "0.95rem",
           }}
         >
           Save &amp; Publish
