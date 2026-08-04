@@ -76,34 +76,22 @@ export default function PAVineaPage() {
           <div className="flex-1 h-px" style={{ background: "rgba(196,154,53,0.3)" }} />
         </div>
 
-        {/* CTA button — wordmark image as the label */}
-        <div className="pt-2 flex justify-center">
+        {/* CTA button */}
+        <div className="pt-2">
           <a
             href="https://pavinea.com/offering/?utm_source=Commerce+7&utm_campaign=bacd49a7fb-EMAIL_CAMPAIGN_2021_11_02_01_31_COPY_01&utm_medium=email&utm_term=0_93484e7167-bacd49a7fb-92441648&mc_cid=bacd49a7fb&mc_eid=f743e7ddce#allocation"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex flex-col items-center gap-2 transition-all hover:opacity-80 px-8 py-4 rounded-full"
+            className="inline-block font-serif tracking-widest text-sm uppercase transition-all hover:opacity-80 px-10 py-3.5 rounded-full"
             style={{
-              background: GOLD,
-              border:     `1px solid ${GOLD}`,
+              background:    GOLD,
+              border:        `1px solid ${GOLD}`,
+              color:         BLUE,
+              letterSpacing: "0.15em",
+              fontWeight:    600,
             }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/pa-wordmark.png"
-              alt="PA Vinea"
-              style={{
-                width:  "min(110px, 28vw)",
-                height: "auto",
-                filter: `brightness(0) saturate(100%) invert(13%) sepia(34%) saturate(617%) hue-rotate(177deg) brightness(95%) contrast(97%)`,
-              }}
-            />
-            <span
-              className="font-serif tracking-widest text-xs uppercase"
-              style={{ color: BLUE, letterSpacing: "0.18em", fontWeight: 600 }}
-            >
-              Inquire
-            </span>
+            Inquire About PA Vinea
           </a>
         </div>
 
