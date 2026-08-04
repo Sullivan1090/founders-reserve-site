@@ -46,7 +46,7 @@ export default function PAVineaPage() {
         <div className="flex justify-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/pa-wordmark.png"
+            src="/pa-wordmark-v2.png"
             alt="PA Vinea"
             style={{ width: "min(240px, 60vw)", height: "auto" }}
           />
