@@ -12,6 +12,11 @@ function detectPlatform(): Platform {
   return "other";
 }
 
+function isFirefox(): boolean {
+  if (typeof navigator === "undefined") return false;
+  return /firefox/i.test(navigator.userAgent);
+}
+
 function isStandalone(): boolean {
   if (typeof window === "undefined") return false;
   return (
@@ -182,35 +187,88 @@ export function PwaInstallBanner() {
               </>
             ) : (
               <>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(237,234,226,0.7)" }}>
-                  Install Founders Reserve on your Android in two steps:
-                </p>
+                {isFirefox() ? (
+                  <>
+                    <p className="text-sm leading-relaxed" style={{ color: "rgba(237,234,226,0.7)" }}>
+                      You're using Firefox. Follow these steps to add to your home screen:
+                    </p>
 
-                {[
-                  {
-                    n: "1",
-                    title: "Tap the ⋮ menu",
-                    body: "The three-dot menu in the top-right corner of Chrome",
-                  },
-                  {
-                    n: "2",
-                    title: 'Tap "Add to Home Screen" or "Install app"',
-                    body: "Founders Reserve will appear on your home screen and open full-screen",
-                  },
-                ].map(({ n, title, body }) => (
-                  <div key={n} className="flex items-start gap-4">
+                    {[
+                      {
+                        n: "1",
+                        title: "Tap the ⋮ menu",
+                        body: 'The three-dot menu in the top-right corner of Firefox',
+                      },
+                      {
+                        n: "2",
+                        title: 'Tap "Add page to"',
+                        body: 'It is in the middle of the menu list',
+                      },
+                      {
+                        n: "3",
+                        title: 'Tap "Add to Home Screen"',
+                        body: 'Founders Reserve will appear on your home screen',
+                      },
+                    ].map(({ n, title, body }) => (
+                      <div key={n} className="flex items-start gap-4">
+                        <div
+                          className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                          style={{ background: "rgba(196,154,53,0.15)", border: "1px solid rgba(196,154,53,0.35)" }}
+                        >
+                          <span className="text-xs font-bold" style={{ color: "#C49A35" }}>{n}</span>
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold" style={{ color: "#EDEAE2" }}>{title}</p>
+                          <p className="text-xs mt-0.5" style={{ color: "rgba(237,234,226,0.55)" }}>{body}</p>
+                        </div>
+                      </div>
+                    ))}
+
+                    {/* Chrome tip */}
                     <div
-                      className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                      style={{ background: "rgba(196,154,53,0.15)", border: "1px solid rgba(196,154,53,0.35)" }}
+                      className="rounded-xl px-4 py-3 mt-1"
+                      style={{ background: "rgba(196,154,53,0.1)", border: "1px solid rgba(196,154,53,0.25)" }}
                     >
-                      <span className="text-xs font-bold" style={{ color: "#C49A35" }}>{n}</span>
+                      <p className="text-xs leading-relaxed" style={{ color: "rgba(237,234,226,0.65)" }}>
+                        <span style={{ color: "#C49A35", fontWeight: 600 }}>Tip:</span> For a one-tap install,
+                        open this page in <span style={{ color: "#EDEAE2" }}>Chrome</span> — it will prompt you
+                        to install automatically.
+                      </p>
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold" style={{ color: "#EDEAE2" }}>{title}</p>
-                      <p className="text-xs mt-0.5" style={{ color: "rgba(237,234,226,0.55)" }}>{body}</p>
-                    </div>
-                  </div>
-                ))}
+                  </>
+                ) : (
+                  <>
+                    <p className="text-sm leading-relaxed" style={{ color: "rgba(237,234,226,0.7)" }}>
+                      Install Founders Reserve on your Android in two steps:
+                    </p>
+
+                    {[
+                      {
+                        n: "1",
+                        title: "Tap the ⋮ menu",
+                        body: 'The three-dot menu in the top-right corner of your browser',
+                      },
+                      {
+                        n: "2",
+                        title: 'Tap "Add to Home Screen" or "Install app"',
+                        body: 'Founders Reserve will appear on your home screen and open full-screen',
+                      },
+                    ].map(({ n, title, body }) => (
+                      <div key={n} className="flex items-start gap-4">
+                        <div
+                          className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                          style={{ background: "rgba(196,154,53,0.15)", border: "1px solid rgba(196,154,53,0.35)" }}
+                        >
+                          <span className="text-xs font-bold" style={{ color: "#C49A35" }}>{n}</span>
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold" style={{ color: "#EDEAE2" }}>{title}</p>
+                          <p className="text-xs mt-0.5" style={{ color: "rgba(237,234,226,0.55)" }}>{body}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </>
+                )}
               </>
             )}
 
