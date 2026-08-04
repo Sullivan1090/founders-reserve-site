@@ -190,49 +190,47 @@ export function PwaInstallBanner() {
                 {isFirefox() ? (
                   <>
                     <p className="text-sm leading-relaxed" style={{ color: "rgba(237,234,226,0.7)" }}>
-                      You're using Firefox. Follow these steps to add to your home screen:
+                      Firefox on Android doesn't support installing apps to your home screen.
                     </p>
 
-                    {[
-                      {
-                        n: "1",
-                        title: "Tap the ⋮ menu",
-                        body: 'The three-dot menu in the top-right corner of Firefox',
-                      },
-                      {
-                        n: "2",
-                        title: 'Tap "Add page to"',
-                        body: 'It is in the middle of the menu list',
-                      },
-                      {
-                        n: "3",
-                        title: 'Tap "Add to Home Screen"',
-                        body: 'Founders Reserve will appear on your home screen',
-                      },
-                    ].map(({ n, title, body }) => (
-                      <div key={n} className="flex items-start gap-4">
-                        <div
-                          className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                          style={{ background: "rgba(196,154,53,0.15)", border: "1px solid rgba(196,154,53,0.35)" }}
-                        >
-                          <span className="text-xs font-bold" style={{ color: "#C49A35" }}>{n}</span>
-                        </div>
-                        <div>
-                          <p className="text-sm font-semibold" style={{ color: "#EDEAE2" }}>{title}</p>
-                          <p className="text-xs mt-0.5" style={{ color: "rgba(237,234,226,0.55)" }}>{body}</p>
-                        </div>
+                    {/* Chrome instruction */}
+                    <div className="flex items-start gap-4">
+                      <div
+                        className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                        style={{ background: "rgba(196,154,53,0.15)", border: "1px solid rgba(196,154,53,0.35)" }}
+                      >
+                        <span className="text-xs font-bold" style={{ color: "#C49A35" }}>1</span>
                       </div>
-                    ))}
+                      <div>
+                        <p className="text-sm font-semibold" style={{ color: "#EDEAE2" }}>Open this page in Chrome</p>
+                        <p className="text-xs mt-0.5" style={{ color: "rgba(237,234,226,0.55)" }}>
+                          Copy the URL from Firefox and paste it into Chrome
+                        </p>
+                      </div>
+                    </div>
 
-                    {/* Chrome tip */}
+                    <div className="flex items-start gap-4">
+                      <div
+                        className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                        style={{ background: "rgba(196,154,53,0.15)", border: "1px solid rgba(196,154,53,0.35)" }}
+                      >
+                        <span className="text-xs font-bold" style={{ color: "#C49A35" }}>2</span>
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold" style={{ color: "#EDEAE2" }}>Tap "Install" when the banner appears</p>
+                        <p className="text-xs mt-0.5" style={{ color: "rgba(237,234,226,0.55)" }}>
+                          Chrome will prompt you automatically — one tap and you're done
+                        </p>
+                      </div>
+                    </div>
+
                     <div
-                      className="rounded-xl px-4 py-3 mt-1"
+                      className="rounded-xl px-4 py-3"
                       style={{ background: "rgba(196,154,53,0.1)", border: "1px solid rgba(196,154,53,0.25)" }}
                     >
                       <p className="text-xs leading-relaxed" style={{ color: "rgba(237,234,226,0.65)" }}>
-                        <span style={{ color: "#C49A35", fontWeight: 600 }}>Tip:</span> For a one-tap install,
-                        open this page in <span style={{ color: "#EDEAE2" }}>Chrome</span> — it will prompt you
-                        to install automatically.
+                        <span style={{ color: "#C49A35", fontWeight: 600 }}>Why Chrome?</span> Chrome is the only
+                        Android browser that supports installing web apps directly to your home screen.
                       </p>
                     </div>
                   </>
