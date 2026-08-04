@@ -53,25 +53,28 @@ export function NotificationBanner() {
   }
 
   async function enable() {
-    const w = window as any;
+    // Call the native browser permission dialog directly from this click
+    // handler. This is guaranteed to work — browsers cannot block a
+    // Notification.requestPermission() call that originates from a real
+    // user gesture. OneSignal's Slidedown API was silently swallowing the
+    // call without showing anything, so we bypass it entirely here.
+    //
+    // Once the user grants permission, OneSignal's service worker
+    // (OneSignalSDKWorker.js) automatically captures the push subscription.
+    // We also explicitly call optIn() afterwards just to be safe.
+    const permission = await Notification.requestPermission();
 
-    // window.OneSignal is the live SDK object once init() has run.
-    // OneSignalDeferred is only a pre-init queue — pushing to it after
-    // init does nothing, which is why the button appeared broken.
-    const OneSignal = w.OneSignal;
-
-    if (OneSignal?.Slidedown?.promptPush) {
+    if (permission === "granted") {
+      // Belt-and-suspenders: tell the live OneSignal SDK to register the
+      // subscription in case the service worker hasn't done it yet.
       try {
-        await OneSignal.Slidedown.promptPush({ force: true });
+        const OneSignal = (window as any).OneSignal;
+        if (OneSignal?.User?.PushSubscription?.optIn) {
+          await OneSignal.User.PushSubscription.optIn();
+        }
       } catch {
-        // Fall through to native dialog if Slidedown fails
-        await Notification.requestPermission();
+        // Non-fatal — subscription already registered via service worker
       }
-    } else {
-      // SDK not loaded yet (or not supported) — use native dialog directly.
-      // OneSignal will automatically pick up the granted permission once
-      // its SDK initialises via the service worker.
-      await Notification.requestPermission();
     }
 
     setShow(false);
