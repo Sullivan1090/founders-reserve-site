@@ -162,7 +162,7 @@ export function PwaInstallBanner() {
                   },
                   {
                     n: "3",
-                    title: "Tap "Add" to confirm",
+                    title: 'Tap "Add" to confirm',
                     body: <>Founders Reserve will appear on your home screen and open full-screen</>,
                   },
                 ].map(({ n, title, body }) => (
@@ -194,7 +194,7 @@ export function PwaInstallBanner() {
                   },
                   {
                     n: "2",
-                    title: "Tap "Add to Home Screen" or "Install app"",
+                    title: 'Tap "Add to Home Screen" or "Install app"',
                     body: "Founders Reserve will appear on your home screen and open full-screen",
                   },
                 ].map(({ n, title, body }) => (
