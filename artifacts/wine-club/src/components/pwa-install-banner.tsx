@@ -21,54 +21,57 @@ function isStandalone(): boolean {
 }
 
 export function PwaInstallBanner() {
-  const [platform, setPlatform]           = useState<Platform>("other");
+  const [platform, setPlatform]             = useState<Platform>("other");
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-  const [showBanner, setShowBanner]       = useState(false);
-  const [showIosSheet, setShowIosSheet]   = useState(false);
-  const [installed, setInstalled]         = useState(false);
+  const [show, setShow]                     = useState(false);
+  const [showSheet, setShowSheet]           = useState(false);
 
   useEffect(() => {
-    // Already running as installed app — never show
-    if (isStandalone()) { setInstalled(true); return; }
-    // User dismissed before — don't nag
+    // Already running as an installed app — never show
+    if (isStandalone()) return;
+    // User previously dismissed — don't nag
     if (localStorage.getItem("pwa-banner-dismissed") === "1") return;
 
     const plat = detectPlatform();
     setPlatform(plat);
 
-    if (plat === "android") {
-      const handler = (e: Event) => {
-        e.preventDefault();
-        setDeferredPrompt(e);
-        setShowBanner(true);
-      };
-      window.addEventListener("beforeinstallprompt", handler as EventListener);
-      return () => window.removeEventListener("beforeinstallprompt", handler as EventListener);
-    }
+    // Show for iOS and Android immediately
+    if (plat === "ios" || plat === "android") setShow(true);
 
-    if (plat === "ios") {
-      // iOS Safari never fires beforeinstallprompt — show our own prompt
-      setShowBanner(true);
-    }
+    // Capture the native Android install prompt if Chrome fires it
+    const handler = (e: Event) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+    window.addEventListener("beforeinstallprompt", handler as EventListener);
+
+    // If the user installs from outside our button, hide the banner
+    window.addEventListener("appinstalled", () => setShow(false));
+
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handler as EventListener);
+    };
   }, []);
 
-  if (installed || !showBanner) return null;
+  if (!show) return null;
 
   const dismiss = () => {
-    setShowBanner(false);
-    setShowIosSheet(false);
+    setShow(false);
+    setShowSheet(false);
     localStorage.setItem("pwa-banner-dismissed", "1");
   };
 
-  const handleAndroidInstall = async () => {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === "accepted") {
-      setShowBanner(false);
-      setInstalled(true);
+  const handleInstall = async () => {
+    if (deferredPrompt) {
+      // Native Chrome prompt is available — use it
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === "accepted") setShow(false);
+      setDeferredPrompt(null);
+    } else {
+      // No native prompt yet — show manual instructions
+      setShowSheet(true);
     }
-    setDeferredPrompt(null);
   };
 
   return (
@@ -81,14 +84,12 @@ export function PwaInstallBanner() {
           borderTop:  "1px solid rgba(196,154,53,0.35)",
         }}
       >
-        {/* Icon */}
         <img
           src="/icons/icon-192.png"
           alt=""
           className="w-11 h-11 rounded-xl shrink-0"
         />
 
-        {/* Text */}
         <div className="flex-1 min-w-0">
           <p className="text-sm font-semibold leading-tight" style={{ color: "#EDEAE2" }}>
             Add to your home screen
@@ -98,26 +99,14 @@ export function PwaInstallBanner() {
           </p>
         </div>
 
-        {/* CTA */}
-        {platform === "android" ? (
-          <button
-            onClick={handleAndroidInstall}
-            className="shrink-0 text-sm font-semibold px-4 py-2 rounded-full transition-opacity hover:opacity-90"
-            style={{ background: "#C49A35", color: "#1B3448" }}
-          >
-            Install
-          </button>
-        ) : (
-          <button
-            onClick={() => setShowIosSheet(true)}
-            className="shrink-0 text-sm font-semibold px-4 py-2 rounded-full transition-opacity hover:opacity-90"
-            style={{ background: "#C49A35", color: "#1B3448" }}
-          >
-            How to
-          </button>
-        )}
+        <button
+          onClick={platform === "ios" ? () => setShowSheet(true) : handleInstall}
+          className="shrink-0 text-sm font-semibold px-4 py-2 rounded-full transition-opacity hover:opacity-90"
+          style={{ background: "#C49A35", color: "#1B3448" }}
+        >
+          {platform === "ios" ? "How to" : "Install"}
+        </button>
 
-        {/* Dismiss */}
         <button
           onClick={dismiss}
           aria-label="Dismiss"
@@ -127,87 +116,103 @@ export function PwaInstallBanner() {
         </button>
       </div>
 
-      {/* ── iOS instruction sheet ─────────────────────────────────────── */}
-      {showIosSheet && (
+      {/* ── Instruction sheet (iOS + Android fallback) ────────────────── */}
+      {showSheet && (
         <div
           className="fixed inset-0 z-[60] flex items-end"
           style={{ background: "rgba(0,0,0,0.55)" }}
-          onClick={() => setShowIosSheet(false)}
+          onClick={() => setShowSheet(false)}
         >
           <div
             className="w-full rounded-t-2xl px-6 pt-6 pb-10 space-y-5"
             style={{ background: "#1B3448", border: "1px solid rgba(196,154,53,0.25)" }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Handle */}
             <div className="w-10 h-1 rounded-full mx-auto mb-4" style={{ background: "rgba(196,154,53,0.35)" }} />
 
             <div className="flex items-center justify-between">
               <h2 className="font-serif text-xl" style={{ color: "#C49A35" }}>
                 Add to Home Screen
               </h2>
-              <button onClick={() => setShowIosSheet(false)} className="opacity-50 hover:opacity-80">
+              <button onClick={() => setShowSheet(false)} className="opacity-50 hover:opacity-80">
                 <X className="w-5 h-5" style={{ color: "#EDEAE2" }} />
               </button>
             </div>
 
-            <p className="text-sm leading-relaxed" style={{ color: "rgba(237,234,226,0.7)" }}>
-              Install Founders Reserve on your iPhone in three taps:
-            </p>
+            {platform === "ios" ? (
+              <>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(237,234,226,0.7)" }}>
+                  Install Founders Reserve on your iPhone in three taps:
+                </p>
 
-            {/* Step 1 */}
-            <div className="flex items-start gap-4">
-              <div
-                className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                style={{ background: "rgba(196,154,53,0.15)", border: "1px solid rgba(196,154,53,0.35)" }}
-              >
-                <span className="text-xs font-bold" style={{ color: "#C49A35" }}>1</span>
-              </div>
-              <div>
-                <p className="text-sm font-semibold" style={{ color: "#EDEAE2" }}>
-                  Tap the Share button
+                {[
+                  {
+                    n: "1",
+                    title: "Tap the Share button",
+                    body: (
+                      <>The <Share className="inline w-3.5 h-3.5 mb-0.5" /> icon at the bottom of Safari — the box with an arrow pointing up</>
+                    ),
+                  },
+                  {
+                    n: "2",
+                    title: "Tap "Add to Home Screen"",
+                    body: (
+                      <><Plus className="inline w-3.5 h-3.5 mb-0.5" /> Add to Home Screen in the share menu</>
+                    ),
+                  },
+                  {
+                    n: "3",
+                    title: "Tap "Add" to confirm",
+                    body: <>Founders Reserve will appear on your home screen and open full-screen</>,
+                  },
+                ].map(({ n, title, body }) => (
+                  <div key={n} className="flex items-start gap-4">
+                    <div
+                      className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                      style={{ background: "rgba(196,154,53,0.15)", border: "1px solid rgba(196,154,53,0.35)" }}
+                    >
+                      <span className="text-xs font-bold" style={{ color: "#C49A35" }}>{n}</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold" style={{ color: "#EDEAE2" }}>{title}</p>
+                      <p className="text-xs mt-0.5" style={{ color: "rgba(237,234,226,0.55)" }}>{body}</p>
+                    </div>
+                  </div>
+                ))}
+              </>
+            ) : (
+              <>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(237,234,226,0.7)" }}>
+                  Install Founders Reserve on your Android in two steps:
                 </p>
-                <p className="text-xs mt-0.5" style={{ color: "rgba(237,234,226,0.55)" }}>
-                  The <Share className="inline w-3.5 h-3.5 mb-0.5" /> icon at the bottom of Safari (the box with an arrow pointing up)
-                </p>
-              </div>
-            </div>
 
-            {/* Step 2 */}
-            <div className="flex items-start gap-4">
-              <div
-                className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                style={{ background: "rgba(196,154,53,0.15)", border: "1px solid rgba(196,154,53,0.35)" }}
-              >
-                <span className="text-xs font-bold" style={{ color: "#C49A35" }}>2</span>
-              </div>
-              <div>
-                <p className="text-sm font-semibold" style={{ color: "#EDEAE2" }}>
-                  Scroll down and tap "Add to Home Screen"
-                </p>
-                <p className="text-xs mt-0.5" style={{ color: "rgba(237,234,226,0.55)" }}>
-                  You'll see <Plus className="inline w-3.5 h-3.5 mb-0.5" /> Add to Home Screen in the share menu
-                </p>
-              </div>
-            </div>
-
-            {/* Step 3 */}
-            <div className="flex items-start gap-4">
-              <div
-                className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                style={{ background: "rgba(196,154,53,0.15)", border: "1px solid rgba(196,154,53,0.35)" }}
-              >
-                <span className="text-xs font-bold" style={{ color: "#C49A35" }}>3</span>
-              </div>
-              <div>
-                <p className="text-sm font-semibold" style={{ color: "#EDEAE2" }}>
-                  Tap "Add" to confirm
-                </p>
-                <p className="text-xs mt-0.5" style={{ color: "rgba(237,234,226,0.55)" }}>
-                  Founders Reserve will appear on your home screen and open full-screen
-                </p>
-              </div>
-            </div>
+                {[
+                  {
+                    n: "1",
+                    title: "Tap the ⋮ menu",
+                    body: "The three-dot menu in the top-right corner of Chrome",
+                  },
+                  {
+                    n: "2",
+                    title: "Tap "Add to Home Screen" or "Install app"",
+                    body: "Founders Reserve will appear on your home screen and open full-screen",
+                  },
+                ].map(({ n, title, body }) => (
+                  <div key={n} className="flex items-start gap-4">
+                    <div
+                      className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                      style={{ background: "rgba(196,154,53,0.15)", border: "1px solid rgba(196,154,53,0.35)" }}
+                    >
+                      <span className="text-xs font-bold" style={{ color: "#C49A35" }}>{n}</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold" style={{ color: "#EDEAE2" }}>{title}</p>
+                      <p className="text-xs mt-0.5" style={{ color: "rgba(237,234,226,0.55)" }}>{body}</p>
+                    </div>
+                  </div>
+                ))}
+              </>
+            )}
 
             <button
               onClick={dismiss}
