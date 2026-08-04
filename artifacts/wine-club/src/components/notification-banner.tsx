@@ -53,23 +53,29 @@ export function NotificationBanner() {
   }
 
   async function enable() {
-    // Use OneSignal's slide-down if loaded, native dialog as fallback
     const w = window as any;
-    if (w.OneSignalDeferred) {
-      w.OneSignalDeferred.push(async (OneSignal: any) => {
-        try {
-          await OneSignal.Slidedown.promptPush({ force: true });
-        } catch {
-          await Notification.requestPermission();
-        }
-        setShow(false);
-        localStorage.setItem("notif-banner-dismissed", "1");
-      });
+
+    // window.OneSignal is the live SDK object once init() has run.
+    // OneSignalDeferred is only a pre-init queue — pushing to it after
+    // init does nothing, which is why the button appeared broken.
+    const OneSignal = w.OneSignal;
+
+    if (OneSignal?.Slidedown?.promptPush) {
+      try {
+        await OneSignal.Slidedown.promptPush({ force: true });
+      } catch {
+        // Fall through to native dialog if Slidedown fails
+        await Notification.requestPermission();
+      }
     } else {
+      // SDK not loaded yet (or not supported) — use native dialog directly.
+      // OneSignal will automatically pick up the granted permission once
+      // its SDK initialises via the service worker.
       await Notification.requestPermission();
-      setShow(false);
-      localStorage.setItem("notif-banner-dismissed", "1");
     }
+
+    setShow(false);
+    localStorage.setItem("notif-banner-dismissed", "1");
   }
 
   return (
