@@ -48,7 +48,11 @@ export default function PAVineaPage() {
           <img
             src="/pa-wordmark-v2.png"
             alt="PA Vinea"
-            style={{ width: "min(240px, 60vw)", height: "auto" }}
+            style={{
+              width: "min(240px, 60vw)",
+              height: "auto",
+              filter: "drop-shadow(1px 0px 0 #111) drop-shadow(-1px 0px 0 #111) drop-shadow(0px 1px 0 #111) drop-shadow(0px -1px 0 #111)",
+            }}
           />
         </div>
 
