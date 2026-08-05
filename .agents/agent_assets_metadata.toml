@@ -1,0 +1,9 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "I86K0kdpx2TaNSFm6bD0E"
+uri = "file://artifacts/wine-club/public/icon-preview-512.png"
+type = "image"
+title = "FR Icon Preview"
+description = "Brand blue (#1B3448) background with gold FR in Cormorant Garamond — approve to push as the app icon"
