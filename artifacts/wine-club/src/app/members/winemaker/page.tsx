@@ -1,9 +1,7 @@
 // WINEMAKER PAGE
 //
-// Intro video: replace the empty string below with the YouTube video ID
-// (the part after ?v= in the URL) once the video is uploaded.
-// Example: "dQw4w9WgXcQ"
-const INTRO_VIDEO_ID = "";
+// Intro video: Vimeo video ID (the number in the Vimeo URL)
+const INTRO_VIDEO_ID = "1215950594";
 
 import { WinemakerForm } from "@/components/winemaker-form";
 import { MessageSquare } from "lucide-react";
@@ -30,9 +28,9 @@ export default function WinemakerPage() {
           style={{ paddingBottom: "56.25%" }}
         >
           <iframe
-            src={`https://www.youtube.com/embed/${INTRO_VIDEO_ID}`}
+            src={`https://player.vimeo.com/video/${INTRO_VIDEO_ID}?badge=0&autopause=0&player_id=0&app_id=58479`}
             title="Winemaker Introduction"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
             allowFullScreen
             className="absolute inset-0 w-full h-full"
             loading="lazy"
