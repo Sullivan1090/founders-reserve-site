@@ -38,6 +38,19 @@ export default async function AdminDashboard() {
           )}
         </Link>
 
+        {/* Estate Notes card */}
+        <Link
+          href="/admin/estate-notes"
+          className="block rounded-xl p-6 transition-all hover:opacity-90"
+          style={{ background: "rgba(139,103,38,0.08)", border: "1px solid rgba(139,103,38,0.25)" }}
+        >
+          <p className="text-xs uppercase tracking-widest text-primary mb-1 font-semibold">Notes from the Estate</p>
+          <p className="font-serif text-xl text-foreground">Journal posts from the estate</p>
+          <p className="text-xs text-muted-foreground mt-2">
+            Create and publish estate notes visible to all Founders members.
+          </p>
+        </Link>
+
         {/* Invite card */}
         <Link
           href="/admin/invite"

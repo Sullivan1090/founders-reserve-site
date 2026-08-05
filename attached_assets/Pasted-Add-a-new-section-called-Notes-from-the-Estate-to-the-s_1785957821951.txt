@@ -1,0 +1,37 @@
+Add a new section called "Notes from the Estate" to the site, nested under the "Connect" group in the hamburger menu (alongside "Live with the Winemaker" and "Gatherings").
+
+1. Database (Supabase): Create a new table `estate_notes` with columns: `id` (uuid, primary key), `title` (text), `slug` (text, unique), `body` (rich text / long text), `cover_image_url` (text, nullable), `author_name` (text, nullable — to allow posts credited to different people on the estate, not just Jeff), `published_at` (timestamp), `is_published` (boolean, default false), `notification_message` (text, nullable), `created_at` (timestamp, default now()). Apply row-level security so only authenticated Founders members can read published posts, and only admin can read/write unpublished ones — follow the same RLS pattern already used for The Arrival's content table.
+
+2. Public-facing pages:
+- Index page at /estate-notes listing published posts newest-to-oldest, showing title, author name (if set), cover image, and publish date, styled consistent with the Tasting Notes / Construction list pages (JO Blue / JO Grey / gold accent, Cormorant Garamond).
+- At the top of the /estate-notes index page, display this intro copy exactly as written:
+
+"Notes from the Estate
+
+Life at Sullivan Rutherford Estate extends far beyond the bottle.
+
+This journal offers a behind-the-scenes look at the vineyard, the winery, and the people who make the estate what it is. From seasonal vineyard updates and harvest to new releases, construction progress, special events, and everyday moments, each entry captures another chapter in the ongoing story of Sullivan Rutherford Estate.
+
+Because every great vintage begins long before it's poured."
+
+- Individual post page at /estate-notes/[slug] rendering the full post body, cover image, and author name, followed by a response form using this exact copy:
+
+"Share Your Thoughts
+
+Founder's Reserve is built around conversation.
+
+If something sparks your curiosity, inspires a question, or you'd simply like to share a thought, leave a note below. Every message is delivered directly to Sullivan Rutherford Estate and reviewed personally.
+
+Whether it's a question about a wine, a comment on an Estate Note, a suggestion for a future live session, or simply a story you'd like to share, we'd love to hear from you.
+
+Your message is completely private and will never be displayed publicly."
+
+Below that copy, include a message field and a button labeled "Leave a Note →". On submit, send an email to Jeff via Resend containing the member's name/email and their message — do not store responses anywhere visible in the site (no admin inbox, no public thread). Show a simple "Sent" confirmation after submit.
+
+- Add "Notes from the Estate" as a nav item under the "Connect" group in the hamburger menu, positioned after "Gatherings."
+
+3. Admin page: Add an /admin/estate-notes page (gated to admin only, matching the existing admin auth pattern used for The Arrival) with a form to create/edit posts: title, slug (auto-generate from title, editable), author name, cover image upload, body (rich text editor), publish toggle, and a "Notification message" field. On save with "is_published" true, trigger a OneSignal push notification using the same integration already wired up for The Arrival, sending the text from "Notification message" if provided.
+
+4. Styling: Match existing site typography and color variables (JO Blue #1B3448, JO Grey #6E6960, gold accent #9C7A3D, off-white text #EDEAE2, Cormorant Garamond font) — do not introduce new styles.
+
+5. Do not use em dashes anywhere in placeholder or generated copy.

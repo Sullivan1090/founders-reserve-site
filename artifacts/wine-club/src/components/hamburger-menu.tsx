@@ -43,6 +43,7 @@ const NAV: NavGroup[] = [
     items: [
       { label: "Live with the Winemaker", href: "/members/monthly-conversation" },
       { label: "Gatherings",              href: "/members/gatherings" },
+      { label: "Notes from the Estate",  href: "/members/estate-notes" },
     ],
   },
   {
