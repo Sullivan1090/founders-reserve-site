@@ -67,29 +67,29 @@ export default async function EstateNotesPage() {
                 border: "1px solid rgba(156,122,61,0.2)",
               }}
             >
-              <div className="flex items-baseline gap-5 min-w-0">
-                {/* Note number */}
-                <span
-                  className="shrink-0 font-serif text-sm tracking-widest"
-                  style={{ color: "#9C7A3D" }}
-                >
-                  No.&nbsp;{note.number}
-                </span>
+              <div className="flex items-center gap-5 min-w-0">
+                {/* Number + date stacked */}
+                <div className="shrink-0 flex flex-col items-center gap-0.5 w-14">
+                  <span
+                    className="font-serif text-sm tracking-widest leading-none"
+                    style={{ color: "#9C7A3D" }}
+                  >
+                    {note.number}
+                  </span>
+                  {note.published_at && (
+                    <span
+                      className="text-center leading-tight"
+                      style={{ color: "rgba(237,234,226,0.35)", fontSize: "0.6rem", letterSpacing: "0.05em" }}
+                    >
+                      {new Date(note.published_at).toLocaleDateString("en-US", {
+                        month: "short", day: "numeric", year: "numeric",
+                      })}
+                    </span>
+                  )}
+                </div>
 
                 {/* Divider */}
-                <span className="shrink-0 w-px h-4 self-center" style={{ background: "rgba(156,122,61,0.3)" }} />
-
-                {/* Date */}
-                {note.published_at && (
-                  <span
-                    className="shrink-0 text-xs uppercase tracking-widest font-medium hidden sm:block"
-                    style={{ color: "rgba(237,234,226,0.4)" }}
-                  >
-                    {new Date(note.published_at).toLocaleDateString("en-US", {
-                      month: "long", day: "numeric", year: "numeric",
-                    })}
-                  </span>
-                )}
+                <span className="shrink-0 w-px h-8" style={{ background: "rgba(156,122,61,0.25)" }} />
 
                 {/* Title */}
                 <h2

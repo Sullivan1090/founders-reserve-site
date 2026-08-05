@@ -14,15 +14,28 @@ export default async function EstateNoteDetailPage({
   const { slug } = await params;
   const supabase = await createClient();
 
-  const { data: note } = await supabase
-    .from("estate_notes")
-    .select("*")
-    .eq("slug", slug)
-    .eq("is_published", true)
-    .lte("published_at", new Date().toISOString())
-    .maybeSingle();
+  const [{ data: note }, { data: { user } }] = await Promise.all([
+    supabase
+      .from("estate_notes")
+      .select("*")
+      .eq("slug", slug)
+      .eq("is_published", true)
+      .lte("published_at", new Date().toISOString())
+      .maybeSingle(),
+    supabase.auth.getUser(),
+  ]);
 
   if (!note) notFound();
+
+  // Pull name + email from their profile so the form doesn't ask for them
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("full_name, email")
+    .eq("id", user?.id ?? "")
+    .maybeSingle();
+
+  const memberName  = profile?.full_name  ?? user?.email ?? "";
+  const memberEmail = profile?.email      ?? user?.email ?? "";
 
   return (
     <div className="container mx-auto px-6 py-12 md:py-16 max-w-3xl">
@@ -109,7 +122,7 @@ export default async function EstateNoteDetailPage({
           </div>
         </div>
 
-        <NoteResponseForm noteTitle={note.title} />
+        <NoteResponseForm noteTitle={note.title} memberName={memberName} memberEmail={memberEmail} />
       </div>
     </div>
   );
