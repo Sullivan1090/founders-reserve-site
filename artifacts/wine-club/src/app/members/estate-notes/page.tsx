@@ -1,19 +1,24 @@
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
-import Image from "next/image";
-import { ChevronRight } from "lucide-react";
 
 export const revalidate = 60;
 
 export default async function EstateNotesPage() {
   const supabase = await createClient();
 
+  // Fetch oldest-first so we can assign sequential numbers (001, 002, ...)
   const { data: notes } = await supabase
     .from("estate_notes")
-    .select("id, title, slug, cover_image_url, author_name, published_at")
+    .select("id, title, slug, published_at")
     .eq("is_published", true)
     .lte("published_at", new Date().toISOString())
-    .order("published_at", { ascending: false });
+    .order("published_at", { ascending: true });
+
+  // Assign sequential numbers, then reverse for newest-first display
+  const numbered = (notes ?? []).map((note, i) => ({
+    ...note,
+    number: String(i + 1).padStart(3, "0"),
+  })).reverse();
 
   return (
     <div className="container mx-auto px-6 py-12 md:py-16 max-w-4xl">
@@ -46,53 +51,62 @@ export default async function EstateNotesPage() {
       <div className="border-b mb-10" style={{ borderColor: "rgba(156,122,61,0.25)" }} />
 
       {/* Notes list */}
-      {!notes || notes.length === 0 ? (
+      {numbered.length === 0 ? (
         <p className="font-serif text-lg" style={{ color: "rgba(237,234,226,0.4)" }}>
           No notes published yet. Check back soon.
         </p>
       ) : (
-        <div className="flex flex-col divide-y" style={{ borderColor: "rgba(255,255,255,0.07)" }}>
-          {notes.map((note) => (
+        <div className="flex flex-col gap-3">
+          {numbered.map((note) => (
             <Link
               key={note.id}
               href={`/members/estate-notes/${note.slug}`}
-              className="group flex items-start gap-6 py-8 hover:opacity-80 transition-opacity"
+              className="group flex items-center justify-between gap-6 rounded-xl px-6 py-5 transition-all hover:opacity-80"
+              style={{
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(156,122,61,0.2)",
+              }}
             >
-              {/* Cover image thumbnail */}
-              {note.cover_image_url && (
-                <div className="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden border" style={{ borderColor: "rgba(156,122,61,0.2)" }}>
-                  <Image
-                    src={note.cover_image_url}
-                    alt={note.title}
-                    width={96}
-                    height={96}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              )}
+              <div className="flex items-baseline gap-5 min-w-0">
+                {/* Note number */}
+                <span
+                  className="shrink-0 font-serif text-sm tracking-widest"
+                  style={{ color: "#9C7A3D" }}
+                >
+                  No.&nbsp;{note.number}
+                </span>
 
-              <div className="flex-1 min-w-0">
+                {/* Divider */}
+                <span className="shrink-0 w-px h-4 self-center" style={{ background: "rgba(156,122,61,0.3)" }} />
+
+                {/* Date */}
                 {note.published_at && (
-                  <p className="text-xs uppercase tracking-widest mb-2 font-semibold" style={{ color: "#9C7A3D" }}>
+                  <span
+                    className="shrink-0 text-xs uppercase tracking-widest font-medium hidden sm:block"
+                    style={{ color: "rgba(237,234,226,0.4)" }}
+                  >
                     {new Date(note.published_at).toLocaleDateString("en-US", {
                       month: "long", day: "numeric", year: "numeric",
                     })}
-                    {note.author_name && (
-                      <span style={{ color: "rgba(237,234,226,0.35)" }}>
-                        {" "}&mdash;{" "}{note.author_name}
-                      </span>
-                    )}
-                  </p>
+                  </span>
                 )}
-                <h2 className="font-serif text-2xl md:text-3xl leading-tight" style={{ color: "#EDEAE2" }}>
+
+                {/* Title */}
+                <h2
+                  className="font-serif text-xl md:text-2xl leading-tight truncate"
+                  style={{ color: "#EDEAE2" }}
+                >
                   {note.title}
                 </h2>
               </div>
 
-              <ChevronRight
-                className="w-5 h-5 shrink-0 mt-2 group-hover:translate-x-1 transition-transform"
+              {/* Arrow */}
+              <span
+                className="shrink-0 text-lg transition-transform group-hover:translate-x-1"
                 style={{ color: "#9C7A3D" }}
-              />
+              >
+                &rarr;
+              </span>
             </Link>
           ))}
         </div>
