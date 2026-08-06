@@ -53,6 +53,60 @@ Soda Canyon is a vineyard defined by restraint rather than power. The unique int
 Founder's Reserve Merlot — available vintages: 2023, 2022, 2021, 2020, 2019, 2018, 2015, 2014, 2013
 Founder's Reserve Cabernet Sauvignon — available vintages: 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013
 Founder's Reserve Cabernet Franc — available vintages: 2022, 2021
+Rosé — available vintages: 2024, 2023, 2022, 2021, 2020, 2019
+Chardonnay — available vintages: 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015
+
+== TASTING NOTES ==
+
+--- 2024 Sullivan Rutherford Estate Rosé ---
+Tasting Note: The 2024 Rosé is all about vibrancy and freshness. Lighter in color than previous vintages, it delivers unmatched energy and precision. The nose is alive with bright minerality, ripe peaches, and a hint of wild raspberry. On the palate, it's electric — bursting with sun-ripened strawberries, zesty citrus, and crisp acidity that keeps every sip refreshing and focused. A subtle floral lift lingers through the finish, adding elegance to its energetic core. This is the most dynamic rosé produced at the estate — pure, refreshing, and impossible to put down.
+Blend: 81% Merlot, 19% Malbec
+Oak: None
+TA: 6.5 g/L | pH: 3.21 | Alcohol: 13.3% | Cases produced: 330
+Vineyard: Sullivan Rutherford Estate
+Clones: Merlot 15 · Malbec 3
+Vineyard Manager: Domenic Bianco
+
+--- 2023 Sullivan Rutherford Estate Rosé ---
+Vintage Context: The 2023 vintage was a standout year for Sullivan Rutherford Estate. Generous winter and spring rains replenished the vineyards, ensuring healthy vines and saturated soils. Throughout the mild, sun-drenched summer, temperatures hovered consistently between 72–75°F, fostering optimal grape development. Despite challenges of mildew pressure caused by the cooler vintage, the vineyard team's diligence ensured that the vines produced loose clusters and small, concentrated berries.
+Tasting Note: A radiant coral hue reminiscent of a sunset sky. The aromatics are rich with mineral nuances, ripe stone fruit aromas, and the subtle sweetness of raspberries. Bursting with freshly picked strawberries and bright acidity, it offers a mouth-watering, quenching refreshment. Each sip reveals a delightful medley of juicy, tropical citrus, and subtle floral fragrances. This rosé exudes energy and vitality, promising a vibrant tasting journey that leaves a lasting impression of pure enjoyment.
+Blend: 100% Merlot
+Oak: None
+Alcohol: 13.2% | Cases produced: 380
+Vineyard: Sullivan Rutherford Estate
+
+--- 2022 Sullivan Rutherford Estate Rosé ---
+Tasting Note: A true gem. Bursting with bright flavors of red fruit and zesty lime, this 100% Merlot Rosé is juicy and quenching. Fresh strawberries mingled with cool, clean, tangy acidity amplify the inherent minerality that Sullivan Rutherford Estate is known for, making for a perfectly balanced and refreshing wine. With its sophisticated blend of flavors and impeccable craftsmanship, the 2022 Rosé is a wine for all occasions.
+Blend: 100% Merlot
+Oak: None
+Vineyard: Sullivan Rutherford Estate
+
+--- 2019 Sullivan Rutherford Estate Rosé ---
+Tasting Note: Fresh cherry, blood orange, quenching, juicy, bright. Explosive and inundating aromas of the freshest red fruit mark the undeniable characteristics of Malbec. Specifically grown from the estate to produce a rosé, this is a unique way to express all the sensory qualities that Malbec has to offer. The berries were picked early in the morning to preserve fresh acidity. Once picked, the grapes were destemmed and allowed to soak in their own juices, extracting aroma, flavor, and just enough color to give the wine its identity. After soaking, the remaining juice was pressed off the skins into stainless fermenters for 3 days of cold settling. The juice was then fermented slowly at low temperature for 30 days — a technique used to preserve freshness. Once fermentation was complete, the wine resolved for 3 months before bottling.
+Variety: 100% Malbec
+Oak: None (stainless steel only)
+Vineyard: Sullivan Rutherford Estate
+
+--- 2023 Sullivan Rutherford Estate Chardonnay ---
+Tasting Note: The 2023 Chardonnay carries a quiet tension from the beginning. A distinct mineral line gives the wine shape and focus, creating energy before it fully opens. Fresh stone fruit and yellow tropical fruit unfold in layers, balanced by a subtle reduction that brings complexity and keeps the wine from feeling overly polished or predictable. There is richness and texture throughout, but natural acidity keeps everything lifted, precise, and moving with intention. What stands out most is the balance between depth and energy — the wine has weight but never feels heavy. It stretches with length and drive, leaving behind freshness and persistence rather than excess. This is a serious Chardonnay shaped more by instinct, curiosity, and attention than by formula. A wine that was allowed to evolve naturally and become its own expression rather than being pushed toward a predetermined style.
+Variety: 100% Chardonnay
+Oak: 60% New French Oak, 100% barrel fermented
+Alcohol: 14.5% | TA: 6.1 g/L | pH: 3.32 | Cases produced: 330
+Vineyards: Sullivan Rutherford Estate, Hyde Vineyards
+
+--- 2018 Sullivan Rutherford Estate Chardonnay ---
+Tasting Note: Ripe pear, toasty vanilla, lemon rind, and supple. Taking advantage of a site that allows for complete ripeness, while diligently crafting and respecting the unique expression this wine has to offer.
+Variety: 100% Chardonnay
+Oak: 60% New French Oak, Partial Malolactic fermentation
+Vineyard: Sullivan Rutherford Estate
+
+--- 2015 Sullivan Rutherford Estate Chardonnay ---
+Tasting Note: Honeysuckle and sweet vanilla meet the nose immediately, providing a sense of pleasure, quickly followed by bright green citrus and a hint of minerality. The youth of this wine is evident in the fresh fruitfulness that envelops the aroma. Don't let the fruitfulness fool you — this wine is dense and layered. There is a round and juicy quality of peach and developed pineapple, yet the lemon-lime citrus provides brightness, acidity, and length. Enjoy now and for years to come.
+Variety: 100% Chardonnay
+Oak: 50% New French Oak
+Alcohol: 14.5% | TA: 6.1 g/L | pH: 3.34
+Harvest Date: August 11, 2015
+Vineyard: Sullivan Rutherford Estate
 
 == TASTING NOTES ==
 
