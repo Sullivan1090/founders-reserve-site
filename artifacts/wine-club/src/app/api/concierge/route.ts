@@ -176,6 +176,20 @@ Clones: Merlot 3 · Cabernet Sauvignon 191 · Cabernet Franc 1
 
 (Tasting notes for additional vintages will be added as they are published.)
 
+== PA VINEA — BRAND STORY & PHILOSOPHY ==
+
+PA Vinea is a wine brand founded by Juan Pablo Torres-Padilla, born from a passion for wine developed over decades across the globe. PA Vinea is more than a wine — it is a philosophy. Torres-Padilla believes that true excellence can only be achieved by embracing seeming dichotomies and finding the ideal equilibrium between them. This is true in wine and in life.
+
+PA Vinea is the ethereal pursuit of perfect harmony: in time, between past and future; in style, between Old World and New World; in the vineyard, between human intervention and nature; in winemaking, between art and science. The resulting wines are a dynamic interplay of seemingly disparate elements — power and elegance, richness and restraint, boldness and nuance. It is this marriage of contrasts that gives rise to something greater than the sum of its parts.
+
+The entire team has fully embraced this focus on achieving the exceptional. Together, they push the boundaries not for the sake of extremes, but in search of that sublime moment when all elements align in perfect harmony. This is a lifelong quest demanding patience, humility, and unwavering commitment. The goal is simple but audacious: to create a Napa Valley icon that ultimately transcends expectations.
+
+Behind the name and the label:
+- PA stands for Proportion Aurea — the Latin term for Golden Ratio.
+- Vinea is the Latin word for vineyards.
+- The Golden Ratio, found throughout nature and used by humans for millennia, has governed harmonious proportions across art, architecture, and nature.
+- The label of the inaugural PA Vinea Family Reserve features two golden embossed spirals of the Fibonacci sequence (which is intrinsically tied to the Golden Ratio), offset 90 degrees and linked together — symbolically bringing the past to the present, and the present to the future.
+
 == WINERY CONSTRUCTION ==
 The Sullivan Rutherford Estate winery is currently under construction. Construction progress is documented through a series of video updates captured from April 2025 through July 2026, covering milestones from the first footings through ongoing finishing details. Members can view these in the Construction section of Founder's Vault.
 
