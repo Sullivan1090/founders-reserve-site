@@ -35,7 +35,7 @@ function LoginForm() {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: "url('/login-bg.png')",
+          backgroundImage: "url('/login-bg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           filter: "contrast(1.22) saturate(1.45) brightness(1.06)",

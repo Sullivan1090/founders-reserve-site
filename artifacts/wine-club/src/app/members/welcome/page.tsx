@@ -3,7 +3,7 @@ import { markWelcomeSeen } from "./actions";
 export default function WelcomePage() {
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6 py-16"
+      className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] px-6 py-16"
       style={{ background: "#1B3448" }}
     >
       <div className="max-w-xl w-full text-center space-y-10">

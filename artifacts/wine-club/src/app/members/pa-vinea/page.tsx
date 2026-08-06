@@ -14,13 +14,13 @@ export default function PAVineaPage() {
 
   return (
     <div
-      className="flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6 py-16 relative overflow-hidden"
+      className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] px-6 py-16 relative overflow-hidden"
       style={{ background: "#FFFFFF" }}
     >
       {/* PA Vinea circular graphic — watermark behind all text */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/pa-vinea-graphic.png"
+        src="/pa-vinea-graphic.webp"
         alt=""
         aria-hidden="true"
         className="absolute pointer-events-none select-none"

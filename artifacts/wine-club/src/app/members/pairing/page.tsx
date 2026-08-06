@@ -17,7 +17,7 @@ const recipes = [
     subtitle:   "with Blackberry–Merlot Sauce",
     tagline:    "A refined pairing that brings out the Merlot's dark fruit, savory herbs, and velvety texture.",
     serves:     4,
-    image:      "/merlot-recipe-card.png",
+    image:      "/merlot-recipe-card.webp",
     imageAlt:   "Herb-Crusted Rack of Lamb with Blackberry–Merlot Sauce recipe card",
     sections: [
       {
@@ -70,7 +70,7 @@ const recipes = [
     subtitle:   "with Wild Mushroom Bordelaise",
     tagline:    "A bold pairing that matches the Cabernet Sauvignon's depth, structure, and savory complexity.",
     serves:     4,
-    image:      "/cabernet-recipe-card.png",
+    image:      "/cabernet-recipe-card.webp",
     imageAlt:   "Coffee-and-Herb-Crusted New York Strip with Wild Mushroom Bordelaise recipe card",
     sections: [
       {

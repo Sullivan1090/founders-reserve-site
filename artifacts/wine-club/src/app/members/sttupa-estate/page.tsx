@@ -12,7 +12,7 @@ export default function SttupaestatePage() {
   ];
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6 py-16 overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] px-6 py-16 overflow-hidden">
 
       {/* Background photo — Next.js Image handles optimization + preload */}
       <Image

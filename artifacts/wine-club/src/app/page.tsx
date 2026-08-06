@@ -40,7 +40,7 @@ export default function StatementPage() {
       >
         {/* The photo — object-position locks the vineyard-row band in place */}
         <img
-          src="/vineyard.png"
+          src="/vineyard.webp"
           alt=""
           style={{
             position: "absolute",

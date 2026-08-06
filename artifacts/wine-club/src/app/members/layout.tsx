@@ -12,8 +12,8 @@ export default async function MembersLayout({ children }: { children: React.Reac
 
   return (
     <div className="min-h-screen flex flex-col bg-background selection:bg-primary/20 selection:text-primary">
-      <header className="border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 sticky top-0 z-40">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+      <header className="border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 sticky top-0 z-40" style={{ paddingTop: "env(safe-area-inset-top)" }}>
+        <div className="container mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/members" className="font-serif text-2xl tracking-wide text-primary flex items-center gap-2 transition-transform hover:scale-[1.02]">
             <Wine className="w-6 h-6" />
             The Founder's Vault

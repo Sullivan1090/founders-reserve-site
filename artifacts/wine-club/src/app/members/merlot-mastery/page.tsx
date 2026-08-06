@@ -7,13 +7,13 @@ export default function MerlotMasteryPage() {
 
   return (
     <div
-      className="flex flex-col items-center min-h-[calc(100vh-5rem)] px-6 py-16 relative overflow-hidden"
+      className="flex flex-col items-center min-h-[calc(100vh-4rem)] px-6 py-16 relative overflow-hidden"
       style={{ background: BLUE }}
     >
       {/* Background photo — faded */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/merlot-mastery-bg.jpg"
+        src="/merlot-mastery-bg.webp"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"

@@ -24,7 +24,7 @@ export default function GatheringsPage() {
 
   return (
     <div
-      className="flex flex-col items-center min-h-[calc(100vh-5rem)] px-6 py-16 relative"
+      className="flex flex-col items-center min-h-[calc(100vh-4rem)] px-6 py-16 relative"
       style={{ background: BLUE }}
     >
       {/* Radial glow */}
