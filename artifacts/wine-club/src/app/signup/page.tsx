@@ -49,7 +49,7 @@ function SignupForm() {
 
       // If email confirmation is disabled, user is immediately signed in
       if (data.session) {
-        toast.success("Welcome to The Founders Vault.");
+        toast.success("Welcome to The Founder's Vault.");
         router.push("/members");
         router.refresh();
       } else {

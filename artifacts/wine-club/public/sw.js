@@ -1,4 +1,4 @@
-// Founders Reserve — Service Worker
+// Founder's Reserve — Service Worker
 // Caches the app shell for offline use; ready for push notification wiring.
 
 const CACHE_VERSION = "founders-reserve-v1";
@@ -86,7 +86,7 @@ self.addEventListener("push", (event) => {
   if (!event.data) return;
   const data = event.data.json();
   event.waitUntil(
-    self.registration.showNotification(data.title || "Founders Reserve", {
+    self.registration.showNotification(data.title || "Founder's Reserve", {
       body:  data.body  || "",
       icon:  data.icon  || "/icons/icon-192.png",
       badge: data.badge || "/icons/icon-192.png",

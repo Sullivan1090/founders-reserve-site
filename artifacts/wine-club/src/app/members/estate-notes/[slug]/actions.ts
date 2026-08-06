@@ -22,7 +22,7 @@ export async function submitNoteResponse(
     try {
       const resend = new Resend(resendKey);
       await resend.emails.send({
-        from:    "Founders Vault <onboarding@resend.dev>",
+        from:    "Founder's Vault <onboarding@resend.dev>",
         to:      "jeff@sullivanwine.com",
         replyTo: email,
         subject: `Note from ${name} — "${noteTitle}"`,

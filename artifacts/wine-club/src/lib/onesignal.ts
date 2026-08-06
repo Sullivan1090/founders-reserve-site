@@ -28,7 +28,7 @@ export async function sendPushNotification(message: string): Promise<void> {
         app_id:            ONESIGNAL_APP_ID,
         included_segments: ["All"],
         contents:          { en: message.trim() },
-        name:              "Founders Reserve Admin Push",
+        name:              "Founder's Reserve Admin Push",
       }),
     });
 

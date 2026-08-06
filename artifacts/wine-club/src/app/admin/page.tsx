@@ -14,7 +14,7 @@ export default async function AdminDashboard() {
     <div className="space-y-10">
       <div>
         <h1 className="font-serif text-3xl text-primary mb-2">Admin Dashboard</h1>
-        <p className="text-muted-foreground text-sm">Manage Founders Vault content.</p>
+        <p className="text-muted-foreground text-sm">Manage Founder's Vault content.</p>
       </div>
 
       <div className="grid gap-5">

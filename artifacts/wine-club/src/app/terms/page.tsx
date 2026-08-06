@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Wine } from "lucide-react";
 
 export const metadata = {
-  title: "Terms and Conditions | The Founders Vault",
+  title: "Terms and Conditions | The Founder's Vault",
 };
 
 export default function TermsPage() {
@@ -15,7 +15,7 @@ export default function TermsPage() {
             <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
               <Wine className="w-4 h-4 text-primary-foreground" />
             </div>
-            <span className="font-serif text-lg text-primary">The Founders Vault</span>
+            <span className="font-serif text-lg text-primary">The Founder's Vault</span>
           </Link>
         </div>
       </header>

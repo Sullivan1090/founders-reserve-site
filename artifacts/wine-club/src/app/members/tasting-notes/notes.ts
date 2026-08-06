@@ -53,7 +53,7 @@ export const TASTING_NOTE_CONTENT: Record<string, Record<number, TastingNoteCont
 
     2020: {
       notes:
-        "There is absolutely no Merlot in the Napa Valley that can compare to this wine. Structured, dense, fresh, and built to age, the 2020 J.O. Sullivan Founders Reserve Merlot offers something that no other Merlot can — complexity. There is an elegance to this Merlot that is recognizable, but it is more than that: it is a powerhouse that delivers on all levels. Fresh acidity carries the wine and brings it into focus, weight and juiciness give it a supple character, and structure provides a harmonious foundation knitting all the components together. This is what Merlot is supposed to be. Drink over the next 25 years.",
+        "There is absolutely no Merlot in the Napa Valley that can compare to this wine. Structured, dense, fresh, and built to age, the 2020 J.O. Sullivan Founder's Reserve Merlot offers something that no other Merlot can — complexity. There is an elegance to this Merlot that is recognizable, but it is more than that: it is a powerhouse that delivers on all levels. Fresh acidity carries the wine and brings it into focus, weight and juiciness give it a supple character, and structure provides a harmonious foundation knitting all the components together. This is what Merlot is supposed to be. Drink over the next 25 years.",
       details: {
         blend:            "95% Merlot, 5% Cabernet Franc",
         oak:              "80% New French Oak",
@@ -312,7 +312,7 @@ export const TASTING_NOTE_CONTENT: Record<string, Record<number, TastingNoteCont
   "cabernet-franc": {
     2021: {
       notes:
-        "The 2021 J.O. Sullivan Founders Reserve Cabernet Franc exudes a blend of elegance and profound intensity, with a powerful presence that is unrivaled. Its bright, energetic aromas are laced with a touch of dried herbs, while hints of rhubarb and vibrant red fruit pierce through layers of dense, toasty dark chocolate. On the palate, it reveals a concentrated richness, with fine-grained tannins that elevate the savory bitter chocolate notes. This wine passionately showcases the exceptional terroir of Sullivan Rutherford Estate, leaving a lasting impression of depth and sophistication.",
+        "The 2021 J.O. Sullivan Founder's Reserve Cabernet Franc exudes a blend of elegance and profound intensity, with a powerful presence that is unrivaled. Its bright, energetic aromas are laced with a touch of dried herbs, while hints of rhubarb and vibrant red fruit pierce through layers of dense, toasty dark chocolate. On the palate, it reveals a concentrated richness, with fine-grained tannins that elevate the savory bitter chocolate notes. This wine passionately showcases the exceptional terroir of Sullivan Rutherford Estate, leaving a lasting impression of depth and sophistication.",
       details: {
         blend:           "80% Cabernet Franc, 12% Merlot, 8% Cabernet Sauvignon",
         oak:             "100% New French Oak",

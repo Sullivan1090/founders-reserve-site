@@ -108,7 +108,7 @@ export function PwaInstallBanner() {
             Add to your home screen
           </p>
           <p className="text-xs leading-tight mt-0.5" style={{ color: "rgba(237,234,226,0.55)" }}>
-            Open Founders Reserve like an app — no browser bar
+            Open Founder's Reserve like an app — no browser bar
           </p>
         </div>
 
@@ -155,7 +155,7 @@ export function PwaInstallBanner() {
             {platform === "ios" ? (
               <>
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(237,234,226,0.7)" }}>
-                  Install Founders Reserve on your iPhone in three taps:
+                  Install Founder's Reserve on your iPhone in three taps:
                 </p>
 
                 {[
@@ -176,7 +176,7 @@ export function PwaInstallBanner() {
                   {
                     n: "3",
                     title: 'Tap "Add" to confirm',
-                    body: <>Founders Reserve will appear on your home screen and open full-screen</>,
+                    body: <>Founder's Reserve will appear on your home screen and open full-screen</>,
                   },
                 ].map(({ n, title, body }) => (
                   <div key={n} className="flex items-start gap-4">
@@ -245,7 +245,7 @@ export function PwaInstallBanner() {
                 ) : (
                   <>
                     <p className="text-sm leading-relaxed" style={{ color: "rgba(237,234,226,0.7)" }}>
-                      Install Founders Reserve on your Android in two steps:
+                      Install Founder's Reserve on your Android in two steps:
                     </p>
 
                     {[
@@ -257,7 +257,7 @@ export function PwaInstallBanner() {
                       {
                         n: "2",
                         title: 'Tap "Add to Home Screen" or "Install app"',
-                        body: 'Founders Reserve will appear on your home screen and open full-screen',
+                        body: "Founder's Reserve will appear on your home screen and open full-screen",
                       },
                     ].map(({ n, title, body }) => (
                       <div key={n} className="flex items-start gap-4">

@@ -16,7 +16,7 @@ export default async function MembersLayout({ children }: { children: React.Reac
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/members" className="font-serif text-2xl tracking-wide text-primary flex items-center gap-2 transition-transform hover:scale-[1.02]">
             <Wine className="w-6 h-6" />
-            The Founders Vault
+            The Founder's Vault
           </Link>
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground hidden md:inline-block font-medium">{user?.email}</span>

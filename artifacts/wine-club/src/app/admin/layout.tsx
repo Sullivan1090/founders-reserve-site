@@ -21,7 +21,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
       >
         <div className="container mx-auto px-6 h-16 flex items-center justify-between">
           <span className="font-serif text-lg" style={{ color: "#9C7A3D" }}>
-            Founders Vault — Admin
+            Founder's Vault — Admin
           </span>
           <nav className="flex items-center gap-6 text-sm">
             <Link

@@ -21,13 +21,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Founders Reserve",
+  title: "Founder's Reserve",
   description: "A members-only experience for Sullivan Rutherford Estate wine club members.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Founders Reserve",
+    title: "Founder's Reserve",
     startupImage: [
       // iPhone 14 Pro Max
       { url: "/icons/apple-touch-icon.png", media: "(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3)" },

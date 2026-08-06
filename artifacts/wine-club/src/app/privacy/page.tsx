@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Wine } from "lucide-react";
 
 export const metadata = {
-  title: "Privacy Policy | The Founders Vault",
+  title: "Privacy Policy | The Founder's Vault",
 };
 
 export default function PrivacyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPage() {
             <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
               <Wine className="w-4 h-4 text-primary-foreground" />
             </div>
-            <span className="font-serif text-lg text-primary">The Founders Vault</span>
+            <span className="font-serif text-lg text-primary">The Founder's Vault</span>
           </Link>
         </div>
       </header>
@@ -36,8 +36,8 @@ export default function PrivacyPage() {
             </p>
             <ul className="mt-4 space-y-2 list-disc list-inside">
               <li>Visit our website at <a href="https://www.foundersreserve.wine" className="text-primary hover:underline">foundersreserve.wine</a> or any website of ours that links to this Privacy Notice</li>
-              <li>Download and use our mobile application (Founders Reserve), or any other application of ours that links to this Privacy Notice</li>
-              <li>Use Founder's Reserve — a members-only website for J.O. Sullivan Founders Reserve wine club allocation members providing exclusive video content, release updates, tasting notes, and vintage reviews. The site does not process payments or sell products directly; members are directed to our main website for purchases.</li>
+              <li>Download and use our mobile application (Founder's Reserve), or any other application of ours that links to this Privacy Notice</li>
+              <li>Use Founder's Reserve — a members-only website for J.O. Sullivan Founder's Reserve wine club allocation members providing exclusive video content, release updates, tasting notes, and vintage reviews. The site does not process payments or sell products directly; members are directed to our main website for purchases.</li>
               <li>Engage with us in other related ways, including any marketing or events</li>
             </ul>
             <p className="mt-4">
