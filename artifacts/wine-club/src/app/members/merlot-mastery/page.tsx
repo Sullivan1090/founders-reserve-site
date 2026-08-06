@@ -10,6 +10,22 @@ export default function MerlotMasteryPage() {
       className="flex flex-col items-center min-h-[calc(100vh-5rem)] px-6 py-16 relative overflow-hidden"
       style={{ background: BLUE }}
     >
+      {/* Background photo — faded */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/merlot-mastery-bg.jpg"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
+        style={{ opacity: 0.18 }}
+      />
+
+      {/* Dark overlay so text stays readable */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "rgba(27,52,72,0.72)" }}
+      />
+
       {/* Subtle radial glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -161,7 +177,9 @@ export default function MerlotMasteryPage() {
           </div>
 
           <a
-            href="/members/gatherings"
+            href="https://sullivanwine.com/estate-experiences/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block font-serif tracking-widest text-sm uppercase transition-all hover:opacity-80 px-10 py-3.5 rounded-full"
             style={{
               background:    GOLD,
