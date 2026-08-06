@@ -33,7 +33,8 @@ const NAV: NavGroup[] = [
     kind: "group",
     label: "Beyond the Vineyard",
     items: [
-      { label: "PA Vinea",       href: "/members/pa-vinea" },
+      { label: "PA Vinea",        href: "/members/pa-vinea" },
+      { label: "Merlot Mastery", href: "/members/merlot-mastery" },
       { label: "Sttupa Estate",  href: "/members/sttupa-estate" },
     ],
   },
