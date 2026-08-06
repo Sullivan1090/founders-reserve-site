@@ -17,13 +17,13 @@ export default function MerlotMasteryPage() {
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
-        style={{ opacity: 0.18 }}
+        style={{ opacity: 0.42 }}
       />
 
       {/* Dark overlay so text stays readable */}
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "rgba(27,52,72,0.72)" }}
+        style={{ background: "rgba(27,52,72,0.52)" }}
       />
 
       {/* Subtle radial glow */}
