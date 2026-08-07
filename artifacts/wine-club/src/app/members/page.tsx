@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { NotificationOptIn } from "@/components/notification-opt-in";
+import VimeoPlayer from "@/components/VimeoPlayer";
 
 const GOLD      = "#C49A35";
 const GOLD_DARK = "#9C7A3D";
@@ -80,30 +81,25 @@ export default async function ArrivalPage() {
 
         {/* Video embed */}
         {hasVideo ? (
-          <div
-            className="relative w-full overflow-hidden rounded-xl border border-border/50 shadow-sm"
-            style={{ paddingBottom: "56.25%" }}
-          >
+          <>
             {vimeoId ? (
-              <iframe
-                src={`https://player.vimeo.com/video/${vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479&dnt=1`}
-                title={wine.wine_name}
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-                loading="lazy"
-              />
+              <VimeoPlayer videoId={vimeoId} title={wine.wine_name} />
             ) : (
-              <iframe
-                src={`https://www.youtube.com/embed/${youtubeId}`}
-                title={wine.wine_name}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="absolute inset-0 w-full h-full"
-                loading="lazy"
-              />
+              <div
+                className="relative w-full overflow-hidden rounded-xl border border-border/50 shadow-sm"
+                style={{ paddingBottom: "56.25%" }}
+              >
+                <iframe
+                  src={`https://www.youtube.com/embed/${youtubeId}`}
+                  title={wine.wine_name}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                  loading="lazy"
+                />
+              </div>
             )}
-          </div>
+          </>
         ) : (
           <div
             className="relative w-full overflow-hidden rounded-xl border border-border/50 bg-card flex items-center justify-center"
