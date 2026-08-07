@@ -14,8 +14,7 @@ const NAV: NavGroup[] = [
     kind: "group",
     label: "The Wines",
     items: [
-      { label: "Tasting Notes",    href: "/members/tasting-notes" },
-      { label: "Cellar Picks",     href: "/members/cellar-picks" },
+      { label: "Tasting Notes",     href: "/members/tasting-notes" },
       { label: "Pairing / Recipes", href: "/members/pairing" },
     ],
   },
@@ -23,17 +22,16 @@ const NAV: NavGroup[] = [
     kind: "group",
     label: "The Estate",
     items: [
-      { label: "Vineyard",      href: "/members/vineyard" },
-      { label: "Winemaker",     href: "/members/winemaker" },
-      { label: "Meet the Team", href: "/members/meet-the-team" },
-      { label: "Construction",  href: "/members/construction" },
+      { label: "Vineyard",     href: "/members/vineyard" },
+      { label: "Winemaker",    href: "/members/winemaker" },
+      { label: "Construction", href: "/members/construction" },
     ],
   },
   {
     kind: "group",
     label: "Beyond the Vineyard",
     items: [
-      { label: "PA Vinea",        href: "/members/pa-vinea" },
+      { label: "PA Vinea",       href: "/members/pa-vinea" },
       { label: "Merlot Mastery", href: "/members/merlot-mastery" },
       { label: "Sttupa Estate",  href: "/members/sttupa-estate" },
     ],
@@ -44,7 +42,7 @@ const NAV: NavGroup[] = [
     items: [
       { label: "Live with the Winemaker", href: "/members/monthly-conversation" },
       { label: "Gatherings",              href: "/members/gatherings" },
-      { label: "Notes from the Estate",  href: "/members/estate-notes" },
+      { label: "Notes from the Estate",   href: "/members/estate-notes" },
     ],
   },
   {
