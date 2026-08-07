@@ -3,7 +3,7 @@ import { createClient as createServiceClient } from "@supabase/supabase-js";
 import { redirect, notFound } from "next/navigation";
 import Link from "next/link";
 import { sendPushNotification } from "@/lib/onesignal";
-import { NoteForm } from "../new/page";
+import { NoteForm } from "../NoteForm";
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? "jeff@sullivanwine.com";
 

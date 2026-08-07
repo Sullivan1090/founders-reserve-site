@@ -24,7 +24,7 @@ export async function inviteMembers(emails: string[]): Promise<InviteResult[]> {
 
     try {
       const { error } = await admin.auth.admin.inviteUserByEmail(normalized, {
-        redirectTo: `${SITE_URL}/auth/callback?next=/members`,
+        redirectTo: `${SITE_URL}/auth/callback?next=/set-password`,
       });
 
       if (error) {
