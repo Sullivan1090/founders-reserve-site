@@ -9,16 +9,6 @@ const CREAM     = "#EDEAE2";
 
 const CAB_2023_NOTES = "The 2023 J.O. Sullivan Founder's Reserve Cabernet Sauvignon is the product of patience, observation, and an unwavering commitment to detail. Drawn from some of the estate's lowest-yielding vines, it captures the concentration and character that only come from fruit pushed to fully express its site. Dark currant, black plum, graphite, and dried sage emerge in layers, woven together by the earthy minerality that defines Rutherford. There is depth from the outset, but also restraint. Nothing competes for attention. Instead, each element finds its place, creating a wine that feels complete rather than assembled. The structure is firm and finely shaped, carrying a density of fruit that never loses its sense of energy. Savory undertones, crushed stone, and fresh acidity provide balance and direction, allowing the wine to unfold gradually and with purpose. This is a wine built through countless small decisions, each made in pursuit of a singular goal: to capture the vineyard as completely and honestly as possible. The result is a Cabernet Sauvignon of depth, precision, and quiet confidence.";
 
-const CAB_2023_DETAILS = [
-  { label: "Blend",            value: "88% Cabernet Sauvignon, 12% Petit Verdot" },
-  { label: "Oak",              value: "80% New French Oak" },
-  { label: "Alcohol",          value: "14.8%" },
-  { label: "TA",               value: "5.7 g/L" },
-  { label: "pH",               value: "3.75" },
-  { label: "Cases Produced",   value: "400" },
-  { label: "Clones",           value: "191, 7 – CS · 400 – PV" },
-  { label: "Vineyard Manager", value: "Domenick Bianco" },
-];
 
 export default async function ArrivalPage() {
   const supabase = await createClient();
@@ -163,26 +153,6 @@ export default async function ArrivalPage() {
               >
                 {CAB_2023_NOTES}
               </p>
-
-              {/* Details grid */}
-              <div
-                className="grid grid-cols-2 gap-x-8 gap-y-4 pt-6"
-                style={{ borderTop: "1px solid rgba(196,154,53,0.2)" }}
-              >
-                {CAB_2023_DETAILS.map(({ label, value }) => (
-                  <div key={label} className="space-y-0.5">
-                    <p
-                      className="font-serif uppercase tracking-widest"
-                      style={{ color: GOLD, fontSize: "0.65rem", letterSpacing: "0.18em" }}
-                    >
-                      {label}
-                    </p>
-                    <p className="font-serif" style={{ color: CREAM, fontSize: "0.95rem" }}>
-                      {value}
-                    </p>
-                  </div>
-                ))}
-              </div>
 
               {/* Bottom rule */}
               <div className="flex items-center gap-4 pt-2">
