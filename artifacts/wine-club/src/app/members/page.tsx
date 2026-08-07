@@ -86,7 +86,7 @@ export default async function ArrivalPage() {
           >
             {vimeoId ? (
               <iframe
-                src={`https://player.vimeo.com/video/${vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479`}
+                src={`https://player.vimeo.com/video/${vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479&dnt=1`}
                 title={wine.wine_name}
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
                 allowFullScreen
