@@ -2,12 +2,28 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { NotificationOptIn } from "@/components/notification-opt-in";
 
+const GOLD      = "#C49A35";
+const GOLD_DARK = "#9C7A3D";
+const BLUE      = "#1B3448";
+const CREAM     = "#EDEAE2";
+
+const CAB_2023_NOTES = "The 2023 J.O. Sullivan Founder's Reserve Cabernet Sauvignon is the product of patience, observation, and an unwavering commitment to detail. Drawn from some of the estate's lowest-yielding vines, it captures the concentration and character that only come from fruit pushed to fully express its site. Dark currant, black plum, graphite, and dried sage emerge in layers, woven together by the earthy minerality that defines Rutherford. There is depth from the outset, but also restraint. Nothing competes for attention. Instead, each element finds its place, creating a wine that feels complete rather than assembled. The structure is firm and finely shaped, carrying a density of fruit that never loses its sense of energy. Savory undertones, crushed stone, and fresh acidity provide balance and direction, allowing the wine to unfold gradually and with purpose. This is a wine built through countless small decisions, each made in pursuit of a singular goal: to capture the vineyard as completely and honestly as possible. The result is a Cabernet Sauvignon of depth, precision, and quiet confidence.";
+
+const CAB_2023_DETAILS = [
+  { label: "Blend",            value: "88% Cabernet Sauvignon, 12% Petit Verdot" },
+  { label: "Oak",              value: "80% New French Oak" },
+  { label: "Alcohol",          value: "14.8%" },
+  { label: "TA",               value: "5.7 g/L" },
+  { label: "pH",               value: "3.75" },
+  { label: "Cases Produced",   value: "400" },
+  { label: "Clones",           value: "191, 7 – CS · 400 – PV" },
+  { label: "Vineyard Manager", value: "Domenick Bianco" },
+];
+
 export default async function ArrivalPage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 
-  // First-login check: redirect to welcome if member hasn't seen it yet.
-  // Handles gracefully if the column doesn't exist yet (migration pending).
   if (user) {
     const { data: profile, error } = await supabase
       .from("profiles")
@@ -20,8 +36,6 @@ export default async function ArrivalPage() {
     }
   }
 
-  // Fetch featured wine from Supabase (admin-updatable).
-  // Falls back to default if table doesn't exist yet.
   const { data: arrival } = await supabase
     .from("featured_arrival")
     .select("*")
@@ -29,11 +43,23 @@ export default async function ArrivalPage() {
     .maybeSingle();
 
   const wine = arrival ?? {
-    wine_name: "2023 J.O. Sullivan Founder's Reserve Cabernet Sauvignon",
-    vintage:   "2023",
-    youtube_id: "",
+    wine_name:  "2023 J.O. Sullivan Founder's Reserve Cabernet Sauvignon",
+    vintage:    "2023",
+    youtube_id: "vimeo:1216519315",
     description: "",
   };
+
+  // Detect vimeo: prefix — admin can store "vimeo:VIDEOID" in the youtube_id field
+  const rawId       = wine.youtube_id ?? "";
+  const isVimeo     = rawId.startsWith("vimeo:");
+  const isCab2023   = wine.vintage === "2023" && wine.wine_name.toLowerCase().includes("cabernet");
+
+  // For the 2023 Cab Sauv, always show the Vimeo intro video if no other video is set
+  const vimeoId     = isVimeo
+    ? rawId.replace("vimeo:", "")
+    : (!rawId && isCab2023 ? "1216519315" : null);
+  const youtubeId   = !isVimeo && rawId ? rawId : null;
+  const hasVideo    = !!(vimeoId || youtubeId);
 
   return (
     <div className="container mx-auto px-6 py-12 md:py-16 max-w-4xl">
@@ -47,7 +73,7 @@ export default async function ArrivalPage() {
         </p>
       </div>
 
-      {/* Notification opt-in — permanent card, handles all platforms */}
+      {/* Notification opt-in */}
       <NotificationOptIn />
 
       {/* Featured wine block */}
@@ -62,20 +88,31 @@ export default async function ArrivalPage() {
           </p>
         )}
 
-        {/* Video embed or placeholder */}
-        {wine.youtube_id ? (
+        {/* Video embed */}
+        {hasVideo ? (
           <div
             className="relative w-full overflow-hidden rounded-xl border border-border/50 shadow-sm"
             style={{ paddingBottom: "56.25%" }}
           >
-            <iframe
-              src={`https://www.youtube.com/embed/${wine.youtube_id}`}
-              title={wine.wine_name}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-              loading="lazy"
-            />
+            {vimeoId ? (
+              <iframe
+                src={`https://player.vimeo.com/video/${vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479`}
+                title={wine.wine_name}
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+                loading="lazy"
+              />
+            ) : (
+              <iframe
+                src={`https://www.youtube.com/embed/${youtubeId}`}
+                title={wine.wine_name}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+                loading="lazy"
+              />
+            )}
           </div>
         ) : (
           <div
@@ -85,8 +122,74 @@ export default async function ArrivalPage() {
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
               <span className="font-serif text-xl text-muted-foreground">Video coming soon</span>
               <span className="text-sm text-muted-foreground/60">
-                Add the YouTube ID via the admin panel to publish
+                Add the YouTube ID or vimeo:ID via the admin panel to publish
               </span>
+            </div>
+          </div>
+        )}
+
+        {/* 2023 Cab Sauv tasting notes */}
+        {isCab2023 && (
+          <div
+            className="rounded-2xl overflow-hidden mt-4"
+            style={{ background: BLUE, border: "1px solid rgba(196,154,53,0.25)" }}
+          >
+            {/* Header */}
+            <div className="px-8 pt-8 pb-6 space-y-4">
+              <div className="flex items-center gap-4">
+                <div className="flex-1 h-px" style={{ background: "rgba(196,154,53,0.3)" }} />
+                <p
+                  className="font-serif tracking-widest uppercase text-xs shrink-0"
+                  style={{ color: GOLD, letterSpacing: "0.22em" }}
+                >
+                  Tasting Notes
+                </p>
+                <div className="flex-1 h-px" style={{ background: "rgba(196,154,53,0.3)" }} />
+              </div>
+              <h3
+                className="font-serif text-center"
+                style={{ color: CREAM, fontSize: "1.35rem" }}
+              >
+                2023 J.O. Sullivan Founder's Reserve<br />
+                <span style={{ color: GOLD_DARK }}>Cabernet Sauvignon</span>
+              </h3>
+            </div>
+
+            {/* Notes body */}
+            <div className="px-8 pb-8 space-y-8">
+              <p
+                className="font-serif leading-relaxed"
+                style={{ color: CREAM, fontSize: "1.05rem", opacity: 0.9 }}
+              >
+                {CAB_2023_NOTES}
+              </p>
+
+              {/* Details grid */}
+              <div
+                className="grid grid-cols-2 gap-x-8 gap-y-4 pt-6"
+                style={{ borderTop: "1px solid rgba(196,154,53,0.2)" }}
+              >
+                {CAB_2023_DETAILS.map(({ label, value }) => (
+                  <div key={label} className="space-y-0.5">
+                    <p
+                      className="font-serif uppercase tracking-widest"
+                      style={{ color: GOLD, fontSize: "0.65rem", letterSpacing: "0.18em" }}
+                    >
+                      {label}
+                    </p>
+                    <p className="font-serif" style={{ color: CREAM, fontSize: "0.95rem" }}>
+                      {value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Bottom rule */}
+              <div className="flex items-center gap-4 pt-2">
+                <div className="flex-1 h-px" style={{ background: "rgba(196,154,53,0.25)" }} />
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: GOLD_DARK }} />
+                <div className="flex-1 h-px" style={{ background: "rgba(196,154,53,0.25)" }} />
+              </div>
             </div>
           </div>
         )}

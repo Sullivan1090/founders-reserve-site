@@ -82,7 +82,7 @@ export default async function AdminArrivalPage() {
           name="youtube_id"
           defaultValue={current.youtube_id}
           placeholder="dQw4w9WgXcQ"
-          hint="The part after ?v= in the YouTube URL. Leave blank to show a placeholder."
+          hint="YouTube: paste the ID after ?v=. Vimeo: type vimeo:VIDEOID (e.g. vimeo:1216519315). Leave blank to show a placeholder."
         />
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium" style={{ color: "#EDEAE2" }}>
